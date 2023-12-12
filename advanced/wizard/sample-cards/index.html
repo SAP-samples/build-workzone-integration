@@ -54,9 +54,11 @@
     <button class="button" data-card-target="wz-vaccination-confirm-card">Confirm</button>
   </div>
 
-  <ui-integration-card id="ui-card" reference-id="wz-favorite-card" manifest="./wz-favorite-card/bundle/manifest.json"
-    base-url="./wz-favorite-card/bundle">
-  </ui-integration-card>
+  <div>
+    <ui-integration-card id="ui-card" reference-id="wz-favorite-card" manifest="./wz-favorite-card/bundle/manifest.json"
+      base-url="./wz-favorite-card/bundle">
+    </ui-integration-card>
+  </div>
 
   <div class="buttons">
     <button id="submit" class="button submit-button">
@@ -76,13 +78,21 @@
 
   document.addEventListener('click', (e) => {
     const target = e.target.getAttribute('data-card-target');
+    let tag = document.getElementById('ui-card');
+    const referenceId = tag.getAttribute('reference-id');
 
-    if (target) {
-      const tag = document.getElementById('ui-card');
+    if (target && target !== referenceId) {
+      const parentNode = tag.parentElement;
 
+      tag.remove();
+
+      tag = document.createElement('ui-integration-card');
+      tag.id='ui-card';
       tag.setAttribute('manifest', `./${target}/bundle/manifest.json`);
       tag.setAttribute('base-url', `./${target}/bundle`);
       tag.setAttribute('reference-id', target);
+
+      parentNode.append(tag);
     }
   })
 
@@ -139,7 +149,7 @@
 
   document.getElementById('clear').addEventListener('click', e => {
     localStorage.removeItem(StorageKey);
-    useLatestCardParams();
+    location.reload();
   });
 
   document.getElementById('submit').addEventListener('click', e => {
@@ -156,7 +166,9 @@
 
     if (data.submitPromise) {
       data.submitPromise.then(() => {
-        console.log(new Date, 'card is done');
+        sap.ui.require(['sap/m/MessageBox'], (MessageBox) => {
+          MessageBox.success('Card is submitted successfully');
+        });
       }).catch((message) => {
         console.log("Error: " + message.title);
       });
