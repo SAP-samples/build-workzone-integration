@@ -1,41 +1,58 @@
-# SAP-samples/repository-template
-This default template for SAP Samples repositories includes files for README, LICENSE, and .reuse/dep5. All repositories on github.com/SAP-samples will be created based on this template.
+# SAP Workzone Integration Sample Repository
 
-# Containing Files
+This repository serves as a template for SAP Workzone integration samples, providing a structured starting point for developers.
 
-1. The LICENSE file:
-In most cases, the license for SAP sample projects is `Apache 2.0`.
+## Containing Files
 
-2. The .reuse/dep5 file: 
-The [Reuse Tool](https://reuse.software/) must be used for your samples project. You can find the .reuse/dep5 in the project initial. Please replace the parts inside the single angle quotation marks < > by the specific information for your repository.
+1. **LICENSE file:**
+   - The default license for SAP sample projects is `Apache 2.0`.
 
-3. The README.md file (this file):
-Please edit this file as it is the primary description file for your project. You can find some placeholder titles for sections below.
+2. **.reuse/dep5 file:**
+   - The [Reuse Tool](https://reuse.software/) must be used for your samples project. Replace the placeholders inside the `< >` brackets with specific information for your repository.
 
-# [Title]
-<!-- Please include descriptive title -->
-
-<!--- Register repository https://api.reuse.software/register, then add REUSE badge:
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/REPO-NAME)](https://api.reuse.software/info/github.com/SAP-samples/REPO-NAME)
--->
+3. **README.md file (this file):**
+   - Edit this file as it is the primary description file for your project. Placeholder titles for sections are provided below.
 
 ## Description
-<!-- Please include SEO-friendly description -->
+
+This repository contains sample codes to demonstrate how to integrate with SAP Build Workzone. Edition related samples can be found here:
+
+- **start edition**
+  Explorer [SAP Start](./start/README.md) code samples
+- **standard edition**
+  Explorer [SAP Build Workzone Standard](./standard/README.md) code samples
+- **advanced edition**
+  Explorer [SAP Build Workzone Advanced](./advanced/README.md) code samples
 
 ## Requirements
 
+All development can be done locally. To verify the integration functionality, it is highly recommended to apply a workzone instance for test purpose.
+
 ## Download and Installation
 
+The location to be cloned is
+
+```
+https://github.com/SAP-samples/sample-code-for-sap-build-workzone.git
+```
+
 ## Known Issues
-<!-- You may simply state "No known issues. -->
+
+You can find the known issues here: [Issues](https://github.com/SAP-samples/sample-code-for-sap-build-workzone/issues).
 
 ## How to obtain support
-[Create an issue](https://github.com/SAP-samples/<repository-name>/issues) in this repository if you find a bug or have questions about the content.
- 
-For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
+
+In case you have a question, find a bug, or otherwise need support to use SAP products, please use:
+
+- [SAP Community](https://community.sap.com/)
+- [SAP Work Zone](https://help.sap.com/viewer/fec5ca6e3229418f84a932c745cbe985/Cloud/en-US)
+- [SAP Work Zone Developer Guide](https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/development)
+- [SAP UI5](https://help.sap.com/viewer/product/SAPUI5/External/en-US)
+- [SAP UI Integration Card Explorer](https://ui5.sap.com/test-resources/sap/ui/integration/demokit/cardExplorer/webapp/index.html)
+- [SAP Business Technology Platform (SAP BTP) Workflow](https://help.sap.com/viewer/product/WORKFLOW_SERVICE/Cloud/en-US)
 
 ## Contributing
-If you wish to contribute code, offer fixes or improvements, please send a pull request. Due to legal reasons, contributors will be asked to accept a DCO when they create the first pull request to this project. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
+If you wish to contribute code, fixes, or improvements, please submit a pull request. Due to legal reasons, contributors will be asked to accept a DCO when creating the first pull request to this project. This is done in an automated fashion during the submission process. SAP follows [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
 
 ## License
-Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
+Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0, except as noted otherwise in the [LICENSE](LICENSE) file.
