@@ -10,6 +10,17 @@
     data-sap-ui-theme="sap_fiori_3"></script>
 
   <style>
+    .note {
+      padding: 0.5rem 0.625rem;
+      font-size: .875rem;
+      border: 1px solid #e2e2e2;
+      background-color: #ffffc0;
+      border-left: 5px solid #fff000;
+      color: #333;
+      overflow: hidden;
+      line-height: 1.6;
+    }
+
     .buttons {
       display: flex;
       align-items: center;
@@ -48,6 +59,13 @@
 
 <body class="sapUiBody sapUiSizeCompact" style="padding: 1rem 2rem; box-sizing: border-box;">
   <h2>Card preview</h2>
+
+  <div class="note">
+    Click below button to switch to preview different Card <br />
+    Click <b>Submit</b> button to simulate submit event of Workzone Wizard <br />
+    Click <b>Clear</b> button to remove the Wizard Context
+  </div>
+
   <div class="buttons">
     <button class="button" data-card-target="wz-favorite-card">Favorite</button>
     <button class="button" data-card-target="wz-vaccination-card">Vaccination</button>
@@ -87,7 +105,7 @@
       tag.remove();
 
       tag = document.createElement('ui-integration-card');
-      tag.id='ui-card';
+      tag.id = 'ui-card';
       tag.setAttribute('manifest', `./${target}/bundle/manifest.json`);
       tag.setAttribute('base-url', `./${target}/bundle`);
       tag.setAttribute('reference-id', target);
