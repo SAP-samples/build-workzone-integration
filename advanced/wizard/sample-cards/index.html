@@ -6,7 +6,8 @@
   <meta charset="utf-8">
   <title>Workzone Wizard Sample Cards</title>
   <!-- current master nightly-->
-  <script src="https://openui5nightly.hana.ondemand.com/resources/sap-ui-integration.js" id="sap-ui-bootstrap" data-sap-ui-theme="sap_fiori_3"></script>
+  <script src="https://openui5nightly.hana.ondemand.com/resources/sap-ui-integration.js" id="sap-ui-bootstrap"
+    data-sap-ui-theme="sap_fiori_3"></script>
 
   <style>
     .buttons {
@@ -15,12 +16,32 @@
       padding: 10px 0;
     }
 
-    .buttons button {
-      margin-right: 10px;
+    .button {
+      font-size: .875rem;
+      height: 2.25rem;
+      min-width: 2.25rem;
+      border: 0;
+      margin: 0 .625rem 0 0;
+      padding: 0;
+      text-align: center;
+      position: relative;
+      border-radius: 0.5rem;
+      background-image: none;
+      background-color: #0070f2;
+      border-color: #0070f2;
+      color: #fff;
+      padding-left: 0.5625rem;
+      padding-right: 0.5625rem;
     }
 
-    .button {
-      margin-top: 10px;
+    .button:hover {
+      cursor: pointer;
+      background-color: #0064d9;
+      border-color: #0064d9;
+    }
+
+    .submit-button {
+      margin-top: .625rem;
     }
   </style>
 </head>
@@ -28,39 +49,42 @@
 <body class="sapUiBody sapUiSizeCompact" style="padding: 1rem 2rem; box-sizing: border-box;">
   <h2>Card preview</h2>
   <div class="buttons">
-    <button id="favorite">favorite</button>
-    <button id="vaccination">vaccination</button>
-    <button id="confirm">confirm</button>
+    <button class="button" data-card-target="wz-favorite-card">Favorite</button>
+    <button class="button" data-card-target="wz-vaccination-card">Vaccination</button>
+    <button class="button" data-card-target="wz-vaccination-confirm-card">Confirm</button>
   </div>
 
-  <ui-integration-card id="ui-card" reference-id="vaccination" manifest="./bundle/vaccination/manifest.json"
-    base-url="./bundle/vaccination">
+  <ui-integration-card id="ui-card" reference-id="wz-favorite-card" manifest="./wz-favorite-card/bundle/manifest.json"
+    base-url="./wz-favorite-card/bundle">
   </ui-integration-card>
 
-  <button id="submit" class="button">
-    Submit
-  </button>
+  <div class="buttons">
+    <button id="submit" class="button submit-button">
+      Submit
+    </button>
+
+    <button id="clear" class="button submit-button">
+      Clear
+    </button>
+  </div>
 </body>
+
 </html>
 
 <script>
-  document.getElementById('vaccination').addEventListener('click', e => {
-    const tag = document.getElementById('ui-card');
+  const StorageKey = 'wz.flow.context';
 
-    tag.setAttribute('manifest', "./bundle/vaccination/manifest.json");
-    tag.setAttribute('base-url', "./bundle/vaccination");
-    tag.setAttribute('reference-id', 'vaccination');
-  });
+  document.addEventListener('click', (e) => {
+    const target = e.target.getAttribute('data-card-target');
 
-  document.getElementById('confirm').addEventListener('click', e => {
-    const tag = document.getElementById('ui-card');
+    if (target) {
+      const tag = document.getElementById('ui-card');
 
-    tag.setAttribute('manifest', "./bundle/vaccinationStatus/manifest.json");
-    tag.setAttribute('base-url', "./bundle/vaccinationStatus");
-    tag.setAttribute('reference-id', 'confirm');
-  });
-
-  const storageKey = 'wz.flow.context';
+      tag.setAttribute('manifest', `./${target}/bundle/manifest.json`);
+      tag.setAttribute('base-url', `./${target}/bundle`);
+      tag.setAttribute('reference-id', target);
+    }
+  })
 
   function updateCardParameters(value) {
     const tag = document.getElementById('ui-card');
@@ -80,7 +104,7 @@
   }
 
   function getContextValueFromStorage() {
-    const value = localStorage.getItem(storageKey);
+    const value = localStorage.getItem(StorageKey);
 
     if (value) {
       return JSON.parse(value);
@@ -106,15 +130,21 @@
 
     const valueStr = JSON.stringify(nextValue);
 
-    localStorage.setItem(storageKey, valueStr);
+    localStorage.setItem(StorageKey, valueStr);
   }
 
   document.addEventListener('DOMContentLoaded', e => {
     useLatestCardParams();
   });
 
+  document.getElementById('clear').addEventListener('click', e => {
+    localStorage.removeItem(StorageKey);
+    useLatestCardParams();
+  });
+
   document.getElementById('submit').addEventListener('click', e => {
     const oCard = document.getElementById('ui-card')._getControl();
+
     const data = {
       now: Date.now(),
       submitPromise: null
