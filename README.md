@@ -15,26 +15,23 @@ This repository serves as a template for SAP Workzone integration samples, provi
 
 ## Description
 
-This repository contains sample codes to demonstrate how to integrate with SAP Build Workzone. Edition related samples can be found here:
+This repository contains sample codes to demonstrate how to integrate with SAP Build Workzone. Explore the code samples for different editions:
 
-- **start edition**
-  Explorer [SAP Start](./start/README.md) code samples
-- **standard edition**
-  Explorer [SAP Build Workzone Standard](./standard/README.md) code samples
-- **advanced edition**
-  Explorer [SAP Build Workzone Advanced](./advanced/README.md) code samples
+- **start edition:**
+  [Explore SAP Start](./start/README.md) code samples
+- **standard edition:**
+  [Explore SAP Build Workzone Standard](./standard/README.md) code samples
+- **advanced edition:**
+  [Explore SAP Build Workzone Advanced](./advanced/README.md) code samples
 
 ## Requirements
 
-All development can be done locally. To verify the integration functionality, it is highly recommended to apply a workzone instance for test purpose.
+All development can be done locally. To verify the integration functionality, it is highly recommended to have a Workzone instance for test purposes.
 
 ## Download and Installation
 
-The location to be cloned is
+Clone this repository using the following URL: https://github.com/SAP-samples/sample-code-for-sap-build-workzone.git
 
-```
-https://github.com/SAP-samples/sample-code-for-sap-build-workzone.git
-```
 
 ## Known Issues
 
@@ -42,14 +39,14 @@ You can find the known issues here: [Issues](https://github.com/SAP-samples/samp
 
 ## How to obtain support
 
-In case you have a question, find a bug, or otherwise need support to use SAP products, please use:
+In case you have a question, find a bug, or otherwise need support to use SAP products, please:
 
-- [SAP Community](https://community.sap.com/)
-- [SAP Work Zone](https://help.sap.com/viewer/fec5ca6e3229418f84a932c745cbe985/Cloud/en-US)
-- [SAP Work Zone Developer Guide](https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/development)
-- [SAP UI5](https://help.sap.com/viewer/product/SAPUI5/External/en-US)
-- [SAP UI Integration Card Explorer](https://ui5.sap.com/test-resources/sap/ui/integration/demokit/cardExplorer/webapp/index.html)
-- [SAP Business Technology Platform (SAP BTP) Workflow](https://help.sap.com/viewer/product/WORKFLOW_SERVICE/Cloud/en-US)
+- [Ask a question on SAP Community](https://community.sap.com/)
+- [Visit SAP Work Zone](https://help.sap.com/viewer/fec5ca6e3229418f84a932c745cbe985/Cloud/en-US)
+- [Check SAP Work Zone Developer Guide](https://help.sap.com/docs/build-work-zone-advanced-edition/sap-build-work-zone-advanced-edition/development)
+- [Explore SAP UI5](https://help.sap.com/viewer/product/SAPUI5/External/en-US)
+- [Try SAP UI Integration Card Explorer](https://ui5.sap.com/test-resources/sap/ui/integration/demokit/cardExplorer/webapp/index.html)
+- [Consult SAP Business Technology Platform (SAP BTP) Workflow documentation](https://help.sap.com/viewer/product/WORKFLOW_SERVICE/Cloud/en-US)
 
 ## Contributing
 If you wish to contribute code, fixes, or improvements, please submit a pull request. Due to legal reasons, contributors will be asked to accept a DCO when creating the first pull request to this project. This is done in an automated fashion during the submission process. SAP follows [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
