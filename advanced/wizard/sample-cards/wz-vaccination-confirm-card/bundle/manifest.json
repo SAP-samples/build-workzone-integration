@@ -1,0 +1,54 @@
+{
+  "_version": "1.17.0",
+  "sap.app": {
+    "id": "sap.jam.component.vaccinationStatus",
+    "type": "card",
+    "title": "Confirm Vaccination Status",
+    "i18n": "i18n/i18n.properties",
+    "author": "Ricky Jiao",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "info": "{{DESCRIPTION}}",
+    "description": "{{DESCRIPTION}}"
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://technical-object"
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.67.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {}
+      }
+    },
+    "rootView": {
+      "viewName": "sap.jam.component.vaccinationStatus.view.Widget",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    }
+  },
+  "sap.card": {
+    "configuration": {
+      "parameters": {
+        "host.context": {
+          "value": {},
+          "type": "object",
+          "visible": false
+        }
+      }
+    },
+    "type": "component",
+    "header": {
+      "title": "Confirm Vaccination Status",
+      "icon": {
+        "src": "/img/app_icon.png"
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core" controllerName="sap.jam.component.vaccinationStatus.controller.Widget" displayBlock="true">
+	 <Panel>
+		<l:VerticalLayout>
+			<ObjectStatus
+				class="sapUiSmallMarginBottom"
+				text="This task is {= ${flow>/tasks/confirm/mandatory} ? 'mandatory' : 'optional'}"
+				state="{= ${flow>/tasks/confirm/mandatory} ? 'Error' : 'Information'}" />
+
+	 		<Title text="Flow Case Instance Id?"/>
+			<Label text="{flow>/caseInstanceId}"></Label>
+
+	 		<Title class="sapUiSmallMarginTop" text="Confirm Vaccination Status?"/>
+			<Label text="Have you been vaccinated once?"></Label>
+			<Label text="{context>/vaccinated}"></Label>
+
+			<Label class="sapUiSmallMarginTop" text="Have you been vaccination status?"></Label>
+			<Label text="{context>/vaccinatedStatus}"></Label>
+
+			<Label class="sapUiSmallMarginTop" text="First Does Date?"></Label>
+			<Label text="{context>/firstDoesDate}"></Label>
+
+			<Label class="sapUiSmallMarginTop" text="Second Does Date?"></Label>
+			<Label text="{context>/secondDoesDate}"></Label>
+
+			<Label class="sapUiSmallMarginTop" visible="{= ${context>/confirmed} === true }" text="You have confirmed the vaccination"></Label>
+			<Button visible="false" class="sapUiSmallMarginTop" enabled="{= ${context>/confirmed} !== true }" text="Confirm" press=".press"></Button>
+		</l:VerticalLayout>
+	</Panel>
+</mvc:View>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <title>Card explorer</title>
+  <!-- current master nightly-->
+  <script src="https://openui5nightly.hana.ondemand.com/resources/sap-ui-integration.js" id="sap-ui-bootstrap"
+    data-sap-ui-theme="sap_fiori_3"></script>
+
+  <style>
+    .buttons {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+    }
+
+    .buttons button {
+      margin-right: 10px;
+    }
+
+    .button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body class="sapUiBody sapUiSizeCompact" style="padding: 1rem 2rem; box-sizing: border-box;">
+  <h2>Card preview</h2>
+  <div class="buttons">
+    <button id="vaccination">vaccination</button>
+    <button id="confirm">confirm</button>
+  </div>
+
+  <ui-integration-card id="ui-card" reference-id="vaccination" manifest="./bundle/vaccination/manifest.json"
+    base-url="./bundle/vaccination" host="host1">
+  </ui-integration-card>
+
+  <button id="submit" class="button">
+    Submit
+  </button>
+</body>
+
+</html>
+
+<script>
+  customElements.whenDefined("ui-integration-card").then(() => {
+    var timeout = 100;
+    var mobileCards = [];
+
+    var host = new sap.ui.integration.Host('host1', {
+      resolveDestination: function (sDestinationName) {
+        return `https://swzdevintegration.lkg.workzone.cfapps.sap.hana.ondemand.com/dynamic_dest/${sDestinationName}`;
+      }
+    });
+  });
+
+  document.getElementById('vaccination').addEventListener('click', e => {
+    const tag = document.getElementById('ui-card');
+
+    tag.setAttribute('manifest', "./bundle/vaccination/manifest.json");
+    tag.setAttribute('base-url', "./bundle/vaccination");
+    tag.setAttribute('reference-id', 'vaccination');
+  });
+
+  document.getElementById('confirm').addEventListener('click', e => {
+    const tag = document.getElementById('ui-card');
+
+    tag.setAttribute('manifest', "./bundle/vaccinationStatus/manifest.json");
+    tag.setAttribute('base-url', "./bundle/vaccinationStatus");
+    tag.setAttribute('reference-id', 'confirm');
+  });
+
+  const storageKey = 'wz.flow.context';
+
+  function updateCardParameters(value) {
+    const tag = document.getElementById('ui-card');
+    const attrValue = JSON.stringify({
+      'host.context': value
+    })
+
+    tag.setAttribute('parameters', attrValue);
+  }
+
+  function useLatestCardParams() {
+    const value = getContextValueFromStorage();
+
+    if (value) {
+      updateCardParameters(value);
+    }
+  }
+
+  function getContextValueFromStorage() {
+    const value = localStorage.getItem(storageKey);
+
+    if (value) {
+      return JSON.parse(value);
+    }
+
+    return {
+      flow: {
+        caseInstanceId: 'INST-1',
+        tasks: {
+        }
+      },
+      context: {
+      }
+    };
+  }
+
+  function storeContextValueToStorage(value) {
+    const lastValue = getContextValueFromStorage();
+    const nextValue = {
+      ...lastValue,
+      ...value
+    };
+
+    const valueStr = JSON.stringify(nextValue);
+
+    localStorage.setItem(storageKey, valueStr);
+  }
+
+  document.addEventListener('DOMContentLoaded', e => {
+    useLatestCardParams();
+  });
+
+  document.getElementById('submit').addEventListener('click', e => {
+    const oCard = document.getElementById('ui-card')._getControl();
+    const data = {
+      now: Date.now(),
+      submitPromise: null
+    };
+
+    oCard.fireEvent('Page:SubmitWizard', data);
+
+    console.log(data);
+
+    if (data.submitPromise) {
+      data.submitPromise.then(() => {
+        console.log(new Date, 'card is done');
+      }).catch((message) => {
+        console.log("Error: " + message.title);
+      });
+    }
+  });
+
+  // event handler
+  document.addEventListener('action', e => {
+    let parameters = e.detail.getParameter('parameters');
+    const oCard = e.detail.getParameter('card');
+
+    if (!(parameters instanceof Array)) {
+      parameters = [parameters];
+    }
+
+    parameters.forEach(parameter => {
+      const { actionType: action, content: stepContext } = parameter;
+      const lastValue = getContextValueFromStorage();
+
+      if (action === 'UpdateHostContext') {
+        storeContextValueToStorage({
+          context: {
+            ...(lastValue.context || {}),
+            ...stepContext,
+          }
+        });
+        useLatestCardParams();
+      } else if (action === 'UpdateTaskData') {
+        const taskId = oCard.getReferenceId();
+        const lastTask = (lastValue.flow.tasks || {})[taskId] || {};
+
+        storeContextValueToStorage({
+          flow: {
+            ...(lastValue.flow || {}),
+            tasks: {
+              [taskId]: {
+                ...lastTask,
+                ...stepContext,
+              }
+            }
+          }
+        });
+
+        useLatestCardParams();
+      }
+    })
+  })
+</script>

@@ -1,0 +1,14 @@
+{
+  "name": "wz-flow-card",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "http-server . -p 8010",
+    "clean": "rm -f wz-vaccination-card.zip && rm -f wz-vaccination-status-card.zip",
+    "build": "npm run clean && zip -r wz-vaccination-card.zip bundle/vaccination && && zip -r wz-vaccination-status-card.zip bundle/vaccinationStatus"
+  },
+  "author": "Ricky Jiao",
+  "dependencies": {
+    "http-server": "0.11.1"
+  }
+}
