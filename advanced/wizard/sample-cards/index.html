@@ -4,10 +4,9 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta charset="utf-8">
-  <title>Card explorer</title>
+  <title>Workzone Wizard Sample Cards</title>
   <!-- current master nightly-->
-  <script src="https://openui5nightly.hana.ondemand.com/resources/sap-ui-integration.js" id="sap-ui-bootstrap"
-    data-sap-ui-theme="sap_fiori_3"></script>
+  <script src="https://openui5nightly.hana.ondemand.com/resources/sap-ui-integration.js" id="sap-ui-bootstrap" data-sap-ui-theme="sap_fiori_3"></script>
 
   <style>
     .buttons {
@@ -29,33 +28,22 @@
 <body class="sapUiBody sapUiSizeCompact" style="padding: 1rem 2rem; box-sizing: border-box;">
   <h2>Card preview</h2>
   <div class="buttons">
+    <button id="favorite">favorite</button>
     <button id="vaccination">vaccination</button>
     <button id="confirm">confirm</button>
   </div>
 
   <ui-integration-card id="ui-card" reference-id="vaccination" manifest="./bundle/vaccination/manifest.json"
-    base-url="./bundle/vaccination" host="host1">
+    base-url="./bundle/vaccination">
   </ui-integration-card>
 
   <button id="submit" class="button">
     Submit
   </button>
 </body>
-
 </html>
 
 <script>
-  customElements.whenDefined("ui-integration-card").then(() => {
-    var timeout = 100;
-    var mobileCards = [];
-
-    var host = new sap.ui.integration.Host('host1', {
-      resolveDestination: function (sDestinationName) {
-        return `https://swzdevintegration.lkg.workzone.cfapps.sap.hana.ondemand.com/dynamic_dest/${sDestinationName}`;
-      }
-    });
-  });
-
   document.getElementById('vaccination').addEventListener('click', e => {
     const tag = document.getElementById('ui-card');
 

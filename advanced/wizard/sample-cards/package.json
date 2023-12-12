@@ -1,11 +1,14 @@
 {
-  "name": "wz-flow-card",
+  "name": "wz-wizard-card",
   "version": "1.0.0",
   "description": "",
   "scripts": {
     "start": "http-server . -p 8010",
-    "clean": "rm -f wz-vaccination-card.zip && rm -f wz-vaccination-status-card.zip",
-    "build": "npm run clean && zip -r wz-vaccination-card.zip bundle/vaccination && && zip -r wz-vaccination-status-card.zip bundle/vaccinationStatus"
+    "clean": "rm -f dist",
+    "build:all": "npm run clean && npm run build:favorite && npm run build:vaccination && npm run build:confirm",
+    "build:favorite": "zip -r dist/wz-favorite-card.zip wz-favorite-card/bundle",
+    "build:vaccination": "zip -r dist/wz-vaccination-card.zip wz-vaccination-card/bundle",
+    "build:confirm": "zip -r dist/wz-vaccination-confirm-card.zip wz-vaccination-confirm-card/bundle"
   },
   "author": "Ricky Jiao",
   "dependencies": {

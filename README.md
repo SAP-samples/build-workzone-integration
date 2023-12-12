@@ -18,11 +18,11 @@ This repository serves as a template for SAP Workzone integration samples, provi
 This repository contains sample codes to demonstrate how to integrate with SAP Build Workzone. Explore the code samples for different editions:
 
 - **start edition:**
-  [Explore SAP Start](./start/README.md) code samples
+  Explore [SAP Start](./start/README.md) code samples
 - **standard edition:**
-  [Explore SAP Build Workzone Standard](./standard/README.md) code samples
+  Explore [SAP Build Workzone Standard](./standard/README.md) code samples
 - **advanced edition:**
-  [Explore SAP Build Workzone Advanced](./advanced/README.md) code samples
+  Explore [SAP Build Workzone Advanced](./advanced/README.md) code samples
 
 ## Requirements
 

@@ -19,7 +19,7 @@ Consider there are 3 cards:
 * Skillset Card: collects user skillset.
 * Submission Card: submit the collected user info from above 2 Cards to back end.
 
-As card developer, we only want to submit the user info to back end to persist in the last Card. But we still want to persist user input for Basic and Skillset Card, so when user resume the Wizard, the input is not lost.
+As card developer, we only want to update the user info to server in the last step. But we still want to persist user input for Basic and Skillset Card, so when user resumes the Wizard, the input is not lost.
 
 Workzone Wizard providers a layer to persist context from the Cards. The Card could emit event `UpdateHostContext` with context to leverage Workzone to persist temporary Card context:
 
@@ -54,8 +54,10 @@ Here are sample cards to demonstrate the Wizard interactive events:
   - Validate whether user favorites at least one item in Wizard Submission
 
 * [Workzone Vaccination Component Cards](./sample-cards/wz-favorite-card):
-  - Vaccination Status Card is to collect Vaccination Status.
-  - Vaccination Confirmation Card is to confirm the Vaccination info. Once it is confirmed, user is not able to update Vaccination status anymore.
+  - Vaccination Status Card is to collect Vaccination Status
+  - Leverage Workzone Wizard to persist Vaccination Status
+  - The card will check whether have confirmed the Vaccination in Vaccination Confirmation Card. This is an example to read context from other cards.
+  - Once it is confirmed, user is not able to update Vaccination status anymore.
 
 * [Workzone Vaccination Confirmation Component Cards](./sample-cards/wz-favorite-card):
   - Vaccination Status Card is to collect Vaccination Status.
