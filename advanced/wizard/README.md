@@ -1,3 +1,5 @@
+# SAP Workzone Guide Experience(Wizard) Integration Sample Repository
+
 The Workzone Wizard is a tool designed to empower users to create Wizards with customized Steps. Customers can seamlessly integrate DWS native widgets and UI Cards into each Step. The Step is marked as complete once all the widgets and UI Cards within this Step are finalized. Below is a snapshot of a basic Wizard featuring the [Workzone Favorite Card](./sample-cards/wz-favorite-card):
 
  ![Workzone Wizard](./images/wizard.png)
@@ -31,7 +33,7 @@ The Card can return `rejected` Promise to notice the Wizard this Card is not com
 
 ![Wizard error message](./images/error-message.png)
 
-## How to Persist Card context in to Workzone?
+## How to Persist Wizard context in to Workzone?
 
 Consider there are 3 cards:
 * Basic Card: collects user basic info such as username, gender and so.
@@ -44,7 +46,7 @@ Workzone Wizard providers a layer to persist context from the Cards. The Card co
 
 ![UpdateHostContext](./images/update-host-context.png)
 
-## How to retrieve persistent Card context?
+## How to retrieve persistent Wizard context?
 
 Card can retrieve the persistent Card context be explicitly declaring `host.context` Card parameter:
 
