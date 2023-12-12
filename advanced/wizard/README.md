@@ -2,6 +2,25 @@ The Workzone Wizard is a tool designed to empower users to create Wizards with c
 
  ![Workzone Wizard](./images/wizard.png)
 
+## Explorer Sample Codes
+
+Sample codes can be found in [sample-cards](./sample-cards/README.md), follow up the readme file to start the card locally:
+
+* [Workzone Favorite Declarative Card](./sample-cards/wz-favorite-card):
+  - Leverage Workzone Wizard to persist the Favorite Item
+  - Validate whether user favorites at least one item in Wizard Submission
+
+* [Workzone Vaccination Component Cards](./sample-cards/wz-favorite-card):
+  - The card is to collect Vaccination Status
+  - Leverage Workzone Wizard to persist Vaccination Status
+  - The card will check whether have confirmed the Vaccination in Vaccination Confirmation Card. This is an example to read context from other cards.
+  - Once it is confirmed, user is not able to update Vaccination status anymore.
+
+* [Workzone Vaccination Confirmation Component Cards](./sample-cards/wz-favorite-card):
+  - Read context from Vaccination Card, and show it in readonly model
+  - Ask user to confirm the Vaccination info. Once it is confirmed, user is not able to update Vaccination status anymore.
+
+
 ## How to subscribe Submission events?
 
 When user clicks the “Next Step” on the footer, `Page:SubmitWizard` event is emitted to the UI Cards. The card can attach this event to perform validation or submit content to server. Sample code as below:
@@ -46,19 +65,3 @@ To use above features in declarative Card, we must add an extension for the Card
 
 ![onReady event in extension](./images/onReady-extension.png)
 
-## Sample Cards in this repository:
-
-Here are sample cards to demonstrate the Wizard interactive events:
-* [Workzone Favorite Declarative Card](./sample-cards/wz-favorite-card):
-  - Leverage Workzone Wizard to persist the Favorite Item
-  - Validate whether user favorites at least one item in Wizard Submission
-
-* [Workzone Vaccination Component Cards](./sample-cards/wz-favorite-card):
-  - Vaccination Status Card is to collect Vaccination Status
-  - Leverage Workzone Wizard to persist Vaccination Status
-  - The card will check whether have confirmed the Vaccination in Vaccination Confirmation Card. This is an example to read context from other cards.
-  - Once it is confirmed, user is not able to update Vaccination status anymore.
-
-* [Workzone Vaccination Confirmation Component Cards](./sample-cards/wz-favorite-card):
-  - Vaccination Status Card is to collect Vaccination Status.
-  - Vaccination Confirmation Card is to confirm the Vaccination info. Once it is confirmed, user is not able to update Vaccination status anymore.

@@ -3,4 +3,4 @@
 
 `npm start` to start card preview
 
-`npm run build` to generated card bundles to upload to SAP Work Zone
+`npm run build:all` to generated card bundles to `dist` folder

@@ -1,6 +1,3 @@
-### How to start
-`npm install` to install package
-
-`npm start` to start card preview
-
-`npm run build` to generated card bundles to upload to SAP Work Zone
+## Workzone Vaccination Confirmation Component Cards
+  - Read context from Vaccination Card, and show it in readonly model
+  - Ask user to confirm the Vaccination info. Once it is confirmed, user is not able to update Vaccination status anymore.
