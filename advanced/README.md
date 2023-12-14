@@ -1,10 +1,10 @@
-# SAP Workzone Advanced Integration Sample Repository
+# SAP Build Workzone Advanced Integration Samples
 
-This repository serves as a template for SAP Workzone Advanced integration samples, providing a structured starting point for developers.
+This folder provides a structured starting point for developers of Workzone Advanced product. 
 
 ## Description
 
-This repository contains sample codes to demonstrate how to integrate with SAP Build Workzone Advanced. Explore the code samples for different integration features:
+The repository contains samples to demonstrate and document how to integrate and develop for SAP Build Workzone Advanced. Explore the code samples for different feature areas:
 
 - **Guide Experience(Wizard):**
   [Explore Guide Experience](./wizard/README.md) code samples
