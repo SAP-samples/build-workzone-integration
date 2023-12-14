@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (UIComponent) {
 	"use strict";
 
-	var Component = UIComponent.extend("sap.jam.component.vaccinationStatus", {
+	var Component = UIComponent.extend("sap.workzone.samples.component.vaccinationStatus", {
 		onCardReady: function (oCard) {
 			this.oCard = oCard;
 		}

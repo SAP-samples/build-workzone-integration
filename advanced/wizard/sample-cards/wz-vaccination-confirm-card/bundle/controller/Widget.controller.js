@@ -2,7 +2,7 @@ sap.ui.define([
   'sap/ui/core/mvc/Controller',
   'sap/ui/model/json/JSONModel'
 ], function (Controller, JSONModel) {
-  return Controller.extend('sap.jam.component.vaccinationStatus.controller.Widget', {
+  return Controller.extend('sap.workzone.samples.component.vaccinationStatus.controller.Widget', {
     onInit() {
       this.setupContextModel();
       this.setupSubmitEvent();

@@ -1,12 +1,12 @@
-# SAP Workzone Guide Experience(Wizard) Integration Sample Repository
+# SAP Build Workzone Guide Experience(Wizard) Integration Sample Repository
 
-The Workzone Wizard is a tool designed to empower users to create Wizards with customized Steps. Customers can seamlessly integrate DWS native widgets and UI Cards into each Step. The Step is marked as complete once all the widgets and UI Cards within this Step are finalized. Below is a snapshot of a basic Wizard featuring the [Workzone Favorite Card](./sample-cards/wz-favorite-card):
+The Workzone Wizard is a tool designed to empower users to create Wizards with customized Steps. Customers can seamlessly integrate DWS native widgets and UI Integration Cards into each Step. A Step is marked as complete once all the widgets and UI Cards within this Step are finalized. Belows screenshot shows a basic Wizard featuring the [Workzone Favorite Card](./sample-cards/wz-favorite-card):
 
  ![Workzone Wizard](./images/wizard.png)
 
 ## Explorer Sample Codes
 
-Sample codes can be found in [sample-cards](./sample-cards/README.md), follow up the readme file to start the card locally:
+Sample code for various Cards can be found in [sample-cards](./sample-cards/README.md). Follow up the readme file to start the card in a local environment:
 
 * [Workzone Favorite Declarative Card](./sample-cards/wz-favorite-card):
   - Leverage Workzone Wizard to persist the Favorite Item
@@ -48,18 +48,18 @@ Workzone Wizard providers a layer to persist context from the Cards. The Card co
 
 ## How to retrieve persistent Wizard context?
 
-Card can retrieve the persistent Card context be explicitly declaring `host.context` Card parameter:
+The Card can retrieve the persistent the Card context be explicitly declaring `host.context` Card parameter:
 
 ![Card Parameter](./images/retrieve-wizard-context.png)
 
-Setup the context model in Card Controller/Extension:
+Setup the context model in the Card Controller/Extension:
 
 ![Retrieve wizard context-in-controller](./images/retrieve-wizard-context-in-controller.png)
 
 
 ## How to support in Declarative Card?
 
-To use above features in declarative Card, we must add an extension for the Card:
+To use above features in Declarative Card, use a Extension for the Card:
 
 ![Card extension](./images/card-extension.png)
 

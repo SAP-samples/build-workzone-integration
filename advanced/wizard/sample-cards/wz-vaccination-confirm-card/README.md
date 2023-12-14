@@ -1,3 +1,3 @@
-## Workzone Vaccination Confirmation Component Cards
-  - Read context from Vaccination Card, and show it in readonly model
-  - Ask user to confirm the Vaccination info. Once it is confirmed, user is not able to update Vaccination status anymore.
+## Workzone Vaccination Confirmation Component Card
+  - Reads the context from the Vaccination Card, and shows it in readonly model.
+  - Ask user to confirm the Vaccination Information. Once it is confirmed, the user is not able to update Vaccination Status anymore.
