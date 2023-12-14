@@ -28,12 +28,12 @@ All development can be done locally. To verify the integration functionality, it
 
 ## Download and Installation
 
-Clone this repository using the following URL: https://github.com/SAP-samples/sample-code-for-sap-build-workzone.git
+Clone this repository using the following URL: https://github.com/SAP-samples/build-workzone-samples.git
 
 
 ## Known Issues
 
-You can find the known issues here: [Issues](https://github.com/SAP-samples/sample-code-for-sap-build-workzone/issues).
+You can find the known issues here: [Issues](https://github.com/SAP-samples/build-workzone-samples/issues).
 
 ## How to obtain support
 
