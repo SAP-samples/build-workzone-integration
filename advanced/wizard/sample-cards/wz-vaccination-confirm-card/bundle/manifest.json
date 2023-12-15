@@ -1,7 +1,7 @@
 {
   "_version": "1.17.0",
   "sap.app": {
-    "id": "sap.jam.component.vaccinationStatus",
+    "id": "sap.workzone.samples.component.vaccinationStatus",
     "type": "card",
     "title": "Confirm Vaccination Status",
     "i18n": "i18n/i18n.properties",
@@ -15,7 +15,7 @@
   "sap.ui": {
     "technology": "UI5",
     "icons": {
-      "icon": "sap-icon://technical-object"
+      "icon": "sap-icon://survey"
     }
   },
   "sap.ui5": {
@@ -27,7 +27,7 @@
       }
     },
     "rootView": {
-      "viewName": "sap.jam.component.vaccinationStatus.view.Widget",
+      "viewName": "sap.workzone.samples.component.vaccinationStatus.view.Widget",
       "type": "XML",
       "async": true,
       "id": "app"
@@ -47,7 +47,7 @@
     "header": {
       "title": "Confirm Vaccination Status",
       "icon": {
-        "src": "/img/app_icon.png"
+        "src": "sap-icon://survey"
       }
     }
   }

@@ -1,7 +1,7 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.m"
 	xmlns:l="sap.ui.layout"
-	xmlns:core="sap.ui.core" controllerName="sap.jam.component.vaccinationStatus.controller.Widget" displayBlock="true">
+	xmlns:core="sap.ui.core" controllerName="sap.workzone.samples.component.vaccinationStatus.controller.Widget" displayBlock="true">
 	 <Panel>
 		<l:VerticalLayout>
 			<ObjectStatus
