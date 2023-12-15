@@ -2,17 +2,6 @@
 
 This repository serves as a template for SAP Build Workzone integration samples, providing a structured starting point for developers.
 
-## Containing Files
-
-1. **LICENSE file:**
-   - The default license for SAP sample projects is `Apache 2.0`.
-
-2. **.reuse/dep5 file:**
-   - The [Reuse Tool](https://reuse.software/) must be used for your samples project. Replace the placeholders inside the `< >` brackets with specific information for your repository.
-
-3. **README.md file (this file):**
-   - Edit this file as it is the primary description file for your project. Placeholder titles for sections are provided below.
-
 ## Description
 
 This repository contains sample codes to demonstrate and document how to integrate and develop for SAP Build Workzone. Explore the code samples for different editions:
