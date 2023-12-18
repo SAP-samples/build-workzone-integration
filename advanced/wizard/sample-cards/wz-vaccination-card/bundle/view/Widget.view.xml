@@ -1,0 +1,61 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core" controllerName="sap.workzone.samples.vaccination.controller.Widget" displayBlock="true">
+	 <Panel>
+		<l:VerticalLayout>
+			<ObjectStatus
+				class="sapUiSmallMarginBottom"
+				text="This task is {= ${flow>/tasks/vaccination/mandatory} ? 'mandatory' : 'optional'}"
+				state="{= ${flow>/tasks/vaccination/mandatory} ? 'Error' : 'Information'}" />
+
+			<ObjectStatus
+				class="sapUiSmallMarginBottom"
+				text="This task is completed"
+				visible="{= ${flow>/tasks/vaccination/state} === 'Completed' }"
+				state="Error" />
+
+	 		<Title text="Flow Case Instance Id?"/>
+			<Label text="{flow>/caseInstanceId}"></Label>
+
+	 		<Title class="sapUiSmallMarginTop" text="Submit Vaccination Status"/>
+			<Label text="Have you been vaccinated once?" labelFor="vaccinated"></Label>
+			<ComboBox editable="{= ${context>/confirmed} !== true }" class="sapUiSmallMarginBottom"
+				id="vaccinated"
+				value="{context>/vaccinated}"
+			>
+				<core:ListItem key="yes" text="Yes"/>
+				<core:ListItem key="no" text="No"/>
+			</ComboBox>
+
+			<Label text="Have you been vaccination status?" labelFor="vaccinatedStatus"></Label>
+			<ComboBox editable="{= ${context>/confirmed} !== true }" class="sapUiSmallMarginBottom"
+				id="vaccinatedStatus"
+				value="{context>/vaccinatedStatus}"
+			>
+				<core:ListItem key="once" text="Vaccinated (Only First Dose)"/>
+				<core:ListItem key="fully" text="Fully Vaccinated"/>
+			</ComboBox>
+
+			<Label text="First Does Date?" labelFor="firstDoesDate"></Label>
+			<DatePicker
+				id="firstDoesDate"
+				placeholder="Enter Date"
+				editable="{= ${context>/confirmed} !== true }"
+				class="sapUiSmallMarginBottom"
+				value="{context>/firstDoesDate}"
+			/>
+
+			<Label text="Second Does Date?" labelFor="secondDoesDate"></Label>
+			<DatePicker
+				id="secondDoesDate"
+				placeholder="Enter Date"
+				editable="{= ${context>/confirmed} !== true }"
+				class="sapUiSmallMarginBottom"
+				value="{context>/secondDoesDate}"
+			/>
+
+			<Button visible="false" enabled="{= ${context>/confirmed} !== true }" text="Submit" press=".press"></Button>
+		</l:VerticalLayout>
+	</Panel>
+</mvc:View>
