@@ -1,4 +1,4 @@
-# SAP Build Workzone Guide Experience(Wizard) Integration Sample Repository
+# SAP Build Work Zone Guide Experience(Wizard) Integration Sample Repository
 
 The Workzone Wizard is a tool designed to empower users to create Wizards with customized Steps. Customers can seamlessly integrate DWS native widgets and UI Integration Cards into each Step. A Step is marked as complete once all the widgets and UI Cards within this Step are finalized. Belows screenshot shows a basic Wizard featuring the [Workzone Favorite Card](./sample-cards/wz-favorite-card):
 
