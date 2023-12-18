@@ -1,24 +1,24 @@
 # SAP Build Work Zone Guide Experience(Wizard) Integration Sample Repository
 
-The Workzone Wizard is a tool designed to empower users to create Wizards with customized Steps. Customers can seamlessly integrate DWS native widgets and UI Integration Cards into each Step. A Step is marked as complete once all the widgets and UI Cards within this Step are finalized. Belows screenshot shows a basic Wizard featuring the [Workzone Favorite Card](./sample-cards/wz-favorite-card):
+The Work Zone Wizard is a tool designed to empower users to create Wizards with customized Steps. Customers can seamlessly integrate DWS native widgets and UI Integration Cards into each Step. A Step is marked as complete once all the widgets and UI Cards within this Step are finalized. Belows screenshot shows a basic Wizard featuring the [Work Zone Favorite Card](./sample-cards/wz-favorite-card):
 
- ![Workzone Wizard](./images/wizard.png)
+ ![Work Zone Wizard](./images/wizard.png)
 
 ## Explorer Sample Codes
 
 Sample code for various Cards can be found in [sample-cards](./sample-cards/README.md). Follow up the readme file to start the card in a local environment:
 
-* [Workzone Favorite Declarative Card](./sample-cards/wz-favorite-card):
-  - Leverage Workzone Wizard to persist the Favorite Item
+* [Work Zone Favorite Declarative Card](./sample-cards/wz-favorite-card):
+  - Leverage Work Zone Wizard to persist the Favorite Item
   - Validate whether user favorites at least one item in Wizard Submission
 
-* [Workzone Vaccination Component Cards](./sample-cards/wz-favorite-card):
+* [Work Zone Vaccination Component Cards](./sample-cards/wz-favorite-card):
   - The card is to collect Vaccination Status
-  - Leverage Workzone Wizard to persist Vaccination Status
+  - Leverage Work Zone Wizard to persist Vaccination Status
   - The card will check whether have confirmed the Vaccination in Vaccination Confirmation Card. This is an example to read context from other cards.
   - Once it is confirmed, user is not able to update Vaccination status anymore.
 
-* [Workzone Vaccination Confirmation Component Cards](./sample-cards/wz-favorite-card):
+* [Work Zone Vaccination Confirmation Component Cards](./sample-cards/wz-favorite-card):
   - Read context from Vaccination Card, and show it in readonly model
   - Ask user to confirm the Vaccination info. Once it is confirmed, user is not able to update Vaccination status anymore.
 
@@ -42,7 +42,7 @@ Consider there are 3 cards:
 
 As card developer, we only want to update the user info to server in the last step. But we still want to persist user input for Basic and Skillset Card, so when user resumes the Wizard, the input is not lost.
 
-Workzone Wizard providers a layer to persist context from the Cards. The Card could emit event `UpdateHostContext` with context to leverage Workzone to persist temporary Card context:
+Work Zone Wizard providers a layer to persist context from the Cards. The Card could emit event `UpdateHostContext` with context to leverage Work Zone to persist temporary Card context:
 
 ![UpdateHostContext](./images/update-host-context.png)
 
