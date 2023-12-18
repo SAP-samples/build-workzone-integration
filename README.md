@@ -1,15 +1,15 @@
-# SAP Build Workzone Integration Samples
+# SAP Build Work Zone Integration Samples
 
-This repository serves as a template for SAP Build Workzone integration samples, providing a structured starting point for developers.
+This repository serves as a template for SAP Build Work Zone integration samples, providing a structured starting point for developers.
 
 ## Description
 
-This repository contains sample codes to demonstrate and document how to integrate and develop for SAP Build Workzone. Explore the code samples for different editions:
+This repository contains sample codes to demonstrate and document how to integrate and develop for SAP Build Work Zone. Explore the code samples for different editions:
 
 - **standard edition:**
-  Explore [SAP Build Workzone Standard](./standard/README.md) code samples
+  Explore [SAP Build Work Zone Standard](./standard/README.md) code samples
 - **advanced edition:**
-  Explore [SAP Build Workzone Advanced](./advanced/README.md) code samples
+  Explore [SAP Build Work Zone Advanced](./advanced/README.md) code samples
 
 ## Requirements
 
