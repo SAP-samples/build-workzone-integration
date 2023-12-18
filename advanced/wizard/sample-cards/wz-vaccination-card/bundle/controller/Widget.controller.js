@@ -71,14 +71,14 @@ sap.ui.define([
 
       if (!context.vaccinated) {
         return {
-          title: 'Please chose vaccination',
+          title: 'Have you been vaccinated once?',
           level: 'Error'
         };
       }
 
       if (!context.vaccinatedStatus) {
         return {
-          title: 'Please chose vaccinated status',
+          title: 'Please chose your vaccinated status',
           level: 'Error'
         };
       }

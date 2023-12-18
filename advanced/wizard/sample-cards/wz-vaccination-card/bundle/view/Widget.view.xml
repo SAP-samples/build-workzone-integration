@@ -28,7 +28,7 @@
 				<core:ListItem key="no" text="No"/>
 			</ComboBox>
 
-			<Label text="Have you been vaccination status?" labelFor="vaccinatedStatus"></Label>
+			<Label text="What's your vaccination status?" labelFor="vaccinatedStatus"></Label>
 			<ComboBox editable="{= ${context>/confirmed} !== true }" class="sapUiSmallMarginBottom"
 				id="vaccinatedStatus"
 				value="{context>/vaccinatedStatus}"

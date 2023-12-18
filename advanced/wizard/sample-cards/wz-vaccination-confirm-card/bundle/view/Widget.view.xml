@@ -16,7 +16,7 @@
 			<Label text="Have you been vaccinated once?"></Label>
 			<Label text="{context>/vaccinated}"></Label>
 
-			<Label class="sapUiSmallMarginTop" text="Have you been vaccination status?"></Label>
+			<Label class="sapUiSmallMarginTop" text="What's your vaccination status?"></Label>
 			<Label text="{context>/vaccinatedStatus}"></Label>
 
 			<Label class="sapUiSmallMarginTop" text="First Does Date?"></Label>
