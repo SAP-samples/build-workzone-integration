@@ -13,7 +13,7 @@ This repository contains sample codes to demonstrate and document how to integra
 
 ## Requirements
 
-All development can be done locally. To verify the integration functionality, it is highly recommended to have a Workzone instance for test purposes.
+All development can be done locally. To verify the integration functionality, it is highly recommended to have a Work Zone instance for test purposes.
 
 ## Download and Installation
 

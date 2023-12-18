@@ -1,6 +1,6 @@
 # SAP Build Work Zone Advanced Integration Samples
 
-This folder provides a structured starting point for developers of Workzone Advanced product. 
+This folder provides a structured starting point for developers of Work Zone Advanced product. 
 
 ## Description
 
