@@ -31,7 +31,7 @@ sap.ui.define([
 
           setTimeout(() => {
             resolve('vaccinationStatus is done');
-          }, 1000);
+          }, 500);
         });
 
         oEvent.mParameters.submitPromise = promise;
@@ -56,23 +56,6 @@ sap.ui.define([
       const oCard = this.getCard();
 
       return oCard.getCombinedParameters();
-    },
-
-    getConfiguration() {
-      let oParentManifest = this.getOwnerComponent().getManifestEntry('sap.card');
-
-      if (!oParentManifest) {
-        oParentManifest = this.getOwnerComponent().getManifestEntry('sap.widget');
-      }
-
-      return oParentManifest.configuration;
-    },
-
-    getDestinationUrl(name, endpoint) {
-      const hostId = this.getOwnerComponent().oContainer.getParent().getParent().getHost();
-      const oHost = sap.ui.getCore().byId(hostId);
-
-      return oHost.getDestination(name).then((destinationUrl) => `${destinationUrl}/${endpoint}`);
     },
 
     doSubmit() {

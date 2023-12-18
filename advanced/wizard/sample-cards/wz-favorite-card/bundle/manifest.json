@@ -1,0 +1,77 @@
+{
+  "sap.app": {
+    "type": "card",
+    "id": "sap.workzone.samples.favoriteCard",
+    "title": "Favorite sample cards",
+    "info": "Favorite card to demonstrate WZ Wizard interactive interface",
+    "description": "Favorite card to demonstrate WZ Wizard interactive interface",
+    "author": "Ricky Jiao",
+    "applicationVersion": {
+      "version": "1.0.0"
+    }
+  },
+  "sap.card": {
+    "extension": "./QuickActionsExtension",
+    "type": "List",
+    "configuration": {
+      "parameters": {
+        "host.context": {
+          "value": {},
+          "type": "object",
+          "visible": false
+        }
+      }
+    },
+    "data": {
+      "extension": {
+        "method": "getData"
+      },
+      "applicationVersion": {
+        "version": "1.1.1"
+      }
+    },
+    "header": {
+      "title": "List Card with Products",
+      "subTitle": "The Top Sellers This Month",
+      "status": {
+        "text": {
+          "format": {
+            "translationKey": "i18n>CARD.COUNT_X_OF_Y",
+            "parts": ["parameters>/visibleItems", "/count"]
+          }
+        }
+      },
+      "icon": {
+        "src": "sap-icon://desktop-mobile"
+      }
+    },
+    "content": {
+      "data": {
+        "path": "/products"
+      },
+      "item": {
+        "title": "{Name}",
+        "description": "{Description}",
+        "info": {
+          "value": "{= ${isFavorite} ? 'Favorite' : ''}",
+          "state": "Warning"
+        },
+        "actionsStrip": [
+          {
+            "text": "Add to Favorites",
+            "actions": [
+              {
+                "type": "Custom",
+                "parameters": {
+                  "method": "addToFavorites",
+                  "id": "{Id}"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "maxItems": 3
+    }
+  }
+}
