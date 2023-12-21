@@ -70,7 +70,7 @@ To use the above features in a declarative card, add an extension to the card:
 
 ![Card extension](./images/card-extension.png)
 
-## All above event/parameter/model setup must be done on the onCardReady event instead of on the onInit event.:
+## All above event/parameter/model setup must be done on the [onCardReady](https://sapui5.hana.ondemand.com/sdk/#/api/sap.ui.integration.Extension%23methods/onCardReady) event instead of on the [onInit](https://sapui5.hana.ondemand.com/sdk/#/api/sap.ui.core.mvc.Controller%23methods/onInit) event.:
 
 ![onReady event in extension](./images/onReady-extension.png)
 
