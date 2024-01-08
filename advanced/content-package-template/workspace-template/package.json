@@ -7,11 +7,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com:SAP-samples/workzone-content-package-templates.git",
+    "url": "https://github.com:SAP-samples/build-workzone-integration.git",
     "directory": "workspace-template"
   },
   "devDependencies": {
-    "sap-workzone-cpkg-tools": "git+https://git@github.com/SAP-samples/workzone-content-package-templates.git"
+    "sap-workzone-cpkg-tools": "git+https://git@github.com/SAP-samples/build-workzone-integration.git"
   },
   "author": "SAP SE",
   "license": "ISC"

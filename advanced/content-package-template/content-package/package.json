@@ -11,12 +11,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com:SAP-samples/workzone-content-package-templates.git",
+    "url": "https://github.com:SAP-samples/build-workzone-integration.git",
     "directory": "content-package"
   },
   "author": "SAP SE",
   "license": "ISC",
   "devDependencies": {
-    "sap-workzone-cpkg-tools": "git+https://git@github.com/SAP-samples/workzone-content-package-templates.git"
+    "sap-workzone-cpkg-tools": "git+https://git@github.com/SAP-samples/build-workzone-integration.git"
   }
 }
