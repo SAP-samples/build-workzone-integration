@@ -1,0 +1,21 @@
+{
+  "name": "sap-workzone-cpkg-journey-card-sample",
+  "version": "1.0.0",
+  "description": "Sample project structure for a card artifact that will be included into a content package",
+  "scripts": {
+    "start": "ui5 serve -o test/manual/index.html",
+    "eslint": "eslint src",
+    "build": "node scripts/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com:SAP-samples/build-workzone-integration.git",
+    "directory": "card"
+  },
+  "devDependencies": {
+    "sap-workzone-cpkg-tools": "git+https://git@github.com/SAP-samples/build-workzone-integration.git",
+    "express": "4.18.2"
+  },
+  "author": "SAP SE",
+  "license": "ISC"
+}

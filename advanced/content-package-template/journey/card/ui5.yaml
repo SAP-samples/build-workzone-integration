@@ -1,0 +1,16 @@
+specVersion: "2.0"
+metadata:
+  name: sap-workzone-cpkg-card-sample
+  copyright: |-
+   SAP Work Zone
+    * (c) Copyright 2009-${currentYear} SAP SE or an SAP affiliate company.
+type: application
+resources:
+  configuration:
+    paths:
+      webapp: src
+builder:
+  resources:
+    excludes:
+     - "test/**"
+     - ".card/**"

@@ -1,0 +1,889 @@
+{
+	"sap.package": {
+		"id": "my.comp.ns.cpkg",
+		"__id": "my.company.ns.contentpackage.sample",
+		"packageVersion": {
+			"version": "1.0.0",
+			"upgradeNotification": "all"
+		},
+		"i18n": "i18n/i18n.properties",
+		"icon": "sap-icon://accept",
+		"title": "{{PACKAGE_TITLE}}",
+		"subTitle": "{{PACKAGE_SUBTITLE}}",
+		"shortTitle": "{{PACKAGE_SHORTTITLE}}",
+		"info": "{{PACKAGE_INFO}}",
+		"description": "{{PACKAGE_DESCRIPTION}}",
+		"tags": {
+			"keywords": [
+				"{{PACKAGE_KEYWORD1}}",
+				"{{PACKAGE_KEYWORD2}}"
+			]
+		},
+		"products": "",
+		"vendor": {
+			"id": "",
+			"name": "YourCompany",
+			"url": "www.yourcompany.com"
+		},
+		"categories": "",
+		"scope": "external",
+		"license": {
+			"text": "",
+			"url": ""
+		},
+		"homepage": {
+			"text": "",
+			"url": "https://sap.com"
+		},
+		"support": {
+			"url": "https://support.sap.com"
+		},
+		"contents": [
+			{
+				"manifest": {
+					"_version": "1.27.0",
+					"_generator": "cpkg-project-template",
+					"sap.artifact": {
+						"id": "my.company.ns.bubble.chart.card",
+						"type": "card",
+						"i18n": "i18n/i18n.properties",
+						"title": "{{BUBBLE_CHART_TITLE}}",
+						"subTitle": "{{BUBBLE_CHART_SUBTITLE}}",
+						"shortTitle": "{{BUBBLE_CHART_SHORTTITLE}}",
+						"info": "{{BUBBLE_CHART_INFO}}",
+						"description": "{{BUBBLE_CHART_DESCRIPTION}}",
+						"tags": {
+							"keywords": [
+								"{{BUBBLE_CHART_KEYWORD1}}",
+								"{{BUBBLE_CHART_KEYWORD2}}",
+								"{{BUBBLE_CHART_KEYWORD4}}",
+								"{{BUBBLE_CHART_KEYWORD4}}"
+							]
+						},
+						"artifactVersion": {
+							"version": "1.0.0"
+						}
+					}
+				},
+				"baseURL": "artifacts/bubble-chart-card-sample"
+			},
+			{
+				"manifest": {
+					"_version": "1.27.0",
+					"_generator": "cpkg-project-template",
+					"sap.artifact": {
+						"id": "my.company.ns.data.object.card",
+						"type": "card",
+						"i18n": "i18n/i18n.properties",
+						"title": "{{DYNAMIC_OBJECT_TITLE}}",
+						"subTitle": "{{DYNAMIC_OBJECT_SUBTITLE}}",
+						"shortTitle": "{{DYNAMIC_OBJECT_SHORTTITLE}}",
+						"info": "{{DYNAMIC_OBJECT_INFO}}",
+						"description": "{{DYNAMIC_OBJECT_DESCRIPTION}}",
+						"tags": {
+							"keywords": [
+								"{{DYNAMIC_OBJECT_KEYWORD1}}",
+								"{{DYNAMIC_OBJECT_KEYWORD2}}",
+								"{{DYNAMIC_OBJECT_KEYWORD4}}",
+								"{{DYNAMIC_OBJECT_KEYWORD4}}"
+							]
+						},
+						"artifactVersion": {
+							"version": "1.0.0"
+						}
+					}
+				},
+				"baseURL": "artifacts/data-object-card-sample"
+			},
+			{
+				"manifest": {
+					"_version": "1.27.0",
+					"_generator": "cpkg-project-template",
+					"sap.artifact": {
+						"id": "my.company.ns.static.list.card",
+						"type": "card",
+						"i18n": "i18n/i18n.properties",
+						"title": "{{STATIC_LIST_TITLE}}",
+						"subTitle": "{{STATIC_LIST_SUBTITLE}}",
+						"shortTitle": "{{STATIC_LIST_SHORTTITLE}}",
+						"info": "{{STATIC_LIST_INFO}}",
+						"description": "{{STATIC_LIST_DESCRIPTION}}",
+						"tags": {
+							"keywords": [
+								"{{STATIC_LIST_KEYWORD1}}",
+								"{{STATIC_LIST_KEYWORD2}}",
+								"{{STATIC_LIST_KEYWORD4}}",
+								"{{STATIC_LIST_KEYWORD4}}"
+							]
+						},
+						"artifactVersion": {
+							"version": "1.0.0"
+						}
+					}
+				},
+				"baseURL": "artifacts/static-list-card-sample"
+			}
+		],
+		"documentation": {
+			"url": ""
+		},
+		"consumption": [],
+		"dependencies": {
+			"products": [],
+			"services": []
+		},
+		"destinations": [],
+		"cdmEntities": [
+			{
+				"_version": "3.2.0",
+				"identification": {
+					"id": "my.company.ns.contentpackage.role1",
+					"title": "{{ROLE_TITLE1}}",
+					"entityType": "role"
+				},
+				"payload": {
+					"spaces": [
+						{
+							"id": "my.company.ns.contentpackage.space1"
+						}
+					],
+					"apps": [
+						{
+							"id": "my.company.ns.bubble.chart.card.app"
+						},
+						{
+							"id": "my.company.ns.data.object.card.app"
+						},
+						{
+							"id": "my.company.ns.static.list.card.app"
+						}
+					]
+				},
+				"texts": [
+					{
+						"locale": "",
+						"textDictionary": {
+							"ROLE_TITLE1": "Content Package Role 1"
+						}
+					},
+					{
+						"locale": "de",
+						"textDictionary": {
+							"ROLE_TITLE1": "Content Package Role 1"
+						}
+					},
+					{
+						"locale": "en",
+						"textDictionary": {
+							"ROLE_TITLE1": "Content Package Role 1"
+						}
+					}
+				]
+			},
+			{
+				"_version": "3.1.0",
+				"identification": {
+					"id": "my.company.ns.contentpackage.space1",
+					"title": "{{SPACE_TITLE1}}",
+					"entityType": "space"
+				},
+				"payload": {
+					"contentNodes": [
+						{
+							"type": "workpage",
+							"id": "my.company.ns.contentpackage.workpage1"
+						}
+					]
+				},
+				"texts": [
+					{
+						"locale": "",
+						"textDictionary": {
+							"SPACE_TITLE1": "Content Package Space 1"
+						}
+					},
+					{
+						"locale": "de",
+						"textDictionary": {
+							"SPACE_TITLE1": "Content Package Space 1"
+						}
+					},
+					{
+						"locale": "en",
+						"textDictionary": {
+							"SPACE_TITLE1": "Content Package Space 1"
+						}
+					}
+				]
+			},
+			{
+				"_version": "3.2.0",
+				"identification": {
+					"id": "my.company.ns.contentpackage.workpage1",
+					"entityType": "workpage"
+				},
+				"payload": {
+					"workpageConfig": {
+						"title": "{{PAGE_TITLE1}}"
+					},
+					"rows": [
+						{
+							"id": "row-1",
+							"rowConfig": {},
+							"columns": [
+								{
+									"id": "col-11",
+									"columnConfig": {},
+									"cells": [
+										{
+											"id": "cell-111",
+											"cellConfig": {},
+											"widgets": [
+												{
+													"id": "widg-1111",
+													"viz": {
+														"appId": "my.company.ns.bubble.chart.card.app",
+														"vizId": "my.company.ns.bubble.chart.card.viz"
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"id": "col-12",
+									"columnConfig": {},
+									"cells": [
+										{
+											"id": "cell-121",
+											"cellConfig": {},
+											"widgets": [
+												{
+													"id": "widg-1211",
+													"viz": {
+														"appId": "my.company.ns.data.object.card.app",
+														"vizId": "my.company.ns.data.object.card.viz"
+													}
+												}
+											]
+										}
+									]
+								},
+								{
+									"id": "col-13",
+									"columnConfig": {},
+									"cells": [
+										{
+											"id": "cell-131",
+											"cellConfig": {},
+											"widgets": [
+												{
+													"id": "widg-1311",
+													"viz": {
+														"appId": "my.company.ns.static.list.card.app",
+														"vizId": "my.company.ns.static.list.card.viz"
+													}
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				"texts": [
+					{
+						"locale": "",
+						"textDictionary": {
+							"PAGE_TITLE1": "Workpage 1"
+						}
+					},
+					{
+						"locale": "de",
+						"textDictionary": {
+							"PAGE_TITLE1": "Workpage 1"
+						}
+					},
+					{
+						"locale": "en",
+						"textDictionary": {
+							"PAGE_TITLE1": "Workpage 1"
+						}
+					}
+				]
+			},
+			{
+				"_version": "3.2.0",
+				"identification": {
+					"id": "my.company.ns.bubble.chart.card.app",
+					"title": "{{BUBBLE_CHART_TITLE}}",
+					"entityType": "businessapp",
+					"description": "{{description}}"
+				},
+				"payload": {
+					"visualizations": {
+						"my.company.ns.bubble.chart.card.viz": {
+							"vizType": "sap.card",
+							"vizConfig": {
+								"_version": "1.14.0",
+								"sap.app": {
+									"id": "my.company.ns.bubble.chart.card",
+									"type": "card",
+									"i18n": "i18n/i18n.properties",
+									"title": "{{BUBBLE_CHART_TITLE}}",
+									"subTitle": "{{BUBBLE_CHART_SUBTITLE}}",
+									"applicationVersion": {
+										"version": "1.0.0"
+									},
+									"shortTitle": "{{BUBBLE_CHART_SHORTTITLE}}",
+									"info": "{{BUBBLE_CHART_INFO}}",
+									"description": "{{BUBBLE_CHART_DESCRIPTION}}",
+									"tags": {
+										"keywords": [
+											"{{BUBBLE_CHART_KEYWORD1}}",
+											"{{BUBBLE_CHART_KEYWORD2}}",
+											"{{BUBBLE_CHART_KEYWORD4}}",
+											"{{BUBBLE_CHART_KEYWORD4}}"
+										]
+									}
+								},
+								"sap.ui": {
+									"technology": "UI5"
+								},
+								"sap.card": {
+									"type": "Analytical",
+									"header": {
+										"title": "{{BUBBLE_CHART_CARDTITLE}}"
+									},
+									"content": {
+										"data": {
+											"request": {
+												"url": "./data.json"
+											},
+											"path": "/milk"
+										},
+										"chartType": "bubble",
+										"chartProperties": {
+											"title": {
+												"visible": false
+											},
+											"legendGroup": {
+												"layout": {
+													"position": "right",
+													"alignment": "topLeft"
+												}
+											}
+										},
+										"minHeight": "20rem",
+										"dimensions": [
+											{
+												"name": "Store Name",
+												"value": "{Store Name}"
+											}
+										],
+										"measures": [
+											{
+												"name": "Cost",
+												"value": "{Cost}"
+											},
+											{
+												"name": "Revenue",
+												"value": "{Revenue}"
+											},
+											{
+												"name": "Consumption",
+												"value": "{Consumption}"
+											}
+										],
+										"feeds": [
+											{
+												"uid": "valueAxis",
+												"type": "Measure",
+												"values": [
+													"Revenue"
+												]
+											},
+											{
+												"uid": "valueAxis2",
+												"type": "Measure",
+												"values": [
+													"Cost"
+												]
+											},
+											{
+												"uid": "bubbleWidth",
+												"type": "Measure",
+												"values": [
+													"Consumption"
+												]
+											},
+											{
+												"uid": "color",
+												"type": "Dimension",
+												"values": [
+													"Store Name"
+												]
+											}
+										],
+										"popover": {
+											"active": true
+										}
+									}
+								}
+							},
+							"vizResources": {
+								"artifactId": "my.company.ns.bubble.chart.card"
+							}
+						}
+					}
+				},
+				"texts": [
+					{
+						"locale": "",
+						"textDictionary": {
+							"BUBBLE_CHART_TITLE": "Bubble Chart Card",
+							"BUBBLE_CHART_SUBTITLE": "Bubble Chart Card",
+							"BUBBLE_CHART_SHORTTITLE": "Bubble Card",
+							"BUBBLE_CHART_INFO": "Bubble Chart Card Info",
+							"BUBBLE_CHART_DESCRIPTION": "Bubble Chart Card Description",
+							"BUBBLE_CHART_KEYWORD1": "Bubble",
+							"BUBBLE_CHART_KEYWORD2": "Card",
+							"BUBBLE_CHART_KEYWORD4": "Sample",
+							"BUBBLE_CHART_CARDTITLE": "Milk Stores - Revenue, Cost and Consumption"
+						}
+					},
+					{
+						"locale": "de",
+						"textDictionary": {
+							"BUBBLE_CHART_TITLE": "Bubble Chart Karte",
+							"BUBBLE_CHART_SUBTITLE": "Bubble Chart Karte",
+							"BUBBLE_CHART_SHORTTITLE": "Bubble Karte",
+							"BUBBLE_CHART_INFO": "Bubble Chart Karte Info",
+							"BUBBLE_CHART_DESCRIPTION": "Bubble Chart Karte Description",
+							"BUBBLE_CHART_KEYWORD1": "Bubble",
+							"BUBBLE_CHART_KEYWORD2": "Karte",
+							"BUBBLE_CHART_KEYWORD4": "Beispiel",
+							"BUBBLE_CHART_CARDTITLE": "Januar Gewinn von Milch"
+						}
+					},
+					{
+						"locale": "en",
+						"textDictionary": {
+							"BUBBLE_CHART_TITLE": "Bubble Chart Card",
+							"BUBBLE_CHART_SUBTITLE": "Bubble Chart Card",
+							"BUBBLE_CHART_SHORTTITLE": "Bubble Card",
+							"BUBBLE_CHART_INFO": "Bubble Chart Card Info",
+							"BUBBLE_CHART_DESCRIPTION": "Bubble Chart Card Description",
+							"BUBBLE_CHART_KEYWORD1": "Bubble",
+							"BUBBLE_CHART_KEYWORD2": "Card",
+							"BUBBLE_CHART_KEYWORD4": "Sample",
+							"BUBBLE_CHART_CARDTITLE": "Milk Stores - Revenue, Cost and Consumption"
+						}
+					}
+				]
+			},
+			{
+				"_version": "3.2.0",
+				"identification": {
+					"id": "my.company.ns.data.object.card.app",
+					"title": "{{DYNAMIC_OBJECT_TITLE}}",
+					"entityType": "businessapp",
+					"description": "{{description}}"
+				},
+				"payload": {
+					"visualizations": {
+						"my.company.ns.data.object.card.viz": {
+							"vizType": "sap.card",
+							"vizConfig": {
+								"_version": "1.15.0",
+								"sap.app": {
+									"id": "my.company.ns.data.object.card",
+									"type": "card",
+									"i18n": "i18n/i18n.properties",
+									"title": "{{DYNAMIC_OBJECT_TITLE}}",
+									"subTitle": "{{DYNAMIC_OBJECT_SUBTITLE}}",
+									"applicationVersion": {
+										"version": "1.0.0"
+									},
+									"shortTitle": "{{DYNAMIC_OBJECT_SHORTTITLE}}",
+									"info": "{{DYNAMIC_OBJECT_INFO}}",
+									"description": "{{DYNAMIC_OBJECT_DESCRIPTION}}",
+									"tags": {
+										"keywords": [
+											"{{DYNAMIC_OBJECT_KEYWORD1}}",
+											"{{DYNAMIC_OBJECT_KEYWORD2}}",
+											"{{DYNAMIC_OBJECT_KEYWORD4}}",
+											"{{DYNAMIC_OBJECT_KEYWORD4}}"
+										]
+									}
+								},
+								"sap.ui": {
+									"technology": "UI5",
+									"icons": {
+										"icon": "sap-icon://switch-classes"
+									}
+								},
+								"sap.card": {
+									"type": "Object",
+									"data": {
+										"request": {
+											"url": "./data.json"
+										}
+									},
+									"header": {
+										"icon": {
+											"src": "{photo}"
+										},
+										"title": "{firstName} {lastName}",
+										"subTitle": "{position}"
+									},
+									"content": {
+										"groups": [
+											{
+												"title": "{{DYNAMIC_OBJECT_CARD_CONTACT}}",
+												"items": [
+													{
+														"label": "{{DYNAMIC_OBJECT_CARD_FIRSTNAME}}",
+														"value": "{firstName}"
+													},
+													{
+														"label": "{{DYNAMIC_OBJECT_CARD_LASTNAME}}",
+														"value": "{lastName}"
+													},
+													{
+														"label": "{{DYNAMIC_OBJECT_CARD_PHONE}}",
+														"value": "{phone}",
+														"tooltip": "{phoneTooltip}",
+														"actions": [
+															{
+																"type": "Navigation",
+																"parameters": {
+																	"url": "tel:{phone}"
+																}
+															}
+														]
+													},
+													{
+														"label": "{{DYNAMIC_OBJECT_CARD_MAIL}}",
+														"value": "{email}",
+														"tooltip": "{emailTooltip}",
+														"actions": [
+															{
+																"type": "Navigation",
+																"parameters": {
+																	"url": "mailto:{email}"
+																}
+															}
+														]
+													},
+													{
+														"label": "{{DYNAMIC_OBJECT_CARD_AGENDA}}",
+														"value": "{{DYNAMIC_OBJECT_CARD_BOOK}}",
+														"tooltip": "{agendaTooltip}",
+														"actions": [
+															{
+																"type": "Navigation",
+																"enabled": "{= ${agendaUrl}}",
+																"parameters": {
+																	"url": "{agendaUrl}"
+																}
+															}
+														]
+													}
+												]
+											},
+											{
+												"title": "{{DYNAMIC_OBJECT_CARD_COMPANYDETAILS}}",
+												"items": [
+													{
+														"label": "{{DYNAMIC_OBJECT_CARD_COMPANYNAME}}",
+														"value": "{company/name}"
+													},
+													{
+														"label": "{{DYNAMIC_OBJECT_CARD_COMPANYADDRESS}}",
+														"value": "{company/address}"
+													},
+													{
+														"label": "{{DYNAMIC_OBJECT_CARD_COMPANYMAIL}}",
+														"value": "{company/email}",
+														"tooltip": "{company/emailTooltip}",
+														"actions": [
+															{
+																"type": "Navigation",
+																"parameters": {
+																	"url": "mailto:{company/email}?subject={company/emailSubject}"
+																}
+															}
+														]
+													},
+													{
+														"label": "{{DYNAMIC_OBJECT_CARD_WEBPAGE}}",
+														"value": "{company/website}",
+														"tooltip": "{company/websiteTooltip}",
+														"actions": [
+															{
+																"type": "Navigation",
+																"parameters": {
+																	"url": "{company/url}"
+																}
+															}
+														]
+													}
+												]
+											},
+											{
+												"title": "{{DYNAMIC_OBJECT_CARD_COMPANYORGDETAILS}}",
+												"items": [
+													{
+														"label": "{{DYNAMIC_OBJECT_CARD_DIRECTMANAGER}}",
+														"value": "{manager/firstName} {manager/lastName}",
+														"icon": {
+															"src": "{manager/photo}"
+														}
+													}
+												]
+											}
+										]
+									}
+								}
+							},
+							"vizResources": {
+								"artifactId": "my.company.ns.data.object.card"
+							}
+						}
+					}
+				},
+				"texts": [
+					{
+						"locale": "",
+						"textDictionary": {
+							"DYNAMIC_OBJECT_TITLE": "Dynamic Object Card",
+							"DYNAMIC_OBJECT_SUBTITLE": "Dynamic Object Card",
+							"DYNAMIC_OBJECT_SHORTTITLE": "Object Card",
+							"DYNAMIC_OBJECT_INFO": "Dynamic Object Card Info",
+							"DYNAMIC_OBJECT_DESCRIPTION": "Dynamic Object Card Description",
+							"DYNAMIC_OBJECT_KEYWORD1": "Object",
+							"DYNAMIC_OBJECT_KEYWORD2": "Card",
+							"DYNAMIC_OBJECT_KEYWORD4": "Sample",
+							"DYNAMIC_OBJECT_CARD_CONTACT": "Contact Details",
+							"DYNAMIC_OBJECT_CARD_FIRSTNAME": "First Name",
+							"DYNAMIC_OBJECT_CARD_LASTNAME": "Last Name",
+							"DYNAMIC_OBJECT_CARD_PHONE": "Phone",
+							"DYNAMIC_OBJECT_CARD_MAIL": "EMail",
+							"DYNAMIC_OBJECT_CARD_AGENDA": "Agenda",
+							"DYNAMIC_OBJECT_CARD_COMPANYDETAILS": "Company Details",
+							"DYNAMIC_OBJECT_CARD_COMPANYNAME": "Company Name",
+							"DYNAMIC_OBJECT_CARD_COMPANYADDRESS": "Adresse",
+							"DYNAMIC_OBJECT_CARD_BOOK": "Book a meeting",
+							"DYNAMIC_OBJECT_CARD_COMPANYMAIL": "EMail",
+							"DYNAMIC_OBJECT_CARD_WEBPAGE": "Webpage",
+							"DYNAMIC_OBJECT_CARD_COMPANYORGDETAILS": "Organization Details",
+							"DYNAMIC_OBJECT_CARD_DIRECTMANAGER": "Direct Manager"
+						}
+					},
+					{
+						"locale": "de",
+						"textDictionary": {
+							"DYNAMIC_OBJECT_TITLE": "Dynamische Object Karte",
+							"DYNAMIC_OBJECT_SUBTITLE": "Dynamische Object Karte",
+							"DYNAMIC_OBJECT_SHORTTITLE": "Object Karte",
+							"DYNAMIC_OBJECT_INFO": "Dynamische Object Karte Info",
+							"DYNAMIC_OBJECT_DESCRIPTION": "Dynamische Object Karte Beschreibung",
+							"DYNAMIC_OBJECT_KEYWORD1": "Object",
+							"DYNAMIC_OBJECT_KEYWORD2": "Karte",
+							"DYNAMIC_OBJECT_KEYWORD4": "Beispiel",
+							"DYNAMIC_OBJECT_CARD_CONTACT": "Kontakt Details",
+							"DYNAMIC_OBJECT_CARD_FIRSTNAME": "Vorname",
+							"DYNAMIC_OBJECT_CARD_LASTNAME": "Nachname",
+							"DYNAMIC_OBJECT_CARD_PHONE": "Telefon",
+							"DYNAMIC_OBJECT_CARD_MAIL": "EMail",
+							"DYNAMIC_OBJECT_CARD_AGENDA": "Agenda",
+							"DYNAMIC_OBJECT_CARD_COMPANYDETAILS": "Firmen Details",
+							"DYNAMIC_OBJECT_CARD_COMPANYNAME": "Firmenname",
+							"DYNAMIC_OBJECT_CARD_BOOK": "Termin vereinbaren",
+							"DYNAMIC_OBJECT_CARD_COMPANYADDRESS": "Adresse",
+							"DYNAMIC_OBJECT_CARD_COMPANYMAIL": "EMail",
+							"DYNAMIC_OBJECT_CARD_WEBPAGE": "Webpage",
+							"DYNAMIC_OBJECT_CARD_COMPANYORGDETAILS": "Details der Organisation",
+							"DYNAMIC_OBJECT_CARD_DIRECTMANAGER": "Direkter Vorgesetzter"
+						}
+					},
+					{
+						"locale": "en",
+						"textDictionary": {
+							"DYNAMIC_OBJECT_TITLE": "Dynamic Object Card",
+							"DYNAMIC_OBJECT_SUBTITLE": "Dynamic Object Card",
+							"DYNAMIC_OBJECT_SHORTTITLE": "Object Card",
+							"DYNAMIC_OBJECT_INFO": "Dynamic Object Card Info",
+							"DYNAMIC_OBJECT_DESCRIPTION": "Dynamic Object Card Description",
+							"DYNAMIC_OBJECT_KEYWORD1": "Object",
+							"DYNAMIC_OBJECT_KEYWORD2": "Card",
+							"DYNAMIC_OBJECT_KEYWORD4": "Sample",
+							"DYNAMIC_OBJECT_CARD_CONTACT": "Contact Details",
+							"DYNAMIC_OBJECT_CARD_FIRSTNAME": "First Name",
+							"DYNAMIC_OBJECT_CARD_LASTNAME": "Last Name",
+							"DYNAMIC_OBJECT_CARD_PHONE": "Phone",
+							"DYNAMIC_OBJECT_CARD_MAIL": "EMail",
+							"DYNAMIC_OBJECT_CARD_AGENDA": "Agenda",
+							"DYNAMIC_OBJECT_CARD_COMPANYDETAILS": "Company Details",
+							"DYNAMIC_OBJECT_CARD_COMPANYNAME": "Company Name",
+							"DYNAMIC_OBJECT_CARD_COMPANYADDRESS": "Adresse",
+							"DYNAMIC_OBJECT_CARD_BOOK": "Book a meeting",
+							"DYNAMIC_OBJECT_CARD_COMPANYMAIL": "EMail",
+							"DYNAMIC_OBJECT_CARD_WEBPAGE": "Webpage",
+							"DYNAMIC_OBJECT_CARD_COMPANYORGDETAILS": "Organization Details",
+							"DYNAMIC_OBJECT_CARD_DIRECTMANAGER": "Direct Manager"
+						}
+					}
+				]
+			},
+			{
+				"_version": "3.2.0",
+				"identification": {
+					"id": "my.company.ns.static.list.card.app",
+					"title": "{{STATIC_LIST_TITLE}}",
+					"entityType": "businessapp",
+					"description": "{{description}}"
+				},
+				"payload": {
+					"visualizations": {
+						"my.company.ns.static.list.card.viz": {
+							"vizType": "sap.card",
+							"vizConfig": {
+								"_version": "1.14.0",
+								"sap.app": {
+									"id": "my.company.ns.static.list.card",
+									"type": "card",
+									"i18n": "i18n/i18n.properties",
+									"title": "{{STATIC_LIST_TITLE}}",
+									"subTitle": "{{STATIC_LIST_SUBTITLE}}",
+									"applicationVersion": {
+										"version": "1.0.0"
+									},
+									"shortTitle": "{{STATIC_LIST_SHORTTITLE}}",
+									"info": "{{STATIC_LIST_INFO}}",
+									"description": "{{STATIC_LIST_DESCRIPTION}}",
+									"tags": {
+										"keywords": [
+											"{{STATIC_LIST_KEYWORD1}}",
+											"{{STATIC_LIST_KEYWORD2}}",
+											"{{STATIC_LIST_KEYWORD4}}",
+											"{{STATIC_LIST_KEYWORD4}}"
+										]
+									}
+								},
+								"sap.ui": {
+									"technology": "UI5",
+									"icons": {
+										"icon": "sap-icon://list"
+									}
+								},
+								"sap.card": {
+									"type": "List",
+									"header": {
+										"title": "{{STATIC_LIST_CARDTITLE}}",
+										"subTitle": "{{STATIC_LIST_CARDSUBTITLE}}",
+										"icon": {
+											"src": "sap-icon://desktop-mobile"
+										},
+										"status": {
+											"text": "{parameters>/maxItems/value} of 20"
+										}
+									},
+									"content": {
+										"data": {
+											"json": [
+												{
+													"Name": "Comfort Easy",
+													"Description": "32 GB Digital Assistant with high-resolution color screen",
+													"Highlight": "Error"
+												},
+												{
+													"Name": "ITelO Vault",
+													"Description": "Digital Organizer with State-of-the-Art Storage Encryption",
+													"Highlight": "Warning"
+												},
+												{
+													"Name": "Notebook Professional 15",
+													"Description": "Notebook Professional 15 with 2,80 GHz quad core, 15\" Multitouch LCD, 8 GB DDR3 RAM, 500 GB SSD - DVD-Writer (DVD-R/+R/-RW/-RAM),Windows 8 Pro",
+													"Highlight": "Success"
+												},
+												{
+													"Name": "Ergo Screen E-I",
+													"Description": "Optimum Hi-Resolution max. 1920 x 1080 @ 85Hz, Dot Pitch: 0.27mm",
+													"Highlight": "Information"
+												},
+												{
+													"Name": "Laser Professional Eco",
+													"Description": "Print 2400 dpi image quality color documents at speeds of up to 32 ppm (color) or 36 ppm (monochrome), letter/A4. Powerful 500 MHz processor, 512MB of memory",
+													"Highlight": "None"
+												}
+											]
+										},
+										"maxItems": "{parameters>/maxItems/value}",
+										"item": {
+											"title": "{Name}",
+											"description": "{Description}",
+											"highlight": "{Highlight}"
+										}
+									}
+								}
+							},
+							"vizResources": {
+								"artifactId": "my.company.ns.static.list.card"
+							}
+						}
+					}
+				},
+				"texts": [
+					{
+						"locale": "",
+						"textDictionary": {
+							"STATIC_LIST_TITLE": "Static List Card",
+							"STATIC_LIST_SUBTITLE": "Static List Card",
+							"STATIC_LIST_SHORTTITLE": "List Card",
+							"STATIC_LIST_INFO": "Static List Card Info",
+							"STATIC_LIST_DESCRIPTION": "Static List Card Description",
+							"STATIC_LIST_KEYWORD1": "List",
+							"STATIC_LIST_KEYWORD2": "Card",
+							"STATIC_LIST_KEYWORD4": "Sample",
+							"STATIC_LIST_CARDTITLE": "List Card with Top 4 Products",
+							"STATIC_LIST_CARDSUBTITLE": "These are the top sellers this month"
+						}
+					},
+					{
+						"locale": "de",
+						"textDictionary": {
+							"STATIC_LIST_TITLE": "Statische List Karte",
+							"STATIC_LIST_SUBTITLE": "Statische List Card",
+							"STATIC_LIST_SHORTTITLE": "List Karte",
+							"STATIC_LIST_INFO": "Static List Karten Info",
+							"STATIC_LIST_DESCRIPTION": "Static List Karte Beschreibung",
+							"STATIC_LIST_KEYWORD1": "List",
+							"STATIC_LIST_KEYWORD2": "Karte",
+							"STATIC_LIST_KEYWORD4": "Sample",
+							"STATIC_LIST_CARDTITLE": "List Karte der 4 besten Produkte",
+							"STATIC_LIST_CARDSUBTITLE": "Die meist verkauften Produkte"
+						}
+					},
+					{
+						"locale": "en",
+						"textDictionary": {
+							"STATIC_LIST_TITLE": "Static List Card",
+							"STATIC_LIST_SUBTITLE": "Static List Card",
+							"STATIC_LIST_SHORTTITLE": "List Card",
+							"STATIC_LIST_INFO": "Static List Card Info",
+							"STATIC_LIST_DESCRIPTION": "Static List Card Description",
+							"STATIC_LIST_KEYWORD1": "List",
+							"STATIC_LIST_KEYWORD2": "Card",
+							"STATIC_LIST_KEYWORD4": "Sample",
+							"STATIC_LIST_CARDTITLE": "List Card with Top 4 Products",
+							"STATIC_LIST_CARDSUBTITLE": "These are the top sellers this month"
+						}
+					}
+				]
+			}
+		]
+	}
+}

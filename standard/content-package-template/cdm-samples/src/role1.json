@@ -1,0 +1,26 @@
+{
+  "_version": "3.2.0",
+  "identification": {
+    "id": "my.company.ns.contentpackage.role1",
+    "title": "{{ROLE_TITLE1}}",
+    "entityType": "role"
+  },
+  "payload": {
+    "spaces": [
+      {
+        "id": "my.company.ns.contentpackage.space1"
+      }
+    ],
+    "apps": [
+      {
+        "id": "my.company.ns.data.object.card.app"
+      },
+      {
+        "id": "my.company.ns.static.list.card.app"
+      },
+      {
+        "id": "my.company.ns.contentpackage.app1"
+      }
+    ]
+  }
+}

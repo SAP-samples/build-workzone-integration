@@ -1,0 +1,25 @@
+{
+	"_version": "1.27.0",
+	"_generator": "cpkg-project-template",
+	"sap.artifact": {
+		"id": "my.company.ns.bubble.chart.card",
+		"type": "card",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{BUBBLE_CHART_TITLE}}",
+		"subTitle": "{{BUBBLE_CHART_SUBTITLE}}",
+		"shortTitle": "{{BUBBLE_CHART_SHORTTITLE}}",
+		"info": "{{BUBBLE_CHART_INFO}}",
+		"description": "{{BUBBLE_CHART_DESCRIPTION}}",
+		"tags": {
+			"keywords": [
+				"{{BUBBLE_CHART_KEYWORD1}}",
+				"{{BUBBLE_CHART_KEYWORD2}}",
+				"{{BUBBLE_CHART_KEYWORD4}}",
+				"{{BUBBLE_CHART_KEYWORD4}}"
+			]
+		},
+		"artifactVersion": {
+			"version": "1.0.0"
+		}
+	}
+}

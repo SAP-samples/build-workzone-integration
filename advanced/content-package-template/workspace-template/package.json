@@ -1,0 +1,18 @@
+{
+  "name": "sap-workzone-cpkg-workspace-template-sample",
+  "version": "1.0.0",
+  "description": "Sample project structure for a workspace-template artifact that will be included into a content package",
+  "scripts": {
+    "build": "node ./scripts/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com:SAP-samples/workzone-content-package-templates.git",
+    "directory": "workspace-template"
+  },
+  "devDependencies": {
+    "sap-workzone-cpkg-tools": "git+https://git@github.com/SAP-samples/workzone-content-package-templates.git"
+  },
+  "author": "SAP SE",
+  "license": "ISC"
+}

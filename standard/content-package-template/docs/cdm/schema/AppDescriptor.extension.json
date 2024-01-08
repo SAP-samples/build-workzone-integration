@@ -1,0 +1,525 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "App Descriptor structure extended with sap.integration for URL template information",
+  "type": "object",
+  "properties": {
+    "reference": {
+      "$ref": "#/definitions/reference"
+    },
+    "sap.integration":{
+      "$ref": "#/definitions/sap.integration"
+    },
+    "sap.integrations": {
+      "type" : "array",
+      "items": {
+        "$ref": "#/definitions/sap.integration"
+      }
+    },
+    "sap.app": {
+      "$ref": "#/definitions/sap.app"
+    },
+    "sap.ui": {
+      "$ref": "#/definitions/sap.ui"
+    },
+    "sap.flp": {
+      "$ref": "#/definitions/sap.flp"
+    },
+    "sap.platform.cf": {
+      "$ref": "#/definitions/sap.platform.cf"
+    },
+    "sap.fiori": {
+      "$ref": "#/definitions/sap.fiori"
+    },
+    "sap.url": {
+      "$ref": "#/definitions/sap.url"
+    }
+  },
+  "dependencies": {
+    "sap.integration": { "not": { "required": ["sap.integrations"] } },
+    "sap.integrations": { "not": { "required": ["sap.integration"] } }
+  },
+  "definitions": {
+    "reference": {
+      "type": "string",
+      "description": "A reference to the corresponding Application",
+      "examples": ["sap.ushell.demo.hello.flp", "cus.sd.billingdoclist.manages"]
+    },
+    "sap.integration": {
+      "type": "object",
+      "properties": {
+        "urlTemplateId": {
+          "description": "Reference to the desired URL Template",
+          "type": "string",
+          "examples": [
+            "urltemplate.ui5",
+            "urltemplate.wda",
+            "urltemplate.sfsf"
+          ]
+        },
+        "urlTemplateParams": {
+          "type": "object",
+          "description": "Parameters for the corresponding URL Template",
+          "patternProperties": {
+            "^[\\w\\W]*$": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "patternProperties": {
+                    "^[\\w\\W]*$": {
+                      "type": "string"
+                    }
+                  }
+                },
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            }
+          }
+        },
+        "navMode": {
+          "type": "string",
+          "enum": [
+            "inplace",
+            "explace"
+          ],
+          "default": "inplace"
+        }
+      }
+    },
+    "sap.app": {
+      "title": "JSON schema for SAP.APP Namespace",
+      "description": "Represents general application attributes",
+      "properties": {
+        "id": {
+          "description": "Represents mandatory unique app identifier which must correspond to component 'id/namespace'",
+          "type": "string",
+          "maxLength": 70
+        },
+        "type": {
+          "description": "Represents type of an application and can be application or component or library",
+          "type": "string",
+          "enum": [
+            "application",
+            "component",
+            "library",
+            "card"
+          ]
+        },
+        "i18n": {
+          "oneOf": [
+            {
+              "description": "Represents the object detailing the properties of the language handling",
+              "type": "object",
+              "required": [
+                "bundleUrl"
+              ],
+              "properties": {
+                "bundleUrl": {
+                  "type": "string",
+                  "description": "Represents path inside the app to the properties file containing text symbols for the Descriptor"
+                },
+                "supportedLocales": {
+                  "type": "array",
+                  "description": "An array of locale names which are supported",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "fallbackLocale": {
+                  "type": "string",
+                  "description": "Represents the fallback language"
+                }
+              }
+            },
+            {
+              "description": "Represents path inside the app to the properties file containing text symbols for the Descriptor",
+              "type": "string",
+              "default": "i18n/i18n.properties"
+            }
+          ]
+        },
+        "applicationVersion": {
+          "description": "Represents mandatory version of the app",
+          "type": "object",
+          "properties": {
+            "version": {
+              "type": "string"
+            }
+          }
+        },
+        "ach": {
+          "description": "Represents application component hierarchy",
+          "type": "string",
+          "pattern": "^([a-zA-Z0-9]{2,3})(\\-[a-zA-Z0-9]{1,6})*$"
+        },
+        "dataSources": {
+          "description": "Represents used data sources with a unique key/alias",
+          "type": "object",
+          "patternProperties": {
+            "^[a-zA-Z0-9_\\.\\-]*$": {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "description": "Represents uri of the data source",
+                  "type": "string"
+                },
+                "type": {
+                  "description": "Represents type of the data source. The supported types are OData, ODataAnnotation, INA, XML, JSON",
+                  "type": "string",
+                  "enum": [
+                    "OData",
+                    "ODataAnnotation",
+                    "INA",
+                    "XML",
+                    "JSON",
+                    "FHIR",
+                    "http",
+                    "WebSocket"
+                  ],
+                  "default": "OData"
+                },
+                "settings": {
+                  "description": "Represents data source type specific attributes (key, value pairs)",
+                  "type": "object",
+                  "properties": {
+                    "odataVersion": {
+                      "description": "Represents version of OData: 2.0 is default",
+                      "type": "string",
+                      "enum": [
+                        "2.0",
+                        "4.0"
+                      ]
+                    },
+                    "localUri": {
+                      "description": "Represents path to local meta data document or annotation uri",
+                      "type": "string"
+                    },
+                    "annotations": {
+                      "description": "Represents  array of annotation which references an existing data source of type ODataAnnotation",
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "maxAge": {
+                      "description": "Indicates that the client is unwilling to accept a response whose age is greater than the number of seconds specified in this field",
+                      "type": "number",
+                      "multipleOf": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "crossNavigation": {
+          "description": "Represents cross navigation for inbound and outbound targets",
+          "type": "object",
+          "required": ["inbounds"],
+          "properties": {
+            "inbounds": {
+              "description": "Represents cross navigation for inbound target",
+              "type": "object",
+              "patternProperties": {
+                "^[a-zA-Z0-9_\\.\\-]+$": {
+                  "type": "object",
+                  "properties": {
+                    "semanticObject": {
+                      "description": "Represents semantic object",
+                      "type": "string",
+                      "pattern": "^[\\w\\*]{0,30}$"
+                    },
+                    "action": {
+                      "description": "Represents action an the semantic object",
+                      "type": "string",
+                      "pattern": "^[\\w\\*]{0,60}$"
+                    },
+                    "icon" :{
+                      "description": "Represents icon",
+                      "type": "string"
+                    },
+                    "tileSize": {
+                      "description": "Size of the tile on the homepage",
+                      "type": "string",
+                      "enum": ["1x1", "1x2"]
+                    },
+                    "title": {
+                      "description": "Represents language-dependent mandatory title, for example 'create Purchase Order'",
+                      "type": "string"
+                    },
+                    "shortTitle": {
+                      "description": "Represents a short version of the language-dependent title, for example 'create'",
+                      "type": "string"
+                    },
+                    "subTitle": {
+                      "description": "Represents language-dependent additional information to the title and can overwrite subTitle from sap.app definition",
+                      "type": "string"
+                    },
+                    "deviceTypes": {
+                      "description": "Represents device types for which application is developed",
+                      "type": "object",
+                      "properties": {
+                        "desktop": {
+                          "description": "Represents indicator whether desktop device is supported, default true",
+                          "type": "boolean"
+                        },
+                        "tablet": {
+                          "description": "Represents indicator whether tablet device is supported, default true",
+                          "type": "boolean"
+                        },
+                        "phone": {
+                          "description": "Represents indicator whether phone device is supported, default true",
+                          "type": "boolean"
+                        }
+                      }
+                    },
+                    "signature": {
+                      "description": "Represents signature for inbound targets ",
+                      "type": "object",
+                      "properties": {
+                        "parameters": {
+                          "type": "object",
+                          "patternProperties": {
+                            "^[\\w\\.\\-\\/]+$": {
+                              "type": "object",
+                              "properties": {
+                                "defaultValue": {
+                                  "type": "object",
+                                  "description": " Represents a default Value",
+                                  "properties": {
+                                    "value": {
+                                      "description": "Represents a depending on format either a verbatim default value or a reference",
+                                      "type": "string"
+                                    },
+                                    "format": {
+                                      "description": "Indicates how 'value' is to be interpreted: ('plain': the 'value' is taken as a literal string value| 'reference': the 'value' is a reference to e.g. a UserDefault parameter (e.g. 'UserDefault.CostCenter'), the resolved parameter value is used)",
+                                      "type": "string",
+                                      "enum": [
+                                        "plain",
+                                        "reference"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "filter": {
+                                  "description": "Represents a filter , only if input parameter matches filter",
+                                  "type": "object",
+                                  "properties": {
+                                    "value": {
+                                      "description": "Represents a depending on format either a verbatim filter value, a regular expression or a reference",
+                                      "type": "string"
+                                    },
+                                    "format": {
+                                      "type": "string",
+                                      "description": "Indicates how 'value' is to be interpreted: ('plain': the actual value must match the 'value' property directly| 'regexp': the 'value' represents a regexp which must be present in the actual value| 'reference' : the 'value' represents a reference to e.g. a UserDefault parameter (e.g. 'UserDefault.CostCenter'), the resolved parameter value is then directly compared with the actual value)",
+                                      "enum": [
+                                        "plain",
+                                        "regexp",
+                                        "reference"
+                                      ]
+                                    }
+                                  }
+                                },
+                                "launcherValue": {
+                                  "type": "object",
+                                  "description": " Represents a value to be used when creating a tile intent for this inbound",
+                                  "properties": {
+                                    "value": {
+                                      "oneOf": [
+                                        {
+                                          "description": "Represents the definition of a single-value tile intent parameter; format property must be 'plain' in this case",
+                                          "type": "string"
+                                        },
+                                        {
+                                          "description": "Represents the definition of a multi-value tile intent parameter; format property must be 'array' in this case",
+                                          "type": "array",
+                                          "items": {
+                                            "type": "string"
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "format": {
+                                      "description": "Indicates how 'value' is to be interpreted: 'plain': the 'value' is taken as a literal string value | 'array': the 'value' is an array of strings",
+                                      "type": "string",
+                                      "enum": [
+                                        "plain",
+                                        "array"
+                                      ]
+                                    },
+                                    "prompt": {
+                                      "description": "DEPRECATED - Indicates the administrator should be prompted to supply a value when creating a tile",
+                                      "type": "boolean"
+                                    }
+                                  }
+                                },
+                                "renameTo": {
+                                  "description": "Represents the parameter name in legacy ABAP application, e.g. 'RF05L-BUKRS' for parameter 'CompanyCode'",
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "additionalParameters": {
+                          "description": "Indicates how additional parameters to the declared signature are treated: ('ignored': parameters are not passed on to application | 'allowed': parameters are passed on to application | 'notallowed': additional parameters are not allowed)",
+                          "type": "string",
+                          "enum": [
+                            "ignored",
+                            "allowed",
+                            "notallowed"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sap.ui": {
+      "title": "JSON schema for SAP.UI Namespace",
+      "description": "Represents general ui attributes",
+      "type": "object",
+      "properties": {
+        "technology": {
+          "description": "Represents UI technology. The possible values are UI5 (default), WDA, NWBC, GUI, URL and WCF",
+          "type": "string",
+          "enum": [
+            "UI5",
+            "WDA",
+            "NWBC",
+            "GUI",
+            "URL",
+            "WCF"
+          ],
+          "default": "UI5"
+        },
+        "icons": {
+          "description": "Represents icons which used in application",
+          "type": "object",
+          "properties": {
+            "icon": {
+              "description": "Represents icon of the app",
+              "type": "string"
+            },
+            "favIcon": {
+              "description": "Represents ICO file to be used inside the browser and for desktop shortcuts",
+              "type": "string"
+            },
+            "phone": {
+              "description": "Represents 57x57 pixel version for non-retina iPhones",
+              "type": "string"
+            },
+            "phone@2": {
+              "description": "Represents 114x114 pixel version for non-retina iPhones",
+              "type": "string"
+            },
+            "tablet": {
+              "description": "Represents 72x72 pixel version for non-retina iPads",
+              "type": "string"
+            },
+            "tablet@2": {
+              "description": "Represents 144x144 pixel version for non-retina iPads",
+              "type": "string"
+            }
+          }
+        },
+        "deviceTypes": {
+          "description": "Represents device types on which application is running. Supported device types are desktop, tablet and phone",
+          "type": "object",
+          "properties": {
+            "desktop": {
+              "description": "Represents indicator whether desktop device is supported, default true",
+              "type": "boolean"
+            },
+            "tablet": {
+              "description": "Represents indicator whether tablet device is supported, default true",
+              "type": "boolean"
+            },
+            "phone": {
+              "description": "Represents indicator whether phone device is supported, default true",
+              "type": "boolean"
+            }
+          }
+        },
+        "fullWidth": {
+          "description": "Indicates whether app should run in full screen mode: possible values: true or false ",
+          "type": "boolean"
+        }
+      }
+    },
+    "sap.flp": {
+      "title": "JSON schema for SAP.FLP Namespace",
+      "description": "Represents FLP specific attributes",
+      "type": "object",
+      "properties": {
+        "type": {
+          "description": "Represents the type of FLP entry. It must be 'application' or 'tile' or 'plugin'",
+          "type": "string",
+          "enum": [
+            "application",
+            "tile",
+            "plugin"
+          ]
+        },
+        "config": {
+          "description": "Represents configuration parameters of the FLP entry",
+          "type": "object",
+          "patternProperties": {
+            "^[a-zA-Z0-9\\_\\.\\-]*$": {
+              "description": "Represents the configuration key and values",
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "sap.platform.cf": {
+      "title": "JSON schema for SAP.PLATFORM.CF Namespace",
+      "description": "Represents CF(Cloud Foundry) platform specific attributes",
+      "type": "object",
+      "properties": {
+        "oAuthScopes": {
+          "description": "Represents the authorization scope of the application",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sap.fiori": {
+      "title": "JSON schema for SAP.FIORI Namespace",
+      "description": "Represents SAP Fiori  specific attributes",
+      "type": "object",
+      "properties": {
+        "registrationIds": {
+          "description": "Represents array of registration ids, i.e. for Fiori apps fiori id(s)",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "sap.url": {
+      "title": "JSON schema for SAP.URL Namespace",
+      "description": "Represents specific attributes for SAP URL",
+      "type": "object",
+      "properties": {
+        "uri": {
+          "description": "Represents URI of an application",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

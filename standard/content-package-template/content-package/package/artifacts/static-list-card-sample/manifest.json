@@ -1,0 +1,25 @@
+{
+	"_version": "1.27.0",
+	"_generator": "cpkg-project-template",
+	"sap.artifact": {
+		"id": "my.company.ns.static.list.card",
+		"type": "card",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{STATIC_LIST_TITLE}}",
+		"subTitle": "{{STATIC_LIST_SUBTITLE}}",
+		"shortTitle": "{{STATIC_LIST_SHORTTITLE}}",
+		"info": "{{STATIC_LIST_INFO}}",
+		"description": "{{STATIC_LIST_DESCRIPTION}}",
+		"tags": {
+			"keywords": [
+				"{{STATIC_LIST_KEYWORD1}}",
+				"{{STATIC_LIST_KEYWORD2}}",
+				"{{STATIC_LIST_KEYWORD4}}",
+				"{{STATIC_LIST_KEYWORD4}}"
+			]
+		},
+		"artifactVersion": {
+			"version": "1.0.0"
+		}
+	}
+}

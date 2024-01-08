@@ -1,0 +1,22 @@
+{
+  "name": "sap-workzone-content-package-sample",
+  "description": "Template for a content package",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "pull": "node scripts/pull.js",
+    "build-all": "node scripts/pull.js && node scripts/build.js",
+    "build-local": "node local/pull.js && node local/build.js",
+    "validate": "node scripts/validate.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com:SAP-samples/workzone-content-package-templates.git",
+    "directory": "content-package"
+  },
+  "author": "SAP SE",
+  "license": "ISC",
+  "devDependencies": {
+    "sap-workzone-cpkg-tools": "git+https://git@github.com/SAP-samples/workzone-content-package-templates.git"
+  }
+}

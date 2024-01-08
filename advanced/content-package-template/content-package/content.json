@@ -1,0 +1,72 @@
+{
+  "card-sample": {
+    "type": "card",
+    "src": {
+      "from": "../card",
+      "path": "./",
+      "build": "npm i && npm run-script build",
+      "package": "sap-workzone-cpkg-card-sample.zip",
+      "manifest": "src/manifest.json"
+    }
+  },
+  "journey-card-sample": {
+    "type": "card",
+    "src": {
+      "from": "../journey",
+      "path": "./card",
+      "build": "npm i && npm run-script build",
+      "package": "sap-workzone-cpkg-journey-card-sample.zip",
+      "manifest": "src/manifest.json"
+    }
+  },
+  "journey-workflow-sample": {
+    "type": "workflow",
+    "src": {
+      "from": "../journey",
+      "path": "./workflow",
+      "build": "npm i && npm run-script build",
+      "package": "sap-workzone-cpkg-journey-workflow-sample.zip",
+      "manifest": "src/manifest.json"
+    }
+  },
+  "workflow-sample": {
+    "type": "workflow",
+    "src": {
+      "from": "../workflow",
+      "path": "./",
+      "build": "npm i && npm run-script build",
+      "package": "sap-workzone-cpkg-workflow-sample.zip",
+      "manifest": "src/manifest.json"
+    }
+  },
+  "workspace-template-sample": {
+    "type": "workspace-template",
+    "src": {
+      "from": "../workspace-template",
+      "path": "./",
+      "build": "npm i && npm run-script build",
+      "package": "sap-workzone-cpkg-workspace-template-sample.zip",
+      "manifest": "src/manifest.json"
+    }
+  },
+  "workspace-sample": {
+    "type": "workspace",
+    "src": {
+      "from": "../workspace",
+      "path": "./",
+      "build": "npm i && npm run-script build",
+      "package": "sap-workzone-cpkg-workspace-sample.zip",
+      "manifest": "src/manifest.json"
+    }
+  },
+  "homepage-sample": {
+    "type": "homepage",
+    "src": {
+      "from": "../homepage",
+      "path": "./",
+      "build": "npm i && npm run-script build",
+      "package": "sap-workzone-cpkg-homepage-sample.zip",
+      "manifest": "src/manifest.json"
+    }
+  }
+}

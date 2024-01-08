@@ -1,0 +1,77 @@
+{
+  "_version": "3.2.0",
+  "identification": {
+    "id": "my.company.ns.contentpackage.workpage1",
+    "entityType": "workpage"
+  },
+  "payload": {
+    "workpageConfig": {
+      "title": "{{PAGE_TITLE1}}"
+    },
+    "rows": [
+      {
+        "id": "row-1",
+        "rowConfig": {},
+        "columns": [
+          {
+            "id": "col-11",
+            "columnConfig": {},
+            "cells": [
+              {
+                "id": "cell-111",
+                "cellConfig": {},
+                "widgets": [
+                  {
+                    "id": "widg-1111",
+                    "viz": {
+                      "appId": "my.company.ns.bubble.chart.card.app",
+                      "vizId": "my.company.ns.bubble.chart.card.viz"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "col-12",
+            "columnConfig": {},
+            "cells": [
+              {
+                "id": "cell-121",
+                "cellConfig": {},
+                "widgets": [
+                  {
+                    "id": "widg-1211",
+                    "viz": {
+                      "appId": "my.company.ns.data.object.card.app",
+                      "vizId": "my.company.ns.data.object.card.viz"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "col-13",
+            "columnConfig": {},
+            "cells": [
+              {
+                "id": "cell-131",
+                "cellConfig": {},
+                "widgets": [
+                  {
+                    "id": "widg-1311",
+                    "viz": {
+                      "appId": "my.company.ns.static.list.card.app",
+                      "vizId": "my.company.ns.static.list.card.viz"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
