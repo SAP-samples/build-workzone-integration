@@ -1,0 +1,17 @@
+ID: simple-approval
+_schema-version: '2.1'
+version: 1.0.0
+modules:
+  - name: workflow
+    type: com.sap.application.content
+    path: workflow
+    requires:
+      - name: workflow_simple-approval
+        parameters:
+          content-target: true
+resources:
+  - name: workflow_simple-approval
+    parameters:
+      service-plan: standard
+      service: workflow
+    type: org.cloudfoundry.managed-service

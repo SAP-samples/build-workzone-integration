@@ -1,0 +1,153 @@
+{
+  "_version": "1.15.0",
+  "sap.app": {
+    "id": "my.company.ns.data.object.card",
+    "type": "card",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{DYNAMIC_OBJECT_TITLE}}",
+    "subTitle": "{{DYNAMIC_OBJECT_SUBTITLE}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "shortTitle": "{{DYNAMIC_OBJECT_SHORTTITLE}}",
+    "info": "{{DYNAMIC_OBJECT_INFO}}",
+    "description": "{{DYNAMIC_OBJECT_DESCRIPTION}}",
+    "tags": {
+      "keywords": [
+        "{{DYNAMIC_OBJECT_KEYWORD1}}",
+        "{{DYNAMIC_OBJECT_KEYWORD2}}",
+        "{{DYNAMIC_OBJECT_KEYWORD4}}",
+        "{{DYNAMIC_OBJECT_KEYWORD4}}"
+      ]
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://switch-classes"
+    }
+  },
+  "sap.card": {
+    "type": "Object",
+    "data": {
+      "request": {
+        "url": "./data.json"
+      }
+    },
+    "header": {
+      "icon": {
+        "src": "{photo}"
+      },
+      "title": "{firstName} {lastName}",
+      "subTitle": "{position}"
+    },
+    "content": {
+      "groups": [
+        {
+          "title": "{{DYNAMIC_OBJECT_CARD_CONTACT}}",
+          "items": [
+            {
+              "label": "{{DYNAMIC_OBJECT_CARD_FIRSTNAME}}",
+              "value": "{firstName}"
+            },
+            {
+              "label": "{{DYNAMIC_OBJECT_CARD_LASTNAME}}",
+              "value": "{lastName}"
+            },
+            {
+              "label": "{{DYNAMIC_OBJECT_CARD_PHONE}}",
+              "value": "{phone}",
+              "tooltip": "{phoneTooltip}",
+              "actions": [
+                {
+                  "type": "Navigation",
+                  "parameters": {
+                    "url": "tel:{phone}"
+                  }
+                }
+              ]
+            },
+            {
+              "label": "{{DYNAMIC_OBJECT_CARD_MAIL}}",
+              "value": "{email}",
+              "tooltip": "{emailTooltip}",
+              "actions": [
+                {
+                  "type": "Navigation",
+                  "parameters": {
+                    "url": "mailto:{email}"
+                  }
+                }
+              ]
+            },
+            {
+              "label": "{{DYNAMIC_OBJECT_CARD_AGENDA}}",
+              "value": "{{DYNAMIC_OBJECT_CARD_BOOK}}",
+              "tooltip": "{agendaTooltip}",
+              "actions": [
+                {
+                  "type": "Navigation",
+                  "enabled": "{= ${agendaUrl}}",
+                  "parameters": {
+                    "url": "{agendaUrl}"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "{{DYNAMIC_OBJECT_CARD_COMPANYDETAILS}}",
+          "items": [
+            {
+              "label": "{{DYNAMIC_OBJECT_CARD_COMPANYNAME}}",
+              "value": "{company/name}"
+            },
+            {
+              "label": "{{DYNAMIC_OBJECT_CARD_COMPANYADDRESS}}",
+              "value": "{company/address}"
+            },
+            {
+              "label": "{{DYNAMIC_OBJECT_CARD_COMPANYMAIL}}",
+              "value": "{company/email}",
+              "tooltip": "{company/emailTooltip}",
+              "actions": [
+                {
+                  "type": "Navigation",
+                  "parameters": {
+                    "url": "mailto:{company/email}?subject={company/emailSubject}"
+                  }
+                }
+              ]
+            },
+            {
+              "label": "{{DYNAMIC_OBJECT_CARD_WEBPAGE}}",
+              "value": "{company/website}",
+              "tooltip": "{company/websiteTooltip}",
+              "actions": [
+                {
+                  "type": "Navigation",
+                  "parameters": {
+                    "url": "{company/url}"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "{{DYNAMIC_OBJECT_CARD_COMPANYORGDETAILS}}",
+          "items": [
+            {
+              "label": "{{DYNAMIC_OBJECT_CARD_DIRECTMANAGER}}",
+              "value": "{manager/firstName} {manager/lastName}",
+              "icon": {
+                "src": "{manager/photo}"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

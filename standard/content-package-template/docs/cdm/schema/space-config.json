@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Space Configuration",
+  "description": "Configuration of a space",
+  "type": "object",
+  "$comment": "FIXME list of attributes not yet finalized",
+  "properties": {
+    "title": {
+      "description": "Represents the title of the Space",
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "description": "Represents an additional description of the Space ",
+      "type": "string",
+      "default": ""
+    }
+  }
+}

@@ -3,7 +3,7 @@
   "sap.app": {
     "id": "sap.workzone.samples.component.vaccinationStatus",
     "type": "card",
-    "title": "Confirm Vaccination Status",
+    "title": "{{TITLE}}",
     "i18n": "i18n/i18n.properties",
     "author": "Ricky Jiao",
     "applicationVersion": {

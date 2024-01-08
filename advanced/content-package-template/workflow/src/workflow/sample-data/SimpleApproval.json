@@ -1,0 +1,10 @@
+{
+	"general": {
+		"subject": "Approve investment into project Avatar",
+		"description": "Approve investment into project Avatar"
+	},
+	"recipients": {
+		"firstApprover": "john.doe@mycorp.com",
+		"secondApprover": "john.doe@mycorp.com"
+	}
+}

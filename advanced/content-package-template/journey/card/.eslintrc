@@ -1,0 +1,57 @@
+{
+  "globals": {
+    "sap": true,
+    "jQuery": true,
+    "FLP": true
+  },
+  "rules": {
+    "no-console": 1,
+    "no-debugger": 2,
+    "no-dupe-args": 2,
+    "no-unreachable": 2,
+    "valid-typeof": 2,
+    "eqeqeq": 2,
+    "curly": 2,
+    "no-alert": 2,
+    "no-redeclare": 2,
+    "no-script-url": 2,
+    "strict": [0, "global"],
+    "no-unused-vars": [
+      2,
+      {
+        "exceptions": "all",
+        "argsIgnorePattern": "^next"
+      }
+    ],
+    "global-require": 1,
+    "no-duplicate-imports": 1,
+    "semi": [2, "always"],
+    "no-multiple-empty-lines": [
+      2,
+      {
+        "max": 2
+      }
+    ],
+    "space-infix-ops": 2,
+    "keyword-spacing": [
+      2,
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "key-spacing": [
+      2,
+      {
+        "afterColon": true
+      }
+    ]
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  }
+}

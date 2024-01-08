@@ -1,0 +1,118 @@
+{
+    "id": "approvesecond",
+    "schemaVersion": "1.0.0",
+    "name": "ApproveSecond",
+    "revision": "1.0",
+    "type": "task",
+    "readOnly": false,
+    "content": [
+        {
+            "id": "decisionneed",
+            "type": "section",
+            "title": "Decision Need",
+            "content": [
+                {
+                    "id": "subject",
+                    "type": "string",
+                    "label": "Subject",
+                    "readOnly": true,
+                    "value": "${context.general.subject}",
+                    "control": {
+                        "type": "TextArea",
+                        "properties": {
+                            "height": "small"
+                        }
+                    },
+                    "constraints": {
+                        "required": false
+                    }
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "label": "Description",
+                    "readOnly": true,
+                    "value": "${context.general.description}",
+                    "control": {
+                        "type": "TextArea",
+                        "properties": {
+                            "height": "medium"
+                        }
+                    },
+                    "constraints": {
+                        "required": false
+                    }
+                }
+            ]
+        },
+        {
+            "id": "response",
+            "type": "section",
+            "title": "Response",
+            "content": [
+                {
+                    "id": "feedback",
+                    "type": "string",
+                    "label": "Feedback",
+                    "placeholder": "Provide a comment (optional)",
+                    "readOnly": false,
+                    "value": "${context.responses.second}",
+                    "control": {
+                        "type": "TextArea",
+                        "properties": {
+                            "height": "medium"
+                        }
+                    },
+                    "constraints": {
+                        "required": false
+                    }
+                }
+            ]
+        },
+        {
+            "id": "approval_history",
+            "type": "section",
+            "title": "Approval History",
+            "content": [
+                {
+                    "id": "first_approver",
+                    "type": "string",
+                    "label": "1st Level Approver",
+                    "readOnly": true,
+                    "value": "${context.recipients.firstApprover}",
+                    "constraints": {
+                        "required": false
+                    }
+                },
+                {
+                    "id": "_1st_level_feedback",
+                    "type": "string",
+                    "label": "1st Level Feedback",
+                    "readOnly": true,
+                    "value": "${context.responses.first}",
+                    "control": {
+                        "type": "TextArea",
+                        "properties": {
+                            "height": "medium"
+                        }
+                    },
+                    "constraints": {
+                        "required": false
+                    }
+                }
+            ]
+        }
+    ],
+    "decisions": [
+        {
+            "id": "approve",
+            "text": "Approve",
+            "decisionType": "positive"
+        },
+        {
+            "id": "reject",
+            "text": "Reject",
+            "decisionType": "negative"
+        }
+    ]
+}

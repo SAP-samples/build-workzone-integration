@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Work Page Row Configuration",
+  "description": "Configuration of a work page row",
+  "type": "object",
+  "$comment": "FIXME list of attributes not yet finalized",
+  "properties": {
+    "title": {
+      "description": "Represents the title of the Row",
+      "type": "string"
+    },
+    "info": {
+      "description": "Represents an additional info of the Row shown next to the title",
+      "type": "string",
+      "default": ""
+    },
+    "fillRowHeight": {
+      "description": "Indicates whether the last Widget contained in each Column->Cell of this Row should stretch to the height of the row. This visually unifies the height of all contents.",
+      "type": "boolean",
+      "default": true
+    },
+    "fullWidth": {
+      "description": "Visually expands the Rows width to the maximum available width. The expansion only applies to background setting",
+      "type": "boolean",
+      "default": false
+    },
+    "backgroundColor": {
+      "description": "CSS color value used as a background for this Row",
+      "type": "string",
+      "default": ""
+    },
+    "backgroundURL": {
+      "description": "Url to a background image for this Row",
+      "type": "string",
+      "format": "uri-template",
+      "default": ""
+    },
+    "paddingTop": {
+      "description": "Padding on top of the Row",
+      "type": "string",
+      "default": ""
+    },
+    "paddingBottom": {
+      "description": "Padding on bottom of the Row",
+      "type": "string",
+      "default": ""
+    }
+  }
+}

@@ -1,0 +1,1 @@
+require(__dirname + "../../tools/index.js").validate(__dirname + "/..");

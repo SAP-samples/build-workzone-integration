@@ -1,0 +1,9 @@
+{
+  "_version": "3.2.0",
+  "identification": {
+    "id": "my.company.ns.contentpackage.app1",
+    "title": "{{BUSINESSAPP_TITLE1}}",
+    "entityType": "businessapp",
+    "description": "{{BUSINESSAPP_DESC1}}"
+  }
+}
