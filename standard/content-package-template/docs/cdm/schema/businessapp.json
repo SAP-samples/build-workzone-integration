@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "businessapp",
+  "type": "object",
+  "description": "Business App defines the target, navigation, ui and integration attributes of an application",
+  "required": [
+    "_version",
+    "identification",
+    "payload"
+  ],
+  "properties": {
+    "_version": {
+      "$ref": "commons.json#/definitions/_version"
+    },
+    "identification": {
+      "$ref": "identification.json"
+    },
+    "payload": {
+      "type": "object",
+      "anyOf": [{
+          "required": ["commonAppConfig", "targetAppConfig", "visualizations"]
+        }, {
+          "required": ["targetAppConfig"]
+        }, {
+          "required": ["visualizations"]
+        }
+      ],
+      "properties": {
+        "commonAppConfig": {
+          "$ref": "AppDescriptor.extension.json"
+        },
+        "targetAppConfig": {
+            "$ref": "AppDescriptor.extension.json"
+        },
+        "visualizations": {
+          "type": "object",
+          "description": "App Visualizations - abstraction of controls for launching apps",
+          "patternProperties": {
+            "^(.*)$": {
+              "$ref": "viz.json"
+            }
+          }
+        },
+        "defaultViz": {
+          "type": "string",
+          "description": "ID of the default visualization for the current application"
+        }
+      }
+    },
+    "texts": {
+      "$ref": "texts.json"
+    }
+  }
+}

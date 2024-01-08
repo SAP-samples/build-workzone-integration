@@ -1,0 +1,21 @@
+{
+	"_version": "1.18.0",
+	"sap.artifact": {
+		"id": "cpkg.project.template.workflow",
+		"type": "workflow",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{TITLE}}",
+		"subTitle": "{{SUBTITLE}}",
+		"artifactVersion": {
+			"version": "1.0.0"
+		},
+		"shortTitle": "{{SHORTTITLE}}",
+		"info": "{{INFO}}",
+		"description": "{{DESCRIPTION}}",
+		"tags": {
+			"keywords": [
+				"{{KEYWORD1}}"
+			]
+		}
+	}
+}

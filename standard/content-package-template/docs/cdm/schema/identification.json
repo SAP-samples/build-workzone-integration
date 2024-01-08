@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "identification",
+  "type": "object",
+  "description": "CDM Identification defines identifiers and other meta attributes which are common for all entities",
+  "required": [
+    "id",
+    "entityType"
+  ],
+  "properties": {
+    "title": {
+      "description": "Title of the entity",
+      "$ref": "commons.json#/definitions/i18nKey"
+    },
+    "description": {
+      "description": "Description of the entity",
+      "$ref": "commons.json#/definitions/i18nKey"
+    },
+    "entityType": {
+      "description": "Type (enumeration) of the entity",
+      "type": "string",
+      "enum": [
+        "group",
+        "catalog",
+        "role",
+        "businessapp",
+        "urltemplate",
+        "viztype",
+        "page",
+        "space",
+        "workpage"
+      ]
+    },
+    "id": {
+      "description": "ID of the entity, needs to be unique per type in content package",
+      "$ref": "commons.json#/definitions/id"
+    },
+    "providerId": {
+      "description": "The parent content provider of the entity",
+      "type": "string",
+      "maxLength": 128,
+      "pattern": "^[\\w-:@+~.#\\/]+$"
+    },
+    "i18n": {
+      "type": "string"
+    },
+    "softComponent": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+  }
+}

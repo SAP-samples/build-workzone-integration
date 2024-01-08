@@ -1,0 +1,21 @@
+{
+  "name": "sap-workzone-cpkg-templates",
+  "version": "1.0.0",
+  "description": "Sample project structure for a cdm artifact that will be included into a content package",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com:SAP-samples/build-workzone-integration.git"
+  },
+  "dependencies": {
+    "glob": "8.0.3",
+    "rimraf": "3.0.2",
+    "fs-extra": "10.1.0",
+    "properties-reader": ">=2.2.0",
+    "handlebars": "4.7.7",
+    "bestzip": "2.2.1",
+    "@ui5/cli": "2.14.14",
+    "jszip": "3.7.0"
+  },
+  "author": "SAP SE",
+  "license": "ISC"
+}

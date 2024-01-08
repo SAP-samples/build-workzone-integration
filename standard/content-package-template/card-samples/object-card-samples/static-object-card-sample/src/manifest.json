@@ -1,0 +1,122 @@
+{
+  "sap.app": {
+    "id": "my.company.ns.static.object.card",
+    "type": "card",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{STATIC_OBJECT_TITLE}}",
+    "subTitle": "{{STATIC_OBJECT_SUBTITLE}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "shortTitle": "{{STATIC_OBJECT_SHORTTITLE}}",
+    "info": "{{STATIC_OBJECT_INFO}}",
+    "description": "{{STATIC_OBJECT_DESCRIPTION}}",
+    "tags": {
+      "keywords": [
+        "{{STATIC_OBJECT_KEYWORD1}}",
+        "{{STATIC_OBJECT_KEYWORD2}}",
+        "{{STATIC_OBJECT_KEYWORD4}}",
+        "{{STATIC_OBJECT_KEYWORD4}}"
+      ]
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://switch-classes"
+    }
+  },
+  "sap.card": {
+    "type": "Object",
+    "header": {
+      "icon": {
+        "src": "sap-icon://building",
+        "shape": "Square"
+      },
+      "title": "{{STATIC_OBJECT_CARD_TITLE}}",
+      "subTitle": "{{STATIC_OBJECT_CARD_TITLE}}"
+    },
+    "content": {
+      "data": {
+        "json": {
+          "contacts": [
+            {
+              "name": "Alain Chevalier",
+              "photo": "./AlainChevalier.png"
+            },
+            {
+              "name": "Donna Moore",
+              "photo": "./DonnaMoore.png"
+            }
+          ]
+        }
+      },
+      "groups": [
+        {
+          "alignment": "Stretch",
+          "items": [
+            {
+              "value": "Overdue by 20 days",
+              "type": "Status",
+              "state": "Error"
+            },
+            {
+              "value": "USD 10,000.00 was to be billed on 23rd August, 2021."
+            }
+          ]
+        },
+        {
+          "items": [
+            {
+              "label": "Billing Element",
+              "value": "RN47565.0.1"
+            },
+            {
+              "label": "Customer",
+              "value": "Domestic US Customer 1"
+            }
+          ]
+        },
+        {
+          "items": [
+            {
+              "label": "Project",
+              "value": "RN4765"
+            },
+            {
+              "label": "Contacts",
+              "type": "IconGroup",
+              "path": "contacts",
+              "template": {
+                "icon": {
+                  "src": "{photo}",
+                  "text": "{= format.initials(${name})}"
+                },
+                "actions": [
+                  {
+                    "type": "Navigation",
+                    "parameters": {
+                      "url": "/contacts-service?name={= encodeURIComponent(${name}) }"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "footer": {
+      "actionsStrip": [
+        {
+          "text": "Pay Bill",
+          "buttonType": "Accept"
+        },
+        {
+          "text": "Block Payment",
+          "buttonType": "Reject"
+        }
+      ]
+    }
+  }
+}

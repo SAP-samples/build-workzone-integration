@@ -1,0 +1,94 @@
+{
+  "_version": "1.14.0",
+  "sap.app": {
+    "id": "my.company.ns.bubble.chart.card",
+    "type": "card",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{BUBBLE_CHART_TITLE}}",
+    "subTitle": "{{BUBBLE_CHART_SUBTITLE}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "shortTitle": "{{BUBBLE_CHART_SHORTTITLE}}",
+    "info": "{{BUBBLE_CHART_INFO}}",
+    "description": "{{BUBBLE_CHART_DESCRIPTION}}",
+    "tags": {
+      "keywords": ["{{BUBBLE_CHART_KEYWORD1}}", "{{BUBBLE_CHART_KEYWORD2}}", "{{BUBBLE_CHART_KEYWORD4}}", "{{BUBBLE_CHART_KEYWORD4}}"]
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5"
+  },
+  "sap.card": {
+    "type": "Analytical",
+    "header": {
+      "title": "{{BUBBLE_CHART_CARDTITLE}}"
+    },
+    "content": {
+      "data": {
+        "request": {
+          "url": "./data.json"
+        },
+        "path": "/milk"
+      },
+      "chartType": "bubble",
+      "chartProperties": {
+        "title": {
+          "visible": false
+        },
+        "legendGroup": {
+          "layout": {
+            "position": "right",
+            "alignment": "topLeft"
+          }
+        }
+      },
+      "minHeight": "20rem",
+      "dimensions": [
+        {
+          "name": "Store Name",
+          "value": "{Store Name}"
+        }
+      ],
+      "measures": [
+        {
+          "name": "Cost",
+          "value": "{Cost}"
+        },
+        {
+          "name": "Revenue",
+          "value": "{Revenue}"
+        },
+        {
+          "name": "Consumption",
+          "value": "{Consumption}"
+        }
+      ],
+      "feeds": [
+        {
+          "uid": "valueAxis",
+          "type": "Measure",
+          "values": ["Revenue"]
+        },
+        {
+          "uid": "valueAxis2",
+          "type": "Measure",
+          "values": ["Cost"]
+        },
+        {
+          "uid": "bubbleWidth",
+          "type": "Measure",
+          "values": ["Consumption"]
+        },
+        {
+          "uid": "color",
+          "type": "Dimension",
+          "values": ["Store Name"]
+        }
+      ],
+      "popover": {
+        "active": true
+      }
+    }
+  }
+}

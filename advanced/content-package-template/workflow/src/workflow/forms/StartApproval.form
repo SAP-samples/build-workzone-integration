@@ -1,0 +1,107 @@
+{
+    "id": "startapproval",
+    "schemaVersion": "1.0.0",
+    "name": "StartApproval",
+    "revision": "1.0",
+    "type": "start",
+    "readOnly": false,
+    "content": [
+        {
+            "id": "decisionneed",
+            "type": "section",
+            "title": "Decision Need",
+            "content": [
+                {
+                    "id": "subject",
+                    "type": "string",
+                    "label": "Subject",
+                    "placeholder": "We need to decide on...",
+                    "readOnly": false,
+                    "value": "${context.general.subject}",
+                    "control": {
+                        "type": "TextArea",
+                        "properties": {
+                            "height": "small"
+                        }
+                    },
+                    "constraints": {
+                        "required": true
+                    }
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "label": "Description",
+                    "placeholder": "... a matter that is described here at length.",
+                    "readOnly": false,
+                    "value": "${context.general.description}",
+                    "control": {
+                        "type": "TextArea",
+                        "properties": {
+                            "height": "medium"
+                        }
+                    },
+                    "constraints": {
+                        "required": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": "firstlevelapproval",
+            "type": "section",
+            "title": "1st Level Approval",
+            "content": [
+                {
+                    "id": "firstusers",
+                    "type": "string",
+                    "label": "Approver",
+                    "placeholder": "peter.smith@mycompany.com",
+                    "readOnly": false,
+                    "value": "${context.recipients.firstApprover}",
+                    "control": {
+                        "type": "TextArea",
+                        "properties": {
+                            "height": "small"
+                        }
+                    },
+                    "constraints": {
+                        "required": true
+                    }
+                }
+            ]
+        },
+        {
+            "id": "secondlevelapproval",
+            "type": "section",
+            "title": "2nd Level Approval",
+            "content": [
+                {
+                    "id": "secondusers",
+                    "type": "string",
+                    "label": "Approver",
+                    "placeholder": "claire.morgan@mycompany.com (optional)",
+                    "readOnly": false,
+                    "value": "${context.recipients.secondApprover}",
+                    "control": {
+                        "type": "TextArea",
+                        "properties": {
+                            "height": "small"
+                        }
+                    },
+                    "constraints": {
+                        "required": true
+                    }
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "id": "action1",
+            "text": "Start Approval",
+            "workflowDefinitionId": "simpleapproval",
+            "workflowPath": "/simple-approval/workflow/workflows/SimpleApproval.workflow"
+        }
+    ]
+}

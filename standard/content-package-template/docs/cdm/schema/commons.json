@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "description": "Common data model design time commons",
+  "properties": {
+  },
+  "definitions": {
+    "_version": {
+      "description": "Version of an entity",
+      "type": "string",
+      "default": "3.0.0",
+      "enum": [
+        "3.2.0",
+        "3.2",
+        "3.1.0",
+        "3.1",
+        "3.0.1",
+        "3.0.0",
+        "3.0"
+      ]
+    },
+    "id": {
+      "type": "string",
+      "maxLength": 70,
+      "pattern": "^[\\w\\-:@+~.#\\/]+$"
+    },
+    "i18nKey": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^\\{\\{[^\\W][\\w\\.\\-\\|]*\\}\\}$"
+        },
+        {
+          "description": "A workaround for non-translated json examples. should be removed once Portal implements translations",
+          "type": "string"
+        }
+      ]
+    },
+    "reference": {
+      "type": "object",
+      "required": ["id"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/id"
+        }
+      }
+    },
+    "jsonMergeDef": {
+      "description": "A JSON fragment which is to be merged into another JSON based on the layering Strategy defined in the respective JSON subtree",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "_layeringStrategy": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Describes how the JSON fragment is merged into another JSON (e.g. an app descriptor fragment is merged into an app descriptor)",
+          "properties": {
+            "array": {
+              "type": "string",
+              "enum": ["append", "replace", "prepend"],
+              "default": "replace"
+            },
+            "object": {
+              "type": "string",
+              "enum": ["merge", "replace"],
+              "default": "merge"
+            }
+          }
+        }
+      }
+    },
+    "jsonMergeFragment": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/jsonMergeDef"
+        },
+        {
+          "description": "Nested layering strategy",
+          "type": "object",
+          "patternProperties": {
+            "^.*$": {
+              "description": "Object Properties are also jsonMergeFragments",
+              "$ref": "#/definitions/jsonMergeDef"
+            }
+          }
+        },
+        {
+          "description": "Array items are also jsonMergeFragments",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/jsonMergeDef"
+          }
+        },
+        {
+          "description": "Other Json Types can have any format",
+          "not": {
+            "type": [
+              "object",
+              "array"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

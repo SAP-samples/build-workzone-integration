@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Visualization",
+  "description": "Abstraction of controls for launching apps",
+  "type": "object",
+  "required": ["vizType", "vizConfig"],
+  "additionalProperties": false,
+  "properties": {
+    "vizType": {
+      "type": "string",
+      "description": "Reference to a concrete visualization type",
+      "example": [
+        "sap.ushell.StaticAppLauncher",
+        "sap.ushell.DynamicAppLauncher",
+        "sap.ushell.CustomAppLauncher",
+        "sap.card"
+      ]
+    },
+    "vizConfig": {
+      "$ref": "viz-config.json"
+    },
+    "vizResources": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "artifactId": {
+          "type": "string",
+          "description": "Reference to an artifact declared as content item in the manifest of the content package that contains this visualization"
+        }
+      }
+    }
+  }
+}

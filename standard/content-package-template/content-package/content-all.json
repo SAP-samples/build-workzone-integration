@@ -1,0 +1,109 @@
+{
+  "sample-role1": {
+    "type": "role",
+    "src": {
+      "from": "../cdm-samples/src",
+      "content": "role1.json"
+    }
+  },
+  "sample-role2": {
+    "type": "role",
+    "src": {
+      "from": "../cdm-samples/src",
+      "content": "role2.json"
+    }
+  },
+  "sample-space1": {
+    "type": "space",
+    "src": {
+      "from": "../cdm-samples/src",
+      "content": "space1.json"
+    }
+  },
+  "sample-workpage1": {
+    "type": "workpage",
+    "src": {
+      "from": "../cdm-samples/src",
+      "content": "workpage1.json"
+    }
+  },
+  "sample-workpage2": {
+    "type": "workpage",
+    "src": {
+      "from": "../cdm-samples/src",
+      "content": "workpage2.json"
+    }
+  },
+  "sample-businessapp1": {
+    "type": "businessapp",
+    "src": {
+      "from": "../cdm-samples/src",
+      "content": "businessapp1.json"
+    }
+  },
+  "bubble-chart-card-sample": {
+    "type": "card",
+    "src": {
+      "appId": "my.company.ns.contentpackage.app1",
+      "vizId": "my.company.ns.contentpackage.app1.viz1",
+      "from": "../card-samples/analytical-card-samples/bubble-chart-card-sample",
+      "build": "npm i && npm run-script build",
+      "package": "my.company.ns.bubble.chart.card.zip",
+      "manifest": "src/manifest.json"
+    }
+  },
+  "line-chart-card-sample": {
+    "type": "card",
+    "src": {
+      "from": "../card-samples/analytical-card-samples/line-chart-card-sample",
+      "build": "npm i && npm run-script build",
+      "package": "my.company.ns.line.chart.card.zip",
+      "manifest": "src/manifest.json"
+    }
+  },
+  "donut-chart-card-sample": {
+    "type": "card",
+    "src": {
+      "from": "../card-samples/analytical-card-samples/donut-chart-card-sample",
+      "build": "npm i && npm run-script build",
+      "package": "my.company.ns.donut.chart.card.zip",
+      "manifest": "src/manifest.json"
+    }
+  },
+  "static-object-card-sample": {
+    "type": "card",
+    "src": {
+      "from": "../card-samples/object-card-samples/static-object-card-sample",
+      "build": "npm i && npm run-script build",
+      "package": "my.company.ns.static.object.card.zip",
+      "manifest": "src/manifest.json"
+    }
+  },
+  "data-object-card-sample": {
+    "type": "card",
+    "src": {
+      "from": "../card-samples/object-card-samples/data-object-card-sample",
+      "build": "npm i && npm run-script build",
+      "package": "my.company.ns.data.object.card.zip",
+      "manifest": "src/manifest.json"
+    }
+  },
+  "static-list-card-sample": {
+    "type": "card",
+    "src": {
+      "from": "../card-samples/list-card-samples/static-list-card-sample",
+      "build": "npm i && npm run-script build",
+      "package": "my.company.ns.static.list.card.zip",
+      "manifest": "src/manifest.json"
+    }
+  },
+  "data-list-card-sample": {
+    "type": "card",
+    "src": {
+      "from": "../card-samples/list-card-samples/data-list-card-sample",
+      "build": "npm i && npm run-script build",
+      "package": "my.company.ns.data.list.card.zip",
+      "manifest": "src/manifest.json"
+    }
+  }
+}

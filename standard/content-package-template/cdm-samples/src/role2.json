@@ -1,0 +1,29 @@
+{
+  "_version": "3.2.0",
+  "identification": {
+    "id": "my.company.ns.contentpackage.role2",
+    "title": "{{ROLE_TITLE2}}",
+    "entityType": "role"
+  },
+  "payload": {
+    "spaces": [
+      {
+        "id": "my.company.ns.contentpackage.space1"
+      }
+    ],
+    "apps": [
+      {
+        "id": "my.company.ns.line.chart.card.app"
+      },
+      {
+        "id": "my.company.ns.donut.chart.card.app"
+      },
+      {
+        "id": "my.company.ns.static.object.card.app"
+      },
+      {
+        "id": "my.company.ns.data.list.card.app"
+      }
+    ]
+  }
+}

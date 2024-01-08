@@ -1,0 +1,1 @@
+require("sap-workzone-cpkg-tools")["homepage"].build(__dirname);

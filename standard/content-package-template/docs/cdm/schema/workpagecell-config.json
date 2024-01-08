@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Work Page Cell Configuration",
+  "description": "Configuration of a work page cell",
+  "type": "object",
+  "$comment": "FIXME list of attributes not yet finalized",
+  "properties": {}
+}

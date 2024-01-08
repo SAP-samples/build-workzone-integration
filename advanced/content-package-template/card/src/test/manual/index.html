@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>cpkg.project.template.card</title>
+
+	<script id="sap-ui-bootstrap" src="https://openui5nightly.hana.ondemand.com/resources/sap-ui-integration.js"
+		data-sap-ui-xx-waitForTheme="true" data-sap-ui-theme="sap_fiori_3" data-sap-ui-compatVersion="edge"
+		data-sap-ui-language="en_US" data-sap-ui-libs="sap.ui.integration" data-sap-ui-async="true"
+		data-sap-ui-oninit="init">
+		</script>
+	<script>
+		function init() {
+			sap.ui.require(["sap-ui-integration-editor"], function () {
+				sap.ui.require(["sap/m/Button", "sap/m/Dialog", "sap/ui/integration/designtime/editor/CardEditor"], function (Button, Dialog, CardEditor) {
+					var oButton = new Button({
+						text: "Show Card Editor for Administrator",
+						press: function () {
+							var oDialog = new Dialog({
+								title: "Edit Card Settings as Administrator",
+								horizontalScrolling: false,
+								beginButton: new Button({
+									type: "Emphasized",
+									text: "OK",
+									press: function () {
+										sap.m.MessageToast.show("Apply settings");
+										document.getElementById("sampleCard")._getControl().setManifestChanges([oEditor.getCurrentSettings()]);
+										oDialog.close();
+									}
+								}),
+								endButton: new Button({
+									text: "Close",
+									press: function () {
+										oDialog.close();
+									}
+								})
+							});
+							var oEditor = new CardEditor({
+								card: document.getElementById("sampleCard")._getControl(),
+								mode: "admin",
+								allowSettings: true,
+								allowDynamicValues: true,
+								language: "fr"
+							});
+							oDialog.addContent(oEditor);
+							oDialog.open();
+						}
+					});
+					oButton.placeAt("buttons");
+
+				});
+			});
+		}
+
+	</script>
+</head>
+
+<body class="sapUiBody sapUiSizeCompact" style="margin:1rem">
+
+	<ui-integration-card id="sampleCard" manifest="../../manifest.json" style="width:20rem; height:400px">
+	</ui-integration-card>
+
+	<div id="buttons" style="margin:1rem">
+
+	</div>
+</body>
+
+</html>
