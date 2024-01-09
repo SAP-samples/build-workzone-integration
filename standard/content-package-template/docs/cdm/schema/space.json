@@ -1,0 +1,67 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "space",
+  "type": "object",
+  "description": "Spaces are grouping content, currently only pages",
+  "required": [
+    "_version",
+    "identification",
+    "payload"
+  ],
+  "properties": {
+    "_version": {
+      "description": "Spaces have been introduced with CDM version 3.1",
+      "type": "string",
+      "enum": [
+        "3.2.0",
+        "3.2",
+        "3.1.0",
+        "3.1"
+      ]
+    },
+    "identification": {
+      "$ref": "identification.json"
+    },
+    "payload": {
+      "type": "object",
+      "required": ["contentNodes"],
+      "properties": {
+        "spaceConfig": {
+          "$ref": "space-config.json"
+        },
+        "contentNodes": {
+          "description": "List of the assigned content nodes; so far restricted to a flat list of pages, might be extended in subsequent versions",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/contentNode"
+          }
+        },
+        "sortNumber": {
+          "description": "Determines an order of all spaces: The space comes after other spaces with smaller sortNumber and before spaces with larger sortNumber; spaces with no sort number come after all spaces with a sortNumber.",
+          "type": "number",
+          "multipleOf" : 0.001,
+          "exclusiveMinimum": -10000,
+          "exclusiveMaximum": 10000          
+        }
+      }
+    },
+    "texts": {
+      "$ref": "texts.json"
+    }
+  },
+  "definitions": {
+    "contentNode": {
+      "type": "object",
+      "required": ["type", "id"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": ["page", "workpage"]
+        },
+        "id": {
+          "$ref": "commons.json#/definitions/id"
+        }
+      }
+    }
+  }
+}

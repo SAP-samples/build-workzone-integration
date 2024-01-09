@@ -1,0 +1,51 @@
+{
+  "_version": "1.14.0",
+  "sap.app": {
+    "id": "my.company.ns.data.list.card",
+    "type": "card",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{DYNAMIC_LIST_TITLE}}",
+    "subTitle": "{{DYNAMIC_LIST_SUBTITLE}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "shortTitle": "{{DYNAMIC_LIST_SHORTTITLE}}",
+    "info": "{{DYNAMIC_LIST_INFO}}",
+    "description": "{{DYNAMIC_LIST_DESCRIPTION}}",
+    "tags": {
+      "keywords": [
+        "{{DYNAMIC_LIST_KEYWORD1}}",
+        "{{DYNAMIC_LIST_KEYWORD2}}",
+        "{{DYNAMIC_LIST_KEYWORD4}}",
+        "{{DYNAMIC_LIST_KEYWORD4}}"
+      ]
+    }
+  },
+  "sap.card": {
+    "type": "List",
+    "header": {
+      "title": "{{DYNAMIC_LIST_CARDTITLE}}",
+      "subTitle": "{{DYNAMIC_LIST_CARDSUBTITLE}}",
+      "icon": {
+        "src": "sap-icon://product"
+      }
+    },
+    "content": {
+      "data": {
+        "request": {
+          "url": "https://services.odata.org/V4/Northwind/Northwind.svc/Products",
+          "parameters": {
+            "$format": "json"
+          }
+        },
+        "path": "/value"
+      },
+      "item": {
+        "title": "{ProductName}",
+        "description": "{UnitsInStock} units in stock",
+        "highlight": "{= ${Discontinued} ? 'Error' : 'Success'}"
+      },
+      "maxItems": 5
+    }
+  }
+}

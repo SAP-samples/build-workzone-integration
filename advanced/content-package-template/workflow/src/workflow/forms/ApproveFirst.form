@@ -1,0 +1,85 @@
+{
+    "id": "approvefirst",
+    "schemaVersion": "1.0.0",
+    "name": "ApproveFirst",
+    "revision": "1.0",
+    "type": "task",
+    "readOnly": false,
+    "content": [
+        {
+            "id": "decisionneed",
+            "type": "section",
+            "title": "Decision Need",
+            "content": [
+                {
+                    "id": "subject",
+                    "type": "string",
+                    "label": "Subject",
+                    "readOnly": true,
+                    "value": "${context.general.subject}",
+                    "control": {
+                        "type": "TextArea",
+                        "properties": {
+                            "height": "small"
+                        }
+                    },
+                    "constraints": {
+                        "required": false
+                    }
+                },
+                {
+                    "id": "description",
+                    "type": "string",
+                    "label": "Description",
+                    "readOnly": true,
+                    "value": "${context.general.description}",
+                    "control": {
+                        "type": "TextArea",
+                        "properties": {
+                            "height": "medium"
+                        }
+                    },
+                    "constraints": {
+                        "required": false
+                    }
+                }
+            ]
+        },
+        {
+            "id": "response",
+            "type": "section",
+            "title": "Response",
+            "content": [
+                {
+                    "id": "feedback",
+                    "type": "string",
+                    "label": "Feedback",
+                    "placeholder": "Provide a comment (optional)",
+                    "readOnly": false,
+                    "value": "${context.responses.first}",
+                    "control": {
+                        "type": "TextArea",
+                        "properties": {
+                            "height": "medium"
+                        }
+                    },
+                    "constraints": {
+                        "required": false
+                    }
+                }
+            ]
+        }
+    ],
+    "decisions": [
+        {
+            "id": "approve",
+            "text": "Approve",
+            "decisionType": "positive"
+        },
+        {
+            "id": "reject",
+            "text": "Reject",
+            "decisionType": "negative"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "content-package-sap-start-sample",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "pull": "node scripts/pull.js",
+    "build-local": "node scripts/pull.js && node scripts/build.js",
+    "build-all": "node scripts/pull.js && node scripts/build.js",
+    "validate": "node scripts/validate.js"
+  },
+  "author": "SAP SE",
+  "license": "ISC",
+  "devDependencies": {
+    "sap-workzone-cpkg-tools": "git+https://git@github.com/SAP-samples/build-workzone-integration.git"
+  },
+  "dependencies": {
+    "@ui5/cli": "^3.3.1"
+  }
+}

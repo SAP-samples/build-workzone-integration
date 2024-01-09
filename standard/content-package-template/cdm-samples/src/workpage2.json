@@ -1,0 +1,103 @@
+
+{
+  "_version": "3.2.0",
+  "identification": {
+    "id": "my.company.ns.contentpackage.workpage2",
+    "entityType": "workpage"
+  },
+  "payload": {
+    "workpageConfig": {
+      "title": "{{PAGE_TITLE2}}"
+    },
+    "rows": [
+      {
+        "id": "row-1",
+        "rowConfig": {},
+        "columns": [
+          {
+            "id": "col-11",
+            "columnConfig": {},
+            "cells": [
+              {
+                "id": "cell-111",
+                "cellConfig": {},
+                "widgets": [
+                  {
+                    "id": "widg-1111",
+                    "viz": {
+                      "appId": "my.company.ns.line.chart.card.app",
+                      "vizId": "my.company.ns.line.chart.card.viz"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "col-12",
+            "columnConfig": {},
+            "cells": [
+              {
+                "id": "cell-121",
+                "cellConfig": {},
+                "widgets": [
+                  {
+                    "id": "widg-1211",
+                    "viz": {
+                      "appId": "my.company.ns.data.list.card.app",
+                      "vizId": "my.company.ns.data.list.card.viz"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "col-13",
+            "columnConfig": {},
+            "cells": [
+              {
+                "id": "cell-131",
+                "cellConfig": {},
+                "widgets": [
+                  {
+                    "id": "widg-1311",
+                    "viz": {
+                      "appId": "my.company.ns.static.object.card.app",
+                      "vizId": "my.company.ns.static.object.card.viz"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "row-2",
+        "rowConfig": {},
+        "columns": [
+          {
+            "id": "col-21",
+            "columnConfig": {},
+            "cells": [
+              {
+                "id": "cell-211",
+                "cellConfig": {},
+                "widgets": [
+                  {
+                    "id": "widg-2111",
+                    "viz": {
+                      "appId": "my.company.ns.donut.chart.card.app",
+                      "vizId": "my.company.ns.donut.chart.card.viz"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

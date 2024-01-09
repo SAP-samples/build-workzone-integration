@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Visualization Configuration",
+  "description": "Configuration of a visualization consisting of an App Descriptor structure extended with sap.flp for information about the visualized navigation target",
+  "type": "object",
+  "$extends": "cdm://core/AppDescriptor.extension.json",
+  "properties": {
+    "sap.flp": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "$ref": "#/definitions/vizTarget"
+        },
+        "indicatorDataSource": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "refresh": {
+              "type": "number"
+            }
+          }
+        },
+        "numberUnit": {
+          "$ref": "commons.json#/definitions/i18nKey"
+        },
+        "vizOptions": {
+          "$ref": "viz-commons.json#/definitions/vizOptions"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "vizParamsValues": {
+      "type": "object",
+      "description": "Plain value Parameter (param=value)",
+      "oneOf": [
+        {
+          "properties": {
+            "format": {
+              "type": "string",
+              "const": "plain"
+            },
+            "value": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "properties": {
+            "format": {
+              "type": "string",
+              "const": "array"
+            },
+            "value": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ]
+
+    },
+    "vizTargetParameters": {
+      "type": "object",
+      "description": "Launcher Values of the the Application ( Tile parameters in the classic FLP, launcher values in CDM 2.0 App Descriptor )",
+      "patternProperties": {
+        "^[\\w\\.\\-\\/]+$": {
+          "type": "object",
+          "oneOf": [
+            {
+              "$ref": "#/definitions/vizParamsValues"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "value": {
+                  "$ref": "#/definitions/vizParamsValues"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "vizTarget": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["inboundId"],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "navigation type - Intent Based Navigation",
+              "enum": ["IBN"]
+            },
+            "inboundId": {
+              "type": "string",
+              "description": "Reference of the desired inbound"
+            },
+            "parameters": {
+              "$ref": "#/definitions/vizTargetParameters"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["type", "url"],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "navigation type - URL Based Navigation",
+              "enum": ["URL"]
+            },
+            "url": {
+              "type": "string",
+              "description": "The target URL which will be opened in a new tab"
+            },
+            "parameters": {
+              "type": "object",
+              "description": "URL parameters which will be added to the URL on build, and will be omitted in RT format",
+              "patternProperties": {
+                "^(.*)$": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1 @@
+require("sap-workzone-cpkg-tools").workflow.build(__dirname);

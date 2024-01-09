@@ -1,0 +1,80 @@
+{
+  "_version": "1.14.0",
+  "sap.app": {
+    "id": "my.company.ns.static.list.card",
+    "type": "card",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{STATIC_LIST_TITLE}}",
+    "subTitle": "{{STATIC_LIST_SUBTITLE}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "shortTitle": "{{STATIC_LIST_SHORTTITLE}}",
+    "info": "{{STATIC_LIST_INFO}}",
+    "description": "{{STATIC_LIST_DESCRIPTION}}",
+    "tags": {
+      "keywords": [
+        "{{STATIC_LIST_KEYWORD1}}",
+        "{{STATIC_LIST_KEYWORD2}}",
+        "{{STATIC_LIST_KEYWORD4}}",
+        "{{STATIC_LIST_KEYWORD4}}"
+      ]
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://list"
+    }
+  },
+  "sap.card": {
+    "type": "List",
+    "header": {
+      "title": "{{STATIC_LIST_CARDTITLE}}",
+      "subTitle": "{{STATIC_LIST_CARDSUBTITLE}}",
+      "icon": {
+        "src": "sap-icon://desktop-mobile"
+      },
+      "status": {
+        "text": "{parameters>/maxItems/value} of 20"
+      }
+    },
+    "content": {
+      "data": {
+        "json": [
+          {
+            "Name": "Comfort Easy",
+            "Description": "32 GB Digital Assistant with high-resolution color screen",
+            "Highlight": "Error"
+          },
+          {
+            "Name": "ITelO Vault",
+            "Description": "Digital Organizer with State-of-the-Art Storage Encryption",
+            "Highlight": "Warning"
+          },
+          {
+            "Name": "Notebook Professional 15",
+            "Description": "Notebook Professional 15 with 2,80 GHz quad core, 15\" Multitouch LCD, 8 GB DDR3 RAM, 500 GB SSD - DVD-Writer (DVD-R/+R/-RW/-RAM),Windows 8 Pro",
+            "Highlight": "Success"
+          },
+          {
+            "Name": "Ergo Screen E-I",
+            "Description": "Optimum Hi-Resolution max. 1920 x 1080 @ 85Hz, Dot Pitch: 0.27mm",
+            "Highlight": "Information"
+          },
+          {
+            "Name": "Laser Professional Eco",
+            "Description": "Print 2400 dpi image quality color documents at speeds of up to 32 ppm (color) or 36 ppm (monochrome), letter/A4. Powerful 500 MHz processor, 512MB of memory",
+            "Highlight": "None"
+          }
+        ]
+      },
+      "maxItems": "{parameters>/maxItems/value}",
+      "item": {
+        "title": "{Name}",
+        "description": "{Description}",
+        "highlight": "{Highlight}"
+      }
+    }
+  }
+}

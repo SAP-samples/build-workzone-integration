@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Work Page Configuration",
+  "description": "Configuration of a work page",
+  "type": "object",
+  "$comment": "FIXME list of attributes not yet finalized",
+  "required": ["title"],
+  "properties": {
+    "title": {
+      "description": "Represents the title of the WorkPage",
+      "type": "string",
+      "default": ""
+    },
+    "description": {
+      "description": "Represents an additional description of the WorkPage ",
+      "type": "string",
+      "default": ""
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+	"_version": "1.27.0",
+	"_generator": "cpkg-project-template",
+	"sap.artifact": {
+		"id": "my.company.ns.data.object.card",
+		"type": "card",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{DYNAMIC_OBJECT_TITLE}}",
+		"subTitle": "{{DYNAMIC_OBJECT_SUBTITLE}}",
+		"shortTitle": "{{DYNAMIC_OBJECT_SHORTTITLE}}",
+		"info": "{{DYNAMIC_OBJECT_INFO}}",
+		"description": "{{DYNAMIC_OBJECT_DESCRIPTION}}",
+		"tags": {
+			"keywords": [
+				"{{DYNAMIC_OBJECT_KEYWORD1}}",
+				"{{DYNAMIC_OBJECT_KEYWORD2}}",
+				"{{DYNAMIC_OBJECT_KEYWORD4}}",
+				"{{DYNAMIC_OBJECT_KEYWORD4}}"
+			]
+		},
+		"artifactVersion": {
+			"version": "1.0.0"
+		}
+	}
+}

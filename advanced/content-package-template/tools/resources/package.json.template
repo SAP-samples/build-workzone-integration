@@ -1,0 +1,17 @@
+{
+	"name": "{{ArtifactName}}",
+	"version": "1.0.0",
+	"description": "Sample project structure for a artifact that will be included into a content package",
+	"scripts": {
+		"build": "node scripts/build.js"
+	},
+	"repository": {
+		"type": "",
+		"url": "",
+		"directory": ""
+	},
+	"devDependencies": {
+	},
+	"author": "",
+	"license": ""
+}

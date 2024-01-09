@@ -8,3 +8,6 @@ The repository contains samples to demonstrate and document how to integrate and
 
 - **Guide Experience(Wizard):**
   [Explore Guide Experience](./wizard/README.md) code samples
+
+- **Content Package Template:**
+  [Advanced](./content-package-template/README.md) code samples

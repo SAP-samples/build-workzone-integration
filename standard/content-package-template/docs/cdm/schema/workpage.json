@@ -1,0 +1,145 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "workpage",
+    "type": "object",
+    "description": "Work pages define how visualizations are placed in a structure organized by rows, columns, and cells",
+    "required": [
+      "_version",
+      "identification",
+      "payload"
+    ],
+    "properties": {
+      "_version": {
+        "description": "Work pages have been introduced with CDM version 3.2",
+        "type": "string",
+        "enum": [
+          "3.2.0",
+          "3.2"
+        ]
+      },
+      "identification": {
+        "$ref": "identification.json"
+      },
+      "payload": {
+        "type": "object",
+        "required": ["workpageConfig","rows"],
+        "properties": {
+          "workpageConfig": {
+            "$ref": "workpage-config.json"
+          },
+          "rows": {
+            "description": "rows of the page",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/row"
+            }
+          }
+        }
+      },
+      "texts": {
+        "$ref": "texts.json"
+      }
+    },
+    "definitions": {
+      "row": {
+        "description": "row of a page",
+        "type": "object",
+        "required": ["id","rowConfig","columns"],
+        "properties": {
+          "id": {
+            "$ref": "commons.json#/definitions/id"
+          },
+          "rowConfig": {
+            "$ref": "workpagerow-config.json"
+          },
+          "columns": {
+            "description": "columns of the row",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/column"
+            }
+          }
+        }
+      },
+      "column": {
+        "description": "column of a row",
+        "type": "object",
+        "required": ["id","columnConfig","cells"],
+        "properties": {
+          "id": {
+            "$ref": "commons.json#/definitions/id"
+          },
+          "columnConfig": {
+            "$ref": "workpagecolumn-config.json"
+          },
+          "cells": {
+            "description": "cells contained in the column",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/cell"
+            }
+          }
+        }
+      },
+      "cell": {
+        "description": "cell in a column",
+        "type": "object",
+        "required": ["id","cellConfig","widgets"],
+        "properties": {
+          "id": {
+            "$ref": "commons.json#/definitions/id"
+          },
+          "cellConfig": {
+            "$ref": "workpagecell-config.json"
+          },
+          "widgets": {
+            "description": "widgets contained in the cell",
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/widget"
+            }
+          }
+        }
+      },
+      "widget": {
+        "description": "widget as a usage of a visualization placed in a cell",
+        "type": "object",
+        "required": ["id","viz"],
+        "properties": {
+          "id": {
+            "$ref": "commons.json#/definitions/id"
+          },
+          "viz": {
+            "$ref": "viz-commons.json#/definitions/vizReference"
+          },
+          "vizConfigAdaptations": {
+            "type": "object",
+            "description": "Path/value pairs to overwrite the values of specified properties within the vizConfig object of the referenced visualization. All paths must start with a '/'. Values of the form {{<text-key>}} will be replaced by the corresponding language-specific text with that key in the text dictionary of the containing work page",
+            "additionalProperties": false,
+            "patternProperties": {
+              "^(/[^/]+)+$": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "object"
+                  },
+                  {
+                    "type": "array"
+                  }
+                ]
+              }
+            }        
+          }
+        }
+      }
+    }
+  }
+   

@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "texts",
+  "type": "array",
+  "description": "CDM Design Time - Entity Texts",
+  "items": {
+    "type": "object",
+    "description": "Contains translation dictionary of a specific locale",
+    "properties": {
+      "locale": {
+        "type": "string",
+        "description": "The locale of the specific translated dictionary",
+        "pattern": "^([a-z]{2})?([-_]([A-Z]){2})?([-_]([\\w])+)?$"
+      },
+      "textDictionary": {
+        "type": "object",
+        "patternProperties": {
+          "^[\\w\\W]*$": {
+            "type": "string",
+            "description": "The translated string value"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "page",
+  "type": "object",
+  "description": "Pages define the layout of sections",
+  "required": [
+    "_version",
+    "identification",
+    "payload"
+  ],
+  "properties": {
+    "_version": {
+      "description": "Pages have been introduced with CDM version 3.1",
+      "type": "string",
+      "enum": [
+        "3.2.0",
+        "3.2",
+        "3.1.0",
+        "3.1"
+      ]
+    },
+    "identification": {
+      "$ref": "identification.json"
+    },
+    "payload": {
+      "type": "object",
+      "required": ["sections"],
+      "properties": {
+        "sections": {
+          "description": "a list of the assigned page sections",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/section"
+          }
+        }
+      }
+    },
+    "texts": {
+      "$ref": "texts.json"
+    }
+  },
+  "definitions": {
+    "section": {
+      "type": "object",
+      "required": ["id"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "commons.json#/definitions/id"
+        },
+        "title": {
+          "$ref": "commons.json#/definitions/i18nKey"
+        },
+        "viz": {
+          "description": "a list of the assigned app visualizations",
+          "type": "array",
+          "items": {
+            "$ref": "viz-commons.json#/definitions/vizReferenceWithDisplayFormatHints"
+          }
+        }
+      }
+    }
+  }
+}
