@@ -21,7 +21,7 @@
 		</headerToolbar>
 
 		<List id="todoList"
-			items="{ path: 'context>/todos', events: { change: '.persistToDoList' } }"
+			items="{ path: 'context>/todos', events: { change: '.updateTodoList' } }"
 			mode="None"
 			growing="true"
 			growingScrollToLoad="true"
@@ -30,16 +30,21 @@
 			<CustomListItem>
 				<FlexBox alignItems="Center" class="sapUiTinyMarginBeginEnd">
 					<CheckBox selected="{context>completed}" />
-					<Text text="{context>title}" class="todo-title">
+					<HBox>
 						<layoutData>
 							<FlexItemData growFactor="1" />
 						</layoutData>
-						<customData>
-							<core:CustomData key="todo-item-completed"
-								value="{= String(${context>completed})}"
-								writeToDom="true" />
-						</customData>
-					</Text>
+						<Text text="{context>title}" class="todo-title">
+							<customData>
+								<core:CustomData key="todo-item-completed"
+									value="{= String(${context>completed})}"
+									writeToDom="true" />
+							</customData>
+						</Text>
+						<Text class="todo-complete" text="(completed at: {context>completedAt})"
+							visible="{= !!${context>completed} }">
+						</Text>
+					</HBox>
 					<Button icon="sap-icon://delete" type="Reject" press=".remove" />
 				</FlexBox>
 			</CustomListItem>

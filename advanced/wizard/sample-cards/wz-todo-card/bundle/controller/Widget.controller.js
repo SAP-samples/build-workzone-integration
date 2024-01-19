@@ -21,7 +21,7 @@ sap.ui.define([
   'sap/m/MessageToast',
   'sap/ui/model/Filter',
   'sap/ui/model/FilterOperator'
-], function (Controller, JSONModel, MessageBox, MessageToast, Filter,FilterOperator) {
+], function (Controller, JSONModel, MessageBox, MessageToast, Filter, FilterOperator) {
   return Controller.extend('sap.workzone.samples.todo.controller.Widget', {
     tabFilters: [],
 
@@ -118,6 +118,23 @@ sap.ui.define([
           content: context
         }]
       });
+    },
+
+    updateTodoList() {
+      const context = this.getData();
+      const { todos = [] } = context;
+
+      todos.forEach(function (item) {
+        if (item.completed) {
+          if (!item.completedAt) {
+            item.completedAt = new Date().toLocaleString();
+          }
+        } else if (item.completedAt) {
+          delete item.completedAt;
+        }
+      });
+
+      this.persistToDoList();
     },
 
     addTodo() {
