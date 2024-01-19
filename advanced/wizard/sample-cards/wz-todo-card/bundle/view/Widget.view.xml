@@ -1,0 +1,54 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	controllerName="sap.workzone.samples.todo.controller.Widget"
+	displayBlock="true">
+	<Panel backgroundDesign="Transparent" class="sapUiNoContentPadding">
+		<headerToolbar>
+			<Toolbar id="toolbar" class="sapUiTinyMarginTopBottom" height="2.75rem">
+				<Input id="addTodoItemInput" value="{context>/newTodo}"
+					placeholder="What needs to be done?" change=".addTodo" />
+				<ToolbarSpacer />
+				<SegmentedButton selectedKey="all" selectionChange=".onFilter">
+					<items>
+						<SegmentedButtonItem text="All" key="all" />
+						<SegmentedButtonItem text="Active" key="active" />
+						<SegmentedButtonItem text="Completed" key="completed" />
+					</items>
+				</SegmentedButton>
+			</Toolbar>
+		</headerToolbar>
+
+		<List id="todoList"
+			items="{ path: 'context>/todos', events: { change: '.updateTodoList' } }"
+			mode="None"
+			growing="true"
+			growingScrollToLoad="true"
+			showNoData="false"
+			showSeparators="None">
+			<CustomListItem>
+				<FlexBox alignItems="Center" class="sapUiTinyMarginBeginEnd">
+					<CheckBox selected="{context>completed}" />
+					<HBox>
+						<layoutData>
+							<FlexItemData growFactor="1" />
+						</layoutData>
+						<Text text="{context>title}" class="todo-title">
+							<customData>
+								<core:CustomData key="todo-item-completed"
+									value="{= String(${context>completed})}"
+									writeToDom="true" />
+							</customData>
+						</Text>
+						<Text class="todo-complete" text="(completed at: {context>completedAt})"
+							visible="{= !!${context>completed} }">
+						</Text>
+					</HBox>
+					<Button icon="sap-icon://delete" type="Reject" press=".remove" />
+				</FlexBox>
+			</CustomListItem>
+		</List>
+
+	</Panel>
+</mvc:View>

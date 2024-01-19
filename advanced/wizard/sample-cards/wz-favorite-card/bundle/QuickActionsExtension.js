@@ -77,7 +77,7 @@ sap.ui.define([
       const oCard = this.getCardInstance();
 
       oCard.attachEvent('Page:SubmitWizard', oEvent => {
-        const promise = new Promise((resolve) => {
+        const promise = new Promise((resolve, reject) => {
           const validatedResult = this.doValidate();
 
           if (validatedResult) {

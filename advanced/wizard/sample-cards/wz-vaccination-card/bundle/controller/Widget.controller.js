@@ -6,16 +6,16 @@ sap.ui.define([
   return Controller.extend('sap.workzone.samples.vaccination.controller.Widget', {
     onInit() {
       this.setupContextModel();
-      this.setUpSubmitEvent();
+      this.setupSubmitEvent();
     },
 
-    setUpSubmitEvent() {
+    setupSubmitEvent() {
       const oCard = this.getCard();
 
       oCard.attachEvent('Page:SubmitWizard', oEvent => {
         console.log(oEvent);
 
-        const promise = new Promise((resolve) => {
+        const promise = new Promise((resolve, reject) => {
           const validatedResult = this.doValidate();
           this.doSubmit();
 
