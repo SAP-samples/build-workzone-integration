@@ -1,10 +1,30 @@
+function getPressItemIndex(e) {
+  let element = e.getSource();
+
+  do {
+    if (typeof element.getBindingContextPath === 'function') {
+      const path = element.getBindingContextPath();
+      const index = path.split('/').pop();
+      return index;
+    }
+
+    element = element.getParent();
+  } while (element);
+
+  return -1;
+}
+
 sap.ui.define([
   'sap/ui/core/mvc/Controller',
   'sap/ui/model/json/JSONModel',
   'sap/m/MessageBox',
-  'sap/m/MessageToast'
-], function (Controller, JSONModel, MessageBox, MessageToast) {
+  'sap/m/MessageToast',
+  'sap/ui/model/Filter',
+  'sap/ui/model/FilterOperator'
+], function (Controller, JSONModel, MessageBox, MessageToast, Filter,FilterOperator) {
   return Controller.extend('sap.workzone.samples.todo.controller.Widget', {
+    tabFilters: [],
+
     onInit() {
       this.setupContextModel();
       this.setupSubmitEvent();
@@ -31,6 +51,11 @@ sap.ui.define([
     setupContextModel() {
       const view = this.getView();
       const { context, flow } = this.getCardContext();
+
+      if (!context.todos) {
+        context.todos = [];
+      }
+
       const contextModel = new JSONModel(context);
       const flowModel = new JSONModel(flow);
 
@@ -58,10 +83,16 @@ sap.ui.define([
       return oCard.getCombinedParameters();
     },
 
-    doValidate() {
+    getData() {
       const view = this.getView();
       const contextModel = view.getModel('context');
       const context = contextModel.getData();
+
+      return context;
+    },
+
+    doValidate() {
+      const context = this.getData();
       const { todos = [] } = context;
 
       const hasIncompleteItem = todos.some(item => !item.completed);
@@ -77,9 +108,7 @@ sap.ui.define([
     },
 
     persistToDoList() {
-      const view = this.getView();
-      const contextModel = view.getModel('context');
-      const context = contextModel.getData();
+      const context = this.getData();
       const oCard = this.getCard();
 
       oCard.triggerAction({
@@ -89,6 +118,20 @@ sap.ui.define([
           content: context
         }]
       });
+    },
+
+    addTodo() {
+      const context = this.getData();
+      const { todos = [], newTodo } = context;
+
+      todos.push({
+        title: newTodo,
+        completed: false
+      });
+
+      context.newTodo = '';
+
+      this.persistToDoList();
     },
 
     doSubmit() {
@@ -105,7 +148,48 @@ sap.ui.define([
     },
 
     remove(e) {
+      const index = getPressItemIndex(e);
+
+      if (index === -1) {
+        return;
+      }
+
+      const context = this.getData();
+      const { todos = [] } = context;
+
+      todos.splice(index, 1);
+
       this.persistToDoList();
+    },
+
+    onFilter(event) {
+      // First reset current filters
+      this.tabFilters = [];
+
+      // add filter for search
+      this.filterKey = event.getParameter("item").getKey();
+
+      // eslint-disable-line default-case
+      switch (this.filterKey) {
+        case "active":
+          this.tabFilters.push(new Filter("completed", FilterOperator.EQ, false));
+          break;
+        case "completed":
+          this.tabFilters.push(new Filter("completed", FilterOperator.EQ, true));
+          break;
+        case "all":
+        default:
+        // Don't use any filter
+      }
+
+      this._applyListFilters();
+    },
+
+    _applyListFilters() {
+      const list = this.byId("todoList");
+      const binding = list.getBinding("items");
+
+      binding.filter(this.tabFilters, "todos");
     }
   });
 });

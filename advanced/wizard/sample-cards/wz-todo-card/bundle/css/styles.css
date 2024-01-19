@@ -1,0 +1,3 @@
+.todo-title[data-todo-item-completed="true"] {
+	text-decoration: line-through;
+}

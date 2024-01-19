@@ -31,6 +31,13 @@
       "type": "XML",
       "async": true,
       "id": "app"
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/styles.css"
+        }
+      ]
     }
   },
   "sap.card": {
@@ -45,7 +52,7 @@
     },
     "type": "component",
     "header": {
-      "title": "Submit Vaccination Status",
+      "title": "Todos",
       "icon": {
         "src": "/img/app_icon.png"
       }
