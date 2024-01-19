@@ -1,9 +1,10 @@
 sap.ui.define([
   'sap/ui/core/mvc/Controller',
   'sap/ui/model/json/JSONModel',
-  'sap/m/MessageBox'
-], function (Controller, JSONModel, MessageBox) {
-  return Controller.extend('sap.workzone.samples.vaccination.controller.Widget', {
+  'sap/m/MessageBox',
+  'sap/m/MessageToast'
+], function (Controller, JSONModel, MessageBox, MessageToast) {
+  return Controller.extend('sap.workzone.samples.todo.controller.Widget', {
     onInit() {
       this.setupContextModel();
       this.setupSubmitEvent();
@@ -13,21 +14,14 @@ sap.ui.define([
       const oCard = this.getCard();
 
       oCard.attachEvent('Page:SubmitWizard', oEvent => {
-        console.log(oEvent);
-
         const promise = new Promise((resolve, reject) => {
-          const validatedResult = this.doValidate();
-          this.doSubmit();
+          const submitResult = this.doSubmit();
 
-          if (validatedResult) {
-            MessageBox.error(validatedResult.title);
-            reject(validatedResult);
-            return;
+          if (submitResult) {
+            reject(submitResult);
+          } else {
+            resolve('done');
           }
-
-          setTimeout(() => {
-            resolve('vaccination is done')
-          }, 500);
         });
 
         oEvent.mParameters.submitPromise = promise;
@@ -68,31 +62,13 @@ sap.ui.define([
       const view = this.getView();
       const contextModel = view.getModel('context');
       const context = contextModel.getData();
+      const { todos = [] } = context;
 
-      if (!context.vaccinated) {
-        return {
-          title: 'Have you been vaccinated once?',
-          level: 'Error'
-        };
-      }
+      const hasIncompleteItem = todos.some(item => !item.completed);
 
-      if (!context.vaccinatedStatus) {
+      if (hasIncompleteItem) {
         return {
-          title: 'Please chose your vaccinated status',
-          level: 'Error'
-        };
-      }
-
-      if (!context.firstDoesDate) {
-        return {
-          title: 'Please first vaccinated date',
-          level: 'Error'
-        };
-      }
-
-      if (!context.secondDoesDate) {
-        return {
-          title: 'Please second vaccinated date',
+          title: 'There are incomplete todo item',
           level: 'Warning'
         };
       }
@@ -100,7 +76,7 @@ sap.ui.define([
       return null;
     },
 
-    doSubmit() {
+    persistToDoList() {
       const view = this.getView();
       const contextModel = view.getModel('context');
       const context = contextModel.getData();
@@ -115,8 +91,21 @@ sap.ui.define([
       });
     },
 
-    press() {
-      this.doSubmit();
+    doSubmit() {
+      const validatedResult = this.doValidate();
+
+      this.persistToDoList();
+
+      if (validatedResult) {
+        MessageBox.error(validatedResult.title);
+        return validatedResult;
+      }
+
+      MessageToast.show('All todos are completed');
+    },
+
+    remove(e) {
+      this.persistToDoList();
     }
   });
 });

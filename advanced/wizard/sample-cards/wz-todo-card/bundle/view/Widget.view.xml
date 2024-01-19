@@ -1,0 +1,49 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	controllerName="sap.workzone.samples.todo.controller.Widget"
+	displayBlock="true">
+	<Page>
+		<customHeader>
+			<OverflowToolbar id="toolbar" class="sapUiSizeCompact">
+				<Input class="todoInput" id="addTodoItemInput" value="{/newTodo}"
+					placeholder="What needs to be done?" change=".addTodo" />
+				<ToolbarSpacer />
+				<SegmentedButton selectedKey="all" selectionChange=".onFilter"
+					class="sapMSegmentedButtonNoAutoWidth">
+					<items>
+						<SegmentedButtonItem text="All" key="all" />
+						<SegmentedButtonItem text="Active" key="active" />
+						<SegmentedButtonItem text="Completed" key="completed" />
+					</items>
+				</SegmentedButton>
+			</OverflowToolbar>
+		</customHeader>
+		<content>
+			<List id="todoList"
+				items="{ path: 'context>/todos', events: { change: '.persistToDoList' } }"
+				mode="None"
+				growing="true"
+				growingScrollToLoad="true"
+				showNoData="false"
+				showSeparators="None">
+				<CustomListItem>
+					<HBox>
+						<CheckBox selected="{completed}" />
+						<VBox justifyContent="Center">
+							<Text text="{title}" />
+							<Text text="{createdAt}" />
+						</VBox>
+						<Button text="Remove" press=".remove"></Button>
+					</HBox>
+					<customData>
+						<core:CustomData key="todo-item-completed" value="{= String(${completed})}"
+							writeToDom="true" />
+					</customData>
+				</CustomListItem>
+			</List>
+		</content>
+
+	</Page>
+</mvc:View>
