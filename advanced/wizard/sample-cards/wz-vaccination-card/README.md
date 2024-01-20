@@ -1,7 +1,15 @@
 ## Work Zone Vaccination Component Cards
-  - Vaccination Status Card is to collect Vaccination Status
-  - Leverage Work Zone Wizard to persist Vaccination Status
-  - The card will check whether have confirmed the Vaccination in Vaccination Confirmation Card. This is an example to read context from other cards.
-  - Once it is confirmed, user is not able to update Vaccination status anymore
+
+- **Vaccination Status Card:**
+  - Collects and persists the user's Vaccination Status.
+
+- **Usage of Work Zone Wizard:**
+  - Leverages the Work Zone Wizard to manage and persist the Vaccination Status.
+
+- **Inter-Card Context Reading:**
+  - Checks whether the user has confirmed their Vaccination in the Vaccination Confirmation Card. This serves as an example of reading context from other cards.
+
+- **Update Restrictions:**
+  - Once the Vaccination is confirmed, users are restricted from updating their Vaccination status further.
 
 ![Card Preview](../images/wz-vaccination-card.png)
