@@ -1,3 +1,6 @@
 ## Work Zone Favorite Declarative Card
-  - Leverage Work Zone Wizard to persist the Favorite Item
-  - Validate whether user favorites at least one item in Wizard `Submission` event
+
+- Utilizes the Work Zone Wizard to persist Favorite Items.
+- Validates whether the user has favorited at least one item during the Wizard `Submission` event.
+
+![Card Preview](../images/wz-favorite-card.png)

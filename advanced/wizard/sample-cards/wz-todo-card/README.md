@@ -1,3 +1,6 @@
 ## Work Zone Todo Component Cards
-  - Leverage Work Zone Wizard to persist the Todo item and the status
-  - Validate whether there is any incomplete Todo item in Wizard `Submission` event
+
+- Utilizes the Work Zone Wizard to persist Todo items along with their status.
+- Validates for any incomplete Todo items during the Wizard `Submission` event.
+
+![Card Preview](../images/wz-todo-card.png)

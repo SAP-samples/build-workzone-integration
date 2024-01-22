@@ -15,6 +15,10 @@ Sample code for various Cards can be found in [sample-cards](./sample-cards/READ
   - Leverages the wizard to persist the favorite Item.
   - Validates whether the user selected at least one favorite item in the wizard.
 
+* [Work Zone Todo Component Cards](./sample-cards/wz-todo-card/):
+  - Leverage Work Zone Wizard to persist the Todo item and the status
+  - Validate whether there is any incomplete Todo item in Wizard `Submission` event
+
 * [Work Zone Vaccination Component Cards](./sample-cards/wz-favorite-card):
   - Vaccination Status card that collects vaccination status.
   - Leverage the wizard to persist vaccination status.
