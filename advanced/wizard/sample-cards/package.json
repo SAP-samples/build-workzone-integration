@@ -6,10 +6,10 @@
     "start": "http-server . -p 8010",
     "clean": "rm -f dist",
     "build:all": "npm run clean && npm run build:favorite && npm run build:vaccination && npm run build:confirm && npm run build:todo",
-    "build:favorite": "zip -r dist/wz-favorite-card.zip wz-favorite-card/bundle",
-    "build:vaccination": "zip -r dist/wz-vaccination-card.zip wz-vaccination-card/bundle",
-    "build:confirm": "zip -r dist/wz-vaccination-confirm-card.zip wz-vaccination-confirm-card/bundle",
-    "build:todo": "zip -r dist/wz-todo-card.zip wz-todo-card/bundle"
+    "build:favorite": "cd wz-favorite-card && zip -r ../dist/wz-favorite-card.zip bundle",
+    "build:vaccination": "cd wz-vaccination-card && zip -r ../dist/wz-vaccination-card.zip bundle",
+    "build:confirm": "cd wz-vaccination-confirm-card && zip -r ../dist/wz-vaccination-confirm-card.zip bundle",
+    "build:todo": "cd wz-todo-card && zip -r ../dist/wz-todo-card.zip bundle"
   },
   "author": "Ricky Jiao",
   "dependencies": {
