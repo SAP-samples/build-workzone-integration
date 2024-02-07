@@ -1,0 +1,123 @@
+{
+  "sap.app": {
+    "id": "sap.it.wz.cards.countdown",
+    "type": "card",
+    "title": "Countdown",
+    "subTitle": "Countdown",
+    "applicationVersion": {
+      "version": "1.1.5"
+    },
+    "shortTitle": "Countdown",
+    "info": "Countdown",
+    "description": "Displays a countdown to a chosen date with the option of an end message.",
+    "tags": {
+      "keywords": [
+        "Countdown",
+        "SAP IT"
+      ]
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://fob-watch"
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.77.2",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {}
+      }
+    },
+    "rootView": {
+      "viewName": "sap.it.wz.cards.countdown.view.Card",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sap.it.wz.cards.countdown.i18n.i18n"
+        }
+      }
+    }
+  },
+  "sap.platform.mobilecards": {
+    "_version": "1.0.0",
+    "compatible": false
+  },
+  "sap.card": {
+    "designtime": "./dt/Configuration",
+    "type": "Component",
+    "header": {
+      "title": "Countdown",
+      "subTitle": "",
+      "icon": {
+        "src": "sap-icon://lateness"
+      },
+      "visible" : true
+    },
+    "configuration": {
+      "parameters": {
+        "showCardHeader": {
+          "value": true
+        },
+        "widgetSrc": {
+          "value": "https://opensocialgadgets-a426ead53.dispatcher.hana.ondemand.com/cards/countdown/web/index.html"
+        },
+        "targetDate": {
+          "value": null
+        },
+        "seconds": {
+          "value": false
+        },
+        "minutes": {
+          "value": false
+        },
+        "hours": {
+          "value": false
+        },
+        "days": {
+          "value": true
+        },
+        "weeks": {
+          "value": false
+        },
+        "months": {
+          "value": false
+        },
+        "years": {
+          "value": false
+        },
+        "showCircles": {
+          "value": true
+        },
+        "filledStyle": {
+          "value": false
+        },
+        "color": {
+          "value": "#40484F"
+        },
+        "circlesHeight": {
+          "value": 120
+        },
+        "url": {
+          "value": ""
+        },
+        "startDate": {
+          "value": null
+        },
+        "endMessage": {
+          "value": ""
+        },
+        "height": {
+          "value": 144
+        }
+      }
+    }
+  }
+}

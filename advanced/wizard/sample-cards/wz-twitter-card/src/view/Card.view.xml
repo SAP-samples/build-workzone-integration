@@ -1,0 +1,6 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+	xmlns:local="sap.it.wz.cards.twitter.control"
+  controllerName="sap.it.wz.cards.twitter.controller.Card"
+  displayBlock="true">
+	<local:Frame id="frame"></local:Frame>
+</mvc:View>

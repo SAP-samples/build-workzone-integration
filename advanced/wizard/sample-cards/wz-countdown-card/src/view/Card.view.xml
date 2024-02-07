@@ -1,0 +1,6 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+	xmlns:local="sap.it.wz.cards.countdown.control"
+  controllerName="sap.it.wz.cards.countdown.controller.Card"
+  displayBlock="true">
+	<local:Frame id="frame"></local:Frame>
+</mvc:View>
