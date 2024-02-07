@@ -1,0 +1,97 @@
+{
+  "sap.app": {
+    "id": "sap.it.wz.cards.rss_feed",
+    "type": "card",
+    "title": "RSS Feed",
+    "subTitle": "RSS Feed",
+    "applicationVersion": {
+      "version": "1.1.6"
+    },
+    "shortTitle": "RSS Feed",
+    "info": "RSS Feed",
+    "description": "Displays any public RSS feed information.",
+    "tags": {
+      "keywords": [
+        "RSS Feed",
+        "SAP IT"
+      ]
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://feed"
+    }
+  },
+  "sap.platform.mobilecards": {
+    "_version": "1.0.0",
+    "compatible": false
+  },
+  "sap.card": {
+    "type": "List",
+    "extension": "./ext/DataFormatter",
+    "designtime": "./dt/Configuration",
+    "header": {
+      "title": "RSS Feed",
+      "subTitle": "NY Times",
+      "icon": {
+        "src": "sap-icon://feed"
+      },
+      "visible" : true
+    },
+    "configuration": {
+      "parameters": {
+        "url": {
+          "value": "https://cards-service.cfapps.eu10-004.hana.ondemand.com/rss?url="
+        },
+        "rssSelector": {
+          "value": "https://rss.nytimes.com/services/xml/rss/nyt/Travel.xml item title link pubDate"
+        },
+        "itemSelector": {
+          "value": "item"
+        },
+        "linkSelector": {
+          "value": "link"
+        },
+        "dateSelector": {
+          "value": "pubDate"
+        },
+        "titleSelector": {
+          "value": "title"
+        },
+        "userUrl": {
+          "value": "https://rss.nytimes.com/services/xml/rss/nyt/Travel.xml"
+        },
+        "useUrl": {
+          "value": false
+        },
+        "useDate": {
+          "value": true
+        },
+        "maxItems": {
+          "value": 5
+        }
+      }
+    },
+    "content": {
+      "data": {
+        "extension": {
+          "method": "getRss"
+        }
+      },
+      "item": {
+        "title": "{title}",
+        "description": "{= format.dateTime(${pubDate}, {format: 'yyyyMMMdHHmm'}) }",
+        "actions": [
+          {
+            "type": "Navigation",
+            "parameters": {
+              "url": "{link}"
+            }
+          }
+        ]
+      },
+      "maxItems": "{{parameters.maxItems}}"
+    }
+  }
+}

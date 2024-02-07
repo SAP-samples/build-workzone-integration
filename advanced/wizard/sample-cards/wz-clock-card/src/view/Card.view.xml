@@ -1,0 +1,8 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+	xmlns:local="sap.it.wz.cards.clock.control"
+  controllerName="sap.it.wz.cards.clock.controller.Card"
+  displayBlock="true">
+
+	<local:Frame id="frame">
+  </local:Frame>
+</mvc:View>
