@@ -4,8 +4,8 @@
   "description": "",
   "scripts": {
     "start": "http-server . -p 8010",
-    "clean": "rm -f dist",
-    "build:all": "npm run clean && npm run build:favorite && npm run build:vaccination && npm run build:confirm && npm run build:todo",
+    "clean": "rm -r dist",
+    "build:all": "npm run build:favorite && npm run build:vaccination && npm run build:confirm && npm run build:todo",
     "build:favorite": "cd wz-favorite-card && zip -r ../dist/wz-favorite-card.zip bundle",
     "build:vaccination": "cd wz-vaccination-card && zip -r ../dist/wz-vaccination-card.zip bundle",
     "build:confirm": "cd wz-vaccination-confirm-card && zip -r ../dist/wz-vaccination-confirm-card.zip bundle",
