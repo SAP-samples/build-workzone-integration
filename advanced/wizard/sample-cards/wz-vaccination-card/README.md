@@ -12,4 +12,7 @@
 - **Update Restrictions:**
   - Once the Vaccination is confirmed, users are restricted from updating their Vaccination status further.
 
+## Card Bundle
+  - Card bundle is available [here](../bundle/wz-vaccination-card.zip)
+
 ![Card Preview](../images/wz-vaccination-card.png)
