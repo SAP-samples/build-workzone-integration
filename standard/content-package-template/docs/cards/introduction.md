@@ -122,7 +122,8 @@ This version should be increased if changes where made to the card.
 If a card is published via a content package this version is relevant.
 The card is only updated if the versions of the card and the content package are increased.
 
-Depending on the type of changes it is recommended to use a semantic versioning consisting of 3 numbers 1.0.0 (`major.minor.patch`).
+Depending on the type of changes it should follow a semantic versioning consisting of 3 numbers 1.0.0 (`major.minor.patch`).
+Refer to https://semver.org/#semantic-versioning-specification-semver
 
 Consider 
 - Patch version increase for bugfixes

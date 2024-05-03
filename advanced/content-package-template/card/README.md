@@ -84,6 +84,26 @@ The .properties files should use suffix below and be UTF-8 encoded.
 ````i18n_en_US.properties````
 
 
+## Updating/Versioning of a card
+The card manifest.json file contains also version information.
+This version should be increased if changes where made to the card. 
+If a card is published via a content package this version is relevant.
+The card is only updated if the versions of the card and the content package are increased.
+
+Depending on the type of changes it should follow a semantic versioning consisting of 3 numbers 1.0.0 (`major.minor.patch`).
+Refer to https://semver.org/#semantic-versioning-specification-semver
+
+Consider 
+- Patch version increase for bugfixes
+- Minor version increase for compatible enhancements
+- Major version increase for incompatible enhancements
+
+
+````
+"applicationVersion": {
+  "version": "1.0.0"
+}
+````
 
 ## Usage of this project's card for a Content Package
 SAP Work Zone will be able to install Content Packages that can contain UI Integration Cards.
