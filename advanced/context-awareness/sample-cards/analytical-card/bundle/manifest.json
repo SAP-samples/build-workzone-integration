@@ -1,0 +1,581 @@
+{
+  "_version": "1.14.0",
+  "sap.app": {
+    "id": "card.explorer.stacked.column.card",
+    "type": "card",
+    "title": "Analytical Card",
+    "subTitle": "Sample of a Analytical Card",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "shortTitle": "Sample of a Analytical Card",
+    "info": "Sample of a Analytical Card",
+    "description": "All data in this example are using static data by providing the json property. It can be replaced by requesting data by providing the request property. ",
+    "tags": {
+      "keywords": ["Analytical", "Card", "Stacked Column", "Sample"]
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://full-stacked-column-chart"
+    }
+  },
+  "sap.card": {
+    "type": "Analytical",
+    "configuration": {
+      "parameters": {
+        "brand": {
+          "value": "{context>sap.cardcontextexample/brand}",
+          "type": "string",
+          "label": "brand",
+          "description": "Brand"
+        },
+        "region": {
+          "value": "{context>sap.cardcontextexample/region}",
+          "type": "string",
+          "label": "region",
+          "description": "region"
+        }
+      }
+    },
+    "header": {
+      "type": "Numeric",
+      "title": "Weekly Sales Card"
+    },
+    "content": {
+      "chartType": "Line",
+      "chartProperties": {
+        "title": {
+          "text": "{{parameters.region}} {{parameters.brand}}",
+          "visible": true,
+          "alignment": "left"
+        },
+        "legend": {
+          "visible": "{legend/visible}"
+        },
+        "legendGroup": {
+          "layout": {
+            "position": "{legend/position}",
+            "alignment": "{legend/alignment}"
+          }
+        },
+        "plotArea": {
+          "dataLabel": {
+            "visible": true
+          }
+        },
+        "categoryAxis": {
+          "title": {
+            "visible": false
+          }
+        },
+        "valueAxis": {
+          "title": {
+            "visible": false
+          }
+        }
+      },
+      "data": {
+        "json": {
+          "dimensions": {
+            "weekLabel": "Weeks"
+          },
+          "measures": {
+            "BrandALabel": "BrandA",
+            "BrandBLabel": "BrandB",
+            "BrandCLabel": "BrandC"
+          },
+          "legend": {
+            "visible": true,
+            "position": "bottom",
+            "alignment": "topLeft"
+          },
+          "All": [
+            {
+              "Week": "CW14",
+              "BrandA": 1431000.22,
+              "BrandB": 1230000.0,
+              "BrandC": 124800.63
+            },
+            {
+              "Week": "CW15",
+              "BrandA": 1238000.0,
+              "BrandB": 199200.39,
+              "BrandC": 1138799.61
+            },
+            {
+              "Week": "CW16",
+              "BrandA": 1221000.0,
+              "BrandB": 170200.54,
+              "BrandC": 1150799.46
+            },
+            {
+              "Week": "CW17",
+              "BrandA": 1280000.0,
+              "BrandB": 1158800.73,
+              "BrandC": 1121199.27
+            },
+            {
+              "Week": "CW18",
+              "BrandA": 1230000.0,
+              "BrandB": 1140000.91,
+              "BrandC": 189999.09
+            },
+            {
+              "Week": "CW19",
+              "BrandA": 1250000.0,
+              "BrandB": 1172800.15,
+              "BrandC": 177199.85
+            },
+            {
+              "Week": "CW20",
+              "BrandA": 1325000.0,
+              "BrandB": 1237200.74,
+              "BrandC": 187799.26
+            }
+          ],
+          "AllAPJ": [
+            {
+              "Week": "CW14",
+              "BrandA": 431000.22,
+              "BrandB": 230000.0,
+              "BrandC": 24800.63
+            },
+            {
+              "Week": "CW15",
+              "BrandA": 238000.0,
+              "BrandB": 99200.39,
+              "BrandC": 138799.61
+            },
+            {
+              "Week": "CW16",
+              "BrandA": 221000.0,
+              "BrandB": 70200.54,
+              "BrandC": 150799.46
+            },
+            {
+              "Week": "CW17",
+              "BrandA": 280000.0,
+              "BrandB": 158800.73,
+              "BrandC": 121199.27
+            },
+            {
+              "Week": "CW18",
+              "BrandA": 230000.0,
+              "BrandB": 140000.91,
+              "BrandC": 89999.09
+            },
+            {
+              "Week": "CW19",
+              "BrandA": 250000.0,
+              "BrandB": 172800.15,
+              "BrandC": 77199.85
+            },
+            {
+              "Week": "CW20",
+              "BrandA": 325000.0,
+              "BrandB": 237200.74,
+              "BrandC": 87799.26
+            }
+          ],
+          "AllEU": [
+            {
+              "Week": "CW14",
+              "BrandA": 331000.22,
+              "BrandB": 130000.0,
+              "BrandC": 14800.63
+            },
+            {
+              "Week": "CW15",
+              "BrandA": 138000.0,
+              "BrandB": 89200.39,
+              "BrandC": 38799.61
+            },
+            {
+              "Week": "CW16",
+              "BrandA": 121000.0,
+              "BrandB": 60200.54,
+              "BrandC": 50799.46
+            },
+            {
+              "Week": "CW17",
+              "BrandA": 180000.0,
+              "BrandB": 58800.73,
+              "BrandC": 21199.27
+            },
+            {
+              "Week": "CW18",
+              "BrandA": 130000.0,
+              "BrandB": 40000.91,
+              "BrandC": 79999.09
+            },
+            {
+              "Week": "CW19",
+              "BrandA": 150000.0,
+              "BrandB": 72800.15,
+              "BrandC": 67199.85
+            },
+            {
+              "Week": "CW20",
+              "BrandA": 225000.0,
+              "BrandB": 137200.74,
+              "BrandC": 77799.26
+            }
+          ],
+          "AllUS": [
+            {
+              "Week": "CW14",
+              "BrandA": 531000.22,
+              "BrandB": 330000.0,
+              "BrandC": 34800.63
+            },
+            {
+              "Week": "CW15",
+              "BrandA": 338000.0,
+              "BrandB": 109200.39,
+              "BrandC": 238799.61
+            },
+            {
+              "Week": "CW16",
+              "BrandA": 321000.0,
+              "BrandB": 80200.54,
+              "BrandC": 250799.46
+            },
+            {
+              "Week": "CW17",
+              "BrandA": 380000.0,
+              "BrandB": 258800.73,
+              "BrandC": 221199.27
+            },
+            {
+              "Week": "CW18",
+              "BrandA": 330000.0,
+              "BrandB": 240000.91,
+              "BrandC": 99999.09
+            },
+            {
+              "Week": "CW19",
+              "BrandA": 350000.0,
+              "BrandB": 272800.15,
+              "BrandC": 87199.85
+            },
+            {
+              "Week": "CW20",
+              "BrandA": 425000.0,
+              "BrandB": 337200.74,
+              "BrandC": 97799.26
+            }
+          ],
+          "AllAPJBrandA": [
+            {
+              "Week": "CW14",
+              "BrandA": 431000.22
+            },
+            {
+              "Week": "CW15",
+              "BrandA": 238000.0
+            },
+            {
+              "Week": "CW16",
+              "BrandA": 221000.0
+            },
+            {
+              "Week": "CW17",
+              "BrandA": 280000.0
+            },
+            {
+              "Week": "CW18",
+              "BrandA": 230000.0
+            },
+            {
+              "Week": "CW19",
+              "BrandA": 250000.0
+            },
+            {
+              "Week": "CW20",
+              "BrandA": 325000.0
+            }
+          ],
+          "AllAPJBrandB": [
+            {
+              "Week": "CW14",
+              "BrandB": 230000.0
+            },
+            {
+              "Week": "CW15",
+              "BrandB": 99200.39
+            },
+            {
+              "Week": "CW16",
+              "BrandB": 70200.54
+            },
+            {
+              "Week": "CW17",
+              "BrandB": 158800.73
+            },
+            {
+              "Week": "CW18",
+              "BrandB": 140000.91
+            },
+            {
+              "Week": "CW19",
+              "BrandB": 172800.15
+            },
+            {
+              "Week": "CW20",
+              "BrandB": 237200.74
+            }
+          ],
+          "AllAPJBrandC": [
+            {
+              "Week": "CW14",
+              "BrandC": 24800.63
+            },
+            {
+              "Week": "CW15",
+              "BrandC": 138799.61
+            },
+            {
+              "Week": "CW16",
+              "BrandC": 150799.46
+            },
+            {
+              "Week": "CW17",
+              "BrandC": 121199.27
+            },
+            {
+              "Week": "CW18",
+              "BrandC": 89999.09
+            },
+            {
+              "Week": "CW19",
+              "BrandC": 77199.85
+            },
+            {
+              "Week": "CW20",
+              "BrandC": 87799.26
+            }
+          ],
+          "AllEUBrandA": [
+            {
+              "Week": "CW14",
+              "BrandA": 331000.22
+            },
+            {
+              "Week": "CW15",
+              "BrandA": 138000.0
+            },
+            {
+              "Week": "CW16",
+              "BrandA": 121000.0
+            },
+            {
+              "Week": "CW17",
+              "BrandA": 180000.0
+            },
+            {
+              "Week": "CW18",
+              "BrandA": 130000.0
+            },
+            {
+              "Week": "CW19",
+              "BrandA": 150000.0
+            },
+            {
+              "Week": "CW20",
+              "BrandA": 225000.0
+            }
+          ],
+          "AllEUBrandB": [
+            {
+              "Week": "CW14",
+              "BrandB": 130000.0
+            },
+            {
+              "Week": "CW15",
+              "BrandB": 89200.39
+            },
+            {
+              "Week": "CW16",
+              "BrandB": 60200.54
+            },
+            {
+              "Week": "CW17",
+              "BrandB": 58800.73
+            },
+            {
+              "Week": "CW18",
+              "BrandB": 40000.91
+            },
+            {
+              "Week": "CW19",
+              "BrandB": 72800.15
+            },
+            {
+              "Week": "CW20",
+              "BrandB": 137200.74
+            }
+          ],
+          "AllEUBrandC": [
+            {
+              "Week": "CW14",
+              "BrandC": 14800.63
+            },
+            {
+              "Week": "CW15",
+              "BrandC": 38799.61
+            },
+            {
+              "Week": "CW16",
+              "BrandC": 50799.46
+            },
+            {
+              "Week": "CW17",
+              "BrandC": 21199.27
+            },
+            {
+              "Week": "CW18",
+              "BrandC": 79999.09
+            },
+            {
+              "Week": "CW19",
+              "BrandC": 67199.85
+            },
+            {
+              "Week": "CW20",
+              "BrandC": 77799.26
+            }
+          ],
+          "AllUSBrandA": [
+            {
+              "Week": "CW14",
+              "BrandA": 531000.22
+            },
+            {
+              "Week": "CW15",
+              "BrandA": 338000.0
+            },
+            {
+              "Week": "CW16",
+              "BrandA": 321000.0
+            },
+            {
+              "Week": "CW17",
+              "BrandA": 380000.0
+            },
+            {
+              "Week": "CW18",
+              "BrandA": 330000.0
+            },
+            {
+              "Week": "CW19",
+              "BrandA": 350000.0
+            },
+            {
+              "Week": "CW20",
+              "BrandA": 425000.0
+            }
+          ],
+          "AllUSBrandB": [
+            {
+              "Week": "CW14",
+              "BrandB": 330000.0
+            },
+            {
+              "Week": "CW15",
+              "BrandB": 109200.39
+            },
+            {
+              "Week": "CW16",
+              "BrandB": 80200.54
+            },
+            {
+              "Week": "CW17",
+              "BrandB": 258800.73
+            },
+            {
+              "Week": "CW18",
+              "BrandB": 240000.91
+            },
+            {
+              "Week": "CW19",
+              "BrandB": 272800.15
+            },
+            {
+              "Week": "CW20",
+              "BrandB": 337200.74
+            }
+          ],
+          "AllUSBrandC": [
+            {
+              "Week": "CW14",
+              "BrandC": 34800.63
+            },
+            {
+              "Week": "CW15",
+              "BrandC": 238799.61
+            },
+            {
+              "Week": "CW16",
+              "BrandC": 250799.46
+            },
+            {
+              "Week": "CW17",
+              "BrandC": 221199.27
+            },
+            {
+              "Week": "CW18",
+              "BrandC": 99999.09
+            },
+            {
+              "Week": "CW19",
+              "BrandC": 87199.85
+            },
+            {
+              "Week": "CW20",
+              "BrandC": 97799.26
+            }
+          ]
+        },
+        "path": "/All{{parameters.region}}{{parameters.brand}}"
+      },
+      "dimensions": [
+        {
+          "name": "{dimensions/weekLabel}",
+          "value": "{Week}"
+        }
+      ],
+      "measures": [
+        {
+          "name": "{measures/BrandALabel}",
+          "value": "{BrandA}"
+        },
+        {
+          "name": "{measures/BrandBLabel}",
+          "value": "{BrandB}"
+        },
+        {
+          "name": "{measures/BrandCLabel}",
+          "value": "{BrandC}"
+        }
+      ],
+      "feeds": [
+        {
+          "uid": "valueAxis",
+          "type": "Measure",
+          "values": [
+            "{measures/BrandALabel}",
+            "{measures/BrandBLabel}",
+            "{measures/BrandCLabel}"
+          ]
+        },
+        {
+          "uid": "categoryAxis",
+          "type": "Dimension",
+          "values": ["{dimensions/weekLabel}"]
+        }
+      ]
+    }
+  }
+}
