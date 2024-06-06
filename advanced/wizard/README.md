@@ -2,7 +2,7 @@
 
 Workspace administrators can create wizards to help users complete step-by-step processes. The wizards can contain one or multiple stages, each with steps and contextual information that assists the users to complete the steps. In addition, workspace administrators can add widgets and cards to the wizard steps. When a card/widget is added to a step, the step will only be marked as complete when the required user input is added to the card/widget.
 
-In the following screenshot you can find the Favorite declarative card. This card persists the favorite item selected by the user. 
+In the following screenshot you can find the Favorite declarative card. This card persists the favorite item selected by the user.
 Card details: [Work Zone Favorite Card](./sample-cards/wz-favorite-card):
 
  ![Work Zone Wizard](./images/wizard.png)

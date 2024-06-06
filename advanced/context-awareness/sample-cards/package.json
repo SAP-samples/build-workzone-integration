@@ -7,9 +7,9 @@
     "clean": "rm -r dist",
     "build": "npm run build:all",
     "build:all": "npm run build:analytical && npm run build:brand && npm run build:region",
-    "build:analytical": "cd analytical-card && zip -r ../dist/analytical-card.zip bundle",
-    "build:brand": "cd brand-list-card && zip -r ../dist/brand-list-card.zip bundle",
-    "build:region": "cd regions-list-card && zip -r ../dist/regions-list-card.zip bundle"
+    "build:analytical": "cd analytical-card && mkdir -p ../dist && zip -r ../dist/analytical-card.zip bundle",
+    "build:brand": "cd brand-list-card &&  mkdir -p ../dist && zip -r ../dist/brand-list-card.zip bundle",
+    "build:region": "cd regions-list-card &&  mkdir -p ../dist && zip -r ../dist/regions-list-card.zip bundle"
   },
   "author": "Ricky Jiao",
   "dependencies": {
