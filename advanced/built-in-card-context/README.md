@@ -7,13 +7,13 @@ There is [Card Parameters](https://ui5.sap.com/test-resources/sap/ui/integration
 "sap.card": {
     "configuration": {
       "parameters": {
-        "brand": {
+        "userId": {
           "value": "{context>sap.workzone/currentUser/id/value}",
           "type": "string",
           "label": "Workzone user uuid",
           "description": "UUID of login Workzone user"
         },
-        "region": {
+        "webHost": {
           "value": "{context>sap.workzone/currentCompany/webHost/value}",
           "type": "string",
           "label": "Web host of current workzone",
@@ -41,7 +41,7 @@ To enrich the interaction between card as Workzone platform, Workzone supports b
   | currentUser | email       | string       | Email of current login user                                                                     |
   | currentUser | global_uuid | string       | SAP global UUID of current login user                                                           |
   | currentUser | user_type   | string       | User type current login user, it is either `employee`(internal user) or `public`(external user) |
-  | currentUser | time_zone   | `TimeZone`\* | time zone info of current login user                                                            |
+  | currentUser | time_zone   | `TimeZone`   | time zone info of current login user                                                            |
 
   type of `TimeZone`
 

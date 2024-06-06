@@ -4,7 +4,7 @@ Cards on the same workpage can interact with each other by setting and getting p
 
 ## Built-in Workzone Card Context
 
-Workzone as host environment to render card supports some built-in card context.[Explore built-in Workzone Card Context](./built-in-wz-context.md).
+Workzone as host environment to render card supports some built-in card context.[Explore built-in Workzone Card Context](../built-in-card-context/README.md).
 
 
 ## Filter Bar
