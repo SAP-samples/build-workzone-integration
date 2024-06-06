@@ -1,0 +1,43 @@
+{
+  "sap.app": {
+    "id": "sap.workzone.samples.context.brandCard",
+    "type": "card",
+    "title": "List Of Brands",
+    "subTitle": "List Of Brands",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "shortTitle": "List Of Brands",
+    "info": "List Of Brands",
+    "description": "List Of Brands",
+    "tags": {
+      "keywords": ["Component", "Card", "Sample"]
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://globe"
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "sap.workzone.samples.context.brandCard.View",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "dependencies": {
+      "minUI5Version": "1.38",
+      "libs": {
+        "sap.m": {}
+      }
+    }
+  },
+  "sap.card": {
+    "type": "Component",
+    "header": {
+      "title": "List Of Brands"
+    }
+  }
+}

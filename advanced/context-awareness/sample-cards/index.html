@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <title>Work Zone Context Awareness Sample Cards</title>
+
+  <script src="https://ui5.sap.com/resources/sap-ui-integration.js" id="sap-ui-bootstrap"
+    data-sap-ui-theme="sap_fiori_3"></script>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    #filter-bar {
+      white-space: pre;
+      margin: 15px 0;
+      color: #555;
+    }
+
+    .cards {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .left {
+      display: flex;
+      flex: 1;
+      margin-right: 20px;
+      flex-direction: column;
+    }
+
+    .right {
+      flex: 2;
+    }
+
+    .last {
+      margin-top: 20px;
+      flex: 1;
+    }
+
+    ui-integration-card {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body class="sapUiBody sapUiSizeCompact" style="padding: 1rem 2rem; box-sizing: border-box;">
+  <h2>Card preview</h2>
+
+  <div id="filter-bar"></div>
+  <div class="cards">
+    <div class="left">
+      <ui-integration-card reference-id="wz-region-card" manifest="./regions-list-card/bundle/manifest.json"
+        base-url="./regions-list-card/bundle">
+      </ui-integration-card>
+      <ui-integration-card class="last" reference-id="wz-brand-card" manifest="./brand-list-card/bundle/manifest.json"
+        base-url="./brand-list-card/bundle">
+      </ui-integration-card>
+    </div>
+    <div class="right">
+      <ui-integration-card reference-id="wz-analytical-card" manifest="./analytical-card/bundle/manifest.json"
+        base-url="./wz-favorite-card/bundle">
+      </ui-integration-card>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+  customElements.whenDefined('ui-integration-card').then(() => {
+    const WZContext = {};
+    const DynamicContext = {}
+    const WZHostId = 'wz-host';
+
+    function refreshAllCards() {
+      const aAllCards = document.getElementsByTagName('ui-integration-card');
+      Array.from(aAllCards).forEach((oCard) => {
+        oCard.refresh();
+      });
+    }
+
+    function refreshFilterBar() {
+      const context = JSON.stringify(DynamicContext, null, 2);
+
+      document.getElementById('filter-bar').innerText = `context: ${context}`;
+    }
+
+    async function getObjectValue(context, dynamicContext, path) {
+      const parts = path.split("/");
+      let node = context[parts[0]] ? context : dynamicContext;
+      let index = 0;
+
+      while (node && parts[index]) {
+        node = node[parts[index]];
+        index++;
+      }
+      node = node || "";
+      return await node;
+    }
+
+    // event handler
+    document.addEventListener('action', (e) => {
+      const type = e.detail.getParameter('type');
+
+      if (type !== 'updateContext') {
+        return;
+      }
+
+      const { namespace, context } = e.detail.getParameter('parameters');
+
+      DynamicContext[namespace] = DynamicContext[namespace] || {};
+      Object.assign(DynamicContext[namespace], context);
+      refreshAllCards();
+      refreshFilterBar();
+    })
+
+    const DefaultCardHost = new window.sap.ui.integration.Host(WZHostId, {
+    });
+
+    DefaultCardHost.getContextValue = function (contextName) {
+      return getObjectValue(WZContext, DynamicContext, contextName);
+    };
+
+    Array.from(document.getElementsByTagName('ui-integration-card')).forEach((item) => {
+      item.setAttribute('host', WZHostId);
+    });
+  });
+
+</script>
