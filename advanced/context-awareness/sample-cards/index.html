@@ -46,15 +46,15 @@
   <div class="cards">
     <div class="left">
       <ui-integration-card reference-id="wz-region-card" manifest="./regions-list-card/bundle/manifest.json"
-        base-url="./regions-list-card/bundle">
+        base-url="./regions-list-card/bundle" host="wz-host">
       </ui-integration-card>
       <ui-integration-card class="last" reference-id="wz-brand-card" manifest="./brand-list-card/bundle/manifest.json"
-        base-url="./brand-list-card/bundle">
+        base-url="./brand-list-card/bundle" host="wz-host">
       </ui-integration-card>
     </div>
     <div class="right">
       <ui-integration-card reference-id="wz-analytical-card" manifest="./analytical-card/bundle/manifest.json"
-        base-url="./wz-favorite-card/bundle">
+        base-url="./wz-favorite-card/bundle" host="wz-host">
       </ui-integration-card>
     </div>
   </div>
@@ -63,148 +63,54 @@
 </html>
 
 <script>
-  const StorageKey = 'wz.flow.context';
+  const StorageKey = 'wz.context';
 
-  document.addEventListener('click', (e) => {
-    const target = e.target.getAttribute('data-card-target');
-    let tag = document.getElementById('ui-card');
-    const referenceId = tag.getAttribute('reference-id');
+  customElements.whenDefined('ui-integration-card').then(() => {
+    const WZContext = {};
+    const DynamicContext = {}
 
-    if (target && target !== referenceId) {
-      const parentNode = tag.parentElement;
-
-      tag.remove();
-
-      tag = document.createElement('ui-integration-card');
-      tag.id = 'ui-card';
-      tag.setAttribute('manifest', `./${target}/bundle/manifest.json`);
-      tag.setAttribute('base-url', `./${target}/bundle`);
-      tag.setAttribute('reference-id', target);
-
-      parentNode.append(tag);
-
-      useLatestCardParams();
-    }
-  })
-
-  function updateCardParameters(value) {
-    const tag = document.getElementById('ui-card');
-    const attrValue = JSON.stringify({
-      'host.context': value
-    })
-
-    tag.setAttribute('parameters', attrValue);
-  }
-
-  function useLatestCardParams() {
-    const value = getContextValueFromStorage();
-
-    if (value) {
-      updateCardParameters(value);
-    }
-  }
-
-  function getContextValueFromStorage() {
-    const value = localStorage.getItem(StorageKey);
-
-    if (value) {
-      return JSON.parse(value);
-    }
-
-    return {
-      flow: {
-        caseInstanceId: 'INST-1',
-        tasks: {
-        }
-      },
-      context: {
-      }
-    };
-  }
-
-  function storeContextValueToStorage(value) {
-    const lastValue = getContextValueFromStorage();
-    const nextValue = {
-      ...lastValue,
-      ...value
-    };
-
-    const valueStr = JSON.stringify(nextValue);
-
-    localStorage.setItem(StorageKey, valueStr);
-  }
-
-  document.addEventListener('DOMContentLoaded', e => {
-    useLatestCardParams();
-  });
-
-  document.getElementById('clear').addEventListener('click', e => {
-    localStorage.removeItem(StorageKey);
-    location.reload();
-  });
-
-  document.getElementById('submit').addEventListener('click', e => {
-    const oCard = document.getElementById('ui-card')._getControl();
-
-    const data = {
-      now: Date.now(),
-      submitPromise: null
-    };
-
-    oCard.fireEvent('Page:SubmitWizard', data);
-
-    console.log(data);
-
-    if (data.submitPromise) {
-      data.submitPromise.then(() => {
-        sap.ui.require(['sap/m/MessageBox'], (MessageBox) => {
-          MessageBox.success('Card is submitted successfully');
-        });
-      }).catch((message) => {
-        console.log("Error: " + message.title);
+    function refreshAllCards() {
+      const aAllCards = document.getElementsByTagName('ui-integration-card');
+      Array.from(aAllCards).forEach((oCard) => {
+        oCard.refresh();
       });
     }
-  });
 
-  // event handler
-  document.addEventListener('action', e => {
-    let parameters = e.detail.getParameter('parameters');
-    const oCard = e.detail.getParameter('card');
+    async function getObjectValue(context, dynamicContext, path) {
+      const parts = path.split("/");
+      let node = context[parts[0]] ? context : dynamicContext;
+      let index = 0;
 
-    if (!(parameters instanceof Array)) {
-      parameters = [parameters];
+      while (node && parts[index]) {
+        node = node[parts[index]];
+        index++;
+      }
+      node = node || "";
+      return await node;
     }
 
-    parameters.forEach(parameter => {
-      const { actionType: action, content: stepContext } = parameter;
-      const lastValue = getContextValueFromStorage();
 
-      if (action === 'UpdateHostContext') {
-        storeContextValueToStorage({
-          context: {
-            ...(lastValue.context || {}),
-            ...stepContext,
-          }
-        });
-        useLatestCardParams();
-      } else if (action === 'UpdateTaskData') {
-        const taskId = oCard.getReferenceId();
-        const lastTask = (lastValue.flow.tasks || {})[taskId] || {};
+    // event handler
+    document.addEventListener('action', e => {
+      const type = e.detail.getParameter('type');
 
-        storeContextValueToStorage({
-          flow: {
-            ...(lastValue.flow || {}),
-            tasks: {
-              [taskId]: {
-                ...lastTask,
-                ...stepContext,
-              }
-            }
-          }
-        });
-
-        useLatestCardParams();
+      if (type !== 'updateContext') {
+        return;
       }
+
+      const { namespace, context } = e.detail.getParameter('parameters');
+
+      DynamicContext[namespace] = DynamicContext[namespace] || {};
+      Object.assign(DynamicContext[namespace], context);
+      refreshAllCards();
     })
-  })
+
+    const DefaultCardHost = new window.sap.ui.integration.Host("wz-host", {
+    });
+
+    DefaultCardHost.getContextValue = function (contextName) {
+      return getObjectValue(WZContext, DynamicContext, contextName);
+    };
+  });
+
 </script>
