@@ -1,6 +1,3 @@
-### How to start
-`npm install` to install package
+## Workzone Brand Card
 
-`npm start` to start card preview
-
-`npm run build` to generated card bundle to upload to SAP Work Zone
+- Lists all available regions in a dropdown list. Once a region is selected, it is added to the current card context as the `region` parameter.

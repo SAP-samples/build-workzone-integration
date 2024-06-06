@@ -31,7 +31,7 @@ sap.ui.define([
       this.getView().setModel(oModel);
       // Get Context Value from Workzone, getContextValue will return a promise.
       // https://sapui5untested.int.sap.eu2.hana.ondemand.com/#/api/sap.ui.integration.Host%23methods/getContextValue
-      oCard.getHostInstance().getContextValue("sap.cardcontextexample/brand").then(function (value) {
+      oCard.getHostInstance().getContextValue("sap.workzone.samples.context/brand").then(function (value) {
         // set comboBox selected key
         // https://sapui5.hana.ondemand.com/sdk/#/api/sap.m.ComboBox/methods/setSelectedKey
         oSelect.setSelectedKey(value);
@@ -39,16 +39,16 @@ sap.ui.define([
     },
 
     handleChange: function (oEvent) {
-      var oComponent = this.getOwnerComponent(),
-        oCard = oComponent.oCard,
-        brand = oEvent.mParameters.value;
+      var oComponent = this.getOwnerComponent();
+      var oCard = oComponent.oCard;
+      var brand = oEvent.mParameters.value;
 
       // Update Workzone context by trigger action.
       // https://sapui5untested.int.sap.eu2.hana.ondemand.com/#/api/sap.ui.integration.widgets.Card%23methods/triggerAction
       oCard.triggerAction({
         type: "updateContext",
         parameters: {
-          "namespace": "sap.cardcontextexample",
+          "namespace": "sap.workzone.samples.context",
           "context": {
             "brand": brand
           }

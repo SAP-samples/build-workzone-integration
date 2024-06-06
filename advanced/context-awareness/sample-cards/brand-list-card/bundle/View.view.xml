@@ -3,7 +3,7 @@
   xmlns="sap.m"
   xmlns:html="http://www.w3.org/1999/xhtml"
   width="100%"
-  controllerName="my.component.brand.Main">
+  controllerName="sap.workzone.samples.context.brandCard.Main">
   <VBox
     class="sapUiSmallMargin"
     justifyContent="SpaceBetween">

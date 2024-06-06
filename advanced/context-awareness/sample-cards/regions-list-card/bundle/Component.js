@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (UIComponent) {
   "use strict";
 
-  return UIComponent.extend("my.component.region.Component", {
+  return UIComponent.extend("sap.workzone.samples.context.regionCard.Component", {
     onCardReady: function (oCard) {
       this.oCard = oCard;
     }

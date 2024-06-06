@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <title>Work Zone Context Awareness Sample Cards</title>
+
+  <script src="https://ui5.sap.com/resources/sap-ui-integration.js" id="sap-ui-bootstrap"
+    data-sap-ui-theme="sap_fiori_3"></script>
+
+  <style>
+    .cards {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .left {
+      display: flex;
+      flex: 1;
+      margin-right: 20px;
+      flex-direction: column;
+    }
+
+    .right {
+      flex: 2;
+    }
+
+    .last {
+      margin-top: 20px;
+      flex: 1;
+    }
+
+    ui-integration-card {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body class="sapUiBody sapUiSizeCompact" style="padding: 1rem 2rem; box-sizing: border-box;">
+  <h2>Card preview</h2>
+
+  <div id="filter-bar">
+
+  </div>
+  <div class="cards">
+    <div class="left">
+      <ui-integration-card reference-id="wz-region-card" manifest="./regions-list-card/bundle/manifest.json"
+        base-url="./regions-list-card/bundle">
+      </ui-integration-card>
+      <ui-integration-card class="last" reference-id="wz-brand-card" manifest="./brand-list-card/bundle/manifest.json"
+        base-url="./brand-list-card/bundle">
+      </ui-integration-card>
+    </div>
+    <div class="right">
+      <ui-integration-card reference-id="wz-analytical-card" manifest="./analytical-card/bundle/manifest.json"
+        base-url="./wz-favorite-card/bundle">
+      </ui-integration-card>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+  const StorageKey = 'wz.flow.context';
+
+  document.addEventListener('click', (e) => {
+    const target = e.target.getAttribute('data-card-target');
+    let tag = document.getElementById('ui-card');
+    const referenceId = tag.getAttribute('reference-id');
+
+    if (target && target !== referenceId) {
+      const parentNode = tag.parentElement;
+
+      tag.remove();
+
+      tag = document.createElement('ui-integration-card');
+      tag.id = 'ui-card';
+      tag.setAttribute('manifest', `./${target}/bundle/manifest.json`);
+      tag.setAttribute('base-url', `./${target}/bundle`);
+      tag.setAttribute('reference-id', target);
+
+      parentNode.append(tag);
+
+      useLatestCardParams();
+    }
+  })
+
+  function updateCardParameters(value) {
+    const tag = document.getElementById('ui-card');
+    const attrValue = JSON.stringify({
+      'host.context': value
+    })
+
+    tag.setAttribute('parameters', attrValue);
+  }
+
+  function useLatestCardParams() {
+    const value = getContextValueFromStorage();
+
+    if (value) {
+      updateCardParameters(value);
+    }
+  }
+
+  function getContextValueFromStorage() {
+    const value = localStorage.getItem(StorageKey);
+
+    if (value) {
+      return JSON.parse(value);
+    }
+
+    return {
+      flow: {
+        caseInstanceId: 'INST-1',
+        tasks: {
+        }
+      },
+      context: {
+      }
+    };
+  }
+
+  function storeContextValueToStorage(value) {
+    const lastValue = getContextValueFromStorage();
+    const nextValue = {
+      ...lastValue,
+      ...value
+    };
+
+    const valueStr = JSON.stringify(nextValue);
+
+    localStorage.setItem(StorageKey, valueStr);
+  }
+
+  document.addEventListener('DOMContentLoaded', e => {
+    useLatestCardParams();
+  });
+
+  document.getElementById('clear').addEventListener('click', e => {
+    localStorage.removeItem(StorageKey);
+    location.reload();
+  });
+
+  document.getElementById('submit').addEventListener('click', e => {
+    const oCard = document.getElementById('ui-card')._getControl();
+
+    const data = {
+      now: Date.now(),
+      submitPromise: null
+    };
+
+    oCard.fireEvent('Page:SubmitWizard', data);
+
+    console.log(data);
+
+    if (data.submitPromise) {
+      data.submitPromise.then(() => {
+        sap.ui.require(['sap/m/MessageBox'], (MessageBox) => {
+          MessageBox.success('Card is submitted successfully');
+        });
+      }).catch((message) => {
+        console.log("Error: " + message.title);
+      });
+    }
+  });
+
+  // event handler
+  document.addEventListener('action', e => {
+    let parameters = e.detail.getParameter('parameters');
+    const oCard = e.detail.getParameter('card');
+
+    if (!(parameters instanceof Array)) {
+      parameters = [parameters];
+    }
+
+    parameters.forEach(parameter => {
+      const { actionType: action, content: stepContext } = parameter;
+      const lastValue = getContextValueFromStorage();
+
+      if (action === 'UpdateHostContext') {
+        storeContextValueToStorage({
+          context: {
+            ...(lastValue.context || {}),
+            ...stepContext,
+          }
+        });
+        useLatestCardParams();
+      } else if (action === 'UpdateTaskData') {
+        const taskId = oCard.getReferenceId();
+        const lastTask = (lastValue.flow.tasks || {})[taskId] || {};
+
+        storeContextValueToStorage({
+          flow: {
+            ...(lastValue.flow || {}),
+            tasks: {
+              [taskId]: {
+                ...lastTask,
+                ...stepContext,
+              }
+            }
+          }
+        });
+
+        useLatestCardParams();
+      }
+    })
+  })
+</script>

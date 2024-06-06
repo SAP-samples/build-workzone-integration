@@ -31,7 +31,7 @@ sap.ui.define([
       this.getView().setModel(oModel);
       // Get Context Value from Workzone, getContextValue will return a promise.
       // https://sapui5untested.int.sap.eu2.hana.ondemand.com/#/api/sap.ui.integration.Host%23methods/getContextValue
-      oCard.getHostInstance().getContextValue("sap.cardcontextexample/region").then(function (value) {
+      oCard.getHostInstance().getContextValue("sap.workzone.samples.context/region").then(function (value) {
         // set comboBox selected key
         // https://sapui5.hana.ondemand.com/sdk/#/api/sap.m.ComboBox/methods/setSelectedKey
         oSelect.setSelectedKey(value);
@@ -48,7 +48,7 @@ sap.ui.define([
       oCard.triggerAction({
         type: "updateContext",
         parameters: {
-          "namespace": "sap.cardcontextexample",
+          "namespace": "sap.workzone.samples.context",
           "context": {
             "region": region
           }

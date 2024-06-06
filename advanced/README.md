@@ -9,6 +9,9 @@ The repository contains samples to demonstrate and document how to integrate and
 - **Guide Experience(Wizard):**
   [Explore Guide Experience](./wizard/README.md) code samples
 
+- **Built-in Workzone Card Context:**
+  [Explore Built-in Workzone Card Context](./built-in-card-context/README.md)
+
 - **Context awareness:**
   [Explore Context awareness](./context-awareness/README.md) code samples
 

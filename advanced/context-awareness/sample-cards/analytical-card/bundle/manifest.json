@@ -1,7 +1,6 @@
 {
-  "_version": "1.14.0",
   "sap.app": {
-    "id": "card.explorer.stacked.column.card",
+    "id": "sap.workzone.samples.context.analyticalCard",
     "type": "card",
     "title": "Analytical Card",
     "subTitle": "Sample of a Analytical Card",
@@ -26,13 +25,13 @@
     "configuration": {
       "parameters": {
         "brand": {
-          "value": "{context>sap.cardcontextexample/brand}",
+          "value": "{context>sap.workzone.samples.context/brand}",
           "type": "string",
           "label": "brand",
           "description": "Brand"
         },
         "region": {
-          "value": "{context>sap.cardcontextexample/region}",
+          "value": "{context>sap.workzone.samples.context/region}",
           "type": "string",
           "label": "region",
           "description": "region"

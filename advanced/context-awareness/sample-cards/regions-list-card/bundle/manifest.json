@@ -1,7 +1,7 @@
 {
   "_version": "1.15.0",
   "sap.app": {
-    "id": "my.component.region",
+    "id": "sap.workzone.samples.context.regionCard",
     "type": "card",
     "title": "List Of Regions",
     "subTitle": "List Of Regions",
@@ -23,7 +23,7 @@
   },
   "sap.ui5": {
     "rootView": {
-      "viewName": "my.component.region.View",
+      "viewName": "sap.workzone.samples.context.regionCard.View",
       "type": "XML",
       "async": true,
       "id": "app"

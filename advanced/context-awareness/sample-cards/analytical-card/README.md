@@ -1,6 +1,4 @@
-### How to start
-`npm install` to install package
+## Workzone Analytical Card
 
-`npm start` to start card preview
-
-`npm run build` to generated card bundle to upload to SAP Work Zone
+- An analytical card that subscribes to the `brand` and `region` card context parameters
+- The analytical chart automatically refreshes when the `brand` or `region` parameter is updated.

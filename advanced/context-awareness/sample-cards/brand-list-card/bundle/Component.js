@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (UIComponent) {
   "use strict";
 
-  return UIComponent.extend("my.component.brand.Component", {
+  return UIComponent.extend("sap.workzone.samples.context.brandCard.Component", {
     onCardReady: function (oCard) {
       this.oCard = oCard;
     }

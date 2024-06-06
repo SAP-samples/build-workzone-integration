@@ -1,12 +1,11 @@
 {
-  "_version": "1.15.1",
   "sap.app": {
-    "id": "my.component.brand",
+    "id": "sap.workzone.samples.context.brandCard",
     "type": "card",
     "title": "List Of Brands",
     "subTitle": "List Of Brands",
     "applicationVersion": {
-      "version": "1.0.1"
+      "version": "1.0.0"
     },
     "shortTitle": "List Of Brands",
     "info": "List Of Brands",
@@ -23,7 +22,7 @@
   },
   "sap.ui5": {
     "rootView": {
-      "viewName": "my.component.brand.View",
+      "viewName": "sap.workzone.samples.context.brandCard.View",
       "type": "XML",
       "async": true,
       "id": "app"

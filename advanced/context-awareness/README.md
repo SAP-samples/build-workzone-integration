@@ -1,64 +1,54 @@
 # Interaction Between Cards in the SAP Build Work Zone
 
-Cards on the same workpage can interact with each other by setting and getting parameters to and from the page context. All the parameters in the page context will be made available to a card when it is initialized. A card can then respond to any parameters it recognizes. Whenever a card updates a parameter to the page context, this will trigger a refresh for all the other cards on the same page, so that they will all get the updated context parameter.
-
-## Built-in Workzone Card Context
-
-Workzone as host environment to render card supports some built-in card context.[Explore built-in Workzone Card Context](../built-in-card-context/README.md).
-
-
-## Filter Bar
-
-Once end user selects one of the available card parameters, all other cards that are designed to respond to the workpage context, will respond and update accordingly. Each time you add a parameter, it acts like a filter that you can see in the top menu bar and it remains in focus even when you scroll down the workpage. In this way, you can always see the filters you've added.
-
+Cards on the same workpage can interact by setting and getting parameters from the card context. All parameters in the card context are made available to a card when it is initialized, allowing the card to respond to recognized parameters. When a card updates a parameter in the card context, all other cards on the same page are refreshed to receive the updated context parameter.
 
 ## Explorer Sample Codes
 
-Sample code for various Cards can be found in [sample-cards](./sample-cards/README.md). Follow up the readme file to start the card in a local environment:
+Sample code for various cards can be found in the [sample-cards](./sample-cards/README.md) directory. Follow the README file to start the card in a local environment:
 
-* [Work Zone Favorite Declarative Card](./sample-cards/wz-favorite-card):
-  - Leverages the wizard to persist the favorite Item.
-  - Validates whether the user selected at least one favorite item in the wizard.
+- [Work Zone Brand Card](./sample-cards/brand-list-card/)
+  - Lists all available brands in a dropdown list. Once a brand is selected, it is added to the current card context as the `brand` parameter.
 
-* [Work Zone Todo Component Cards](./sample-cards/wz-todo-card/):
-  - Leverage Work Zone Wizard to persist the Todo item and the status
-  - Validate whether there is any incomplete Todo item in Wizard `Submission` event
+- [Work Zone Region Card](./sample-cards/region-list-card/)
+  - Lists all available regions in a dropdown list. Once a region is selected, it is added to the current card context as the `region` parameter.
 
-* [Work Zone Vaccination Component Cards](./sample-cards/wz-favorite-card):
-  - Vaccination Status card that collects vaccination status.
-  - Leverage the wizard to persist vaccination status.
-  - The card will check whether have confirmed the Vaccination in Vaccination Confirmation Card. This is an example to read context from other cards.
-  - Once it is confirmed, user is not able to update Vaccination status anymore.
+- [Work Zone Analytical Card](./sample-cards/analytical-card/)
+  - An analytical card that subscribes to the `brand` and `region` card context parameters.
+  - The analytical chart automatically refreshes when the `brand` or `region` parameter is updated.
 
-* [Work Zone Vaccination Confirmation Component Cards](./sample-cards/wz-favorite-card):
-  - Read context from Vaccination Card, and show it in readonly model
-  - Ask user to confirm the Vaccination info. Once it is confirmed, user is not able to update Vaccination status anymore.
+## How to Update Card Context
 
+A card can emit the `updateContext` event with the specified context to update the card context and refresh other cards on the workpage:
 
+![Update card context](./images/update-card-context.png)
 
-## How to subscribe card context?
+### Parameter Type
 
-As the card developer, you can subscribe to the “Next Step” event to trigger data validation (to check if a favorite item was selected), and then submit the content to the server.
+```ts
+{
+  namespace: string,                 // Namespace of this context
+  context: Record<string, any>       // Context to update; the key is the context key, and the value is the context value
+}
+```
 
-When the user clicks the “Next Step” button the, `Page:SubmitWizard` event is triggered as follows:
+## How to Subscribe to Card Context
 
-![Page:SubmitWizard event](./images/submit-wizard.png)
+A card can retrieve a card context by explicitly adding a card parameter with `{context>namespace/property/value}`:
 
-The card can return `rejected` promise to notify the wizard that the card is not complete (a user action item is still pending completion). In this case, an error message will be displayed in the wizard footer.
+![Retrieve card context](./images/retrieve-card-context.png)
 
-![Wizard error message](./images/error-message.png)
+## Context Awareness in Workzone
 
-## How to update card context?
+Once you select one of the available card parameters, all other cards designed to respond to the workpage context will update accordingly. Each parameter acts as a filter, visible in the top menu bar, remaining in focus even when you scroll down the workpage. This allows you to always see the filters you've added.
 
-Users may leave the wizard before completing it, and to allow them to resume their work from the point they’ve reached, you would want to persist their context.
+Consider a workpage with the following UI Integration cards: [Brand Card](./sample-cards/brand-list-card/), [Region Card](./sample-cards/region-list-card/), and [Analytical Card](./sample-cards/analytical-card/), all supporting context awareness:
 
-Let’s consider the following example – there are 3 cards:
-•	Basic card: collects basic user info such as username, gender, and so.
-•	Skillset card: collects a user’s skillset.
-•	Submission card: submits the collected user info from the first 2 cards to the back end.
+![Filter bar](./images/filter-bar.png)
 
-As card developer, you would only need to persist the user info that is collected by the Submission card. However, to avoid data loss, you would also want to persist the Basic and Skillset card context in case the user leaves the wizard before completing this step.
-The card context can be persisted by triggering the `UpdateHostContext` event that persists the temporary Card context.
-:
+In the `Regions card`, select "EU" as the parameter. This parameter is added as a filter to the bar at the top of the workpage and updates the Weekly Sales Card accordingly.
 
-![UpdateHostContext](./images/update-host-context.png)
+![Region Card](./images/region-parameter.png)
+
+Now, add another parameter to filter the graph further. In the `Brands card`, select "BrandB". The new filter appears in the bar at the top, and the Weekly Sales Card updates to reflect both filters.
+
+![Brand Card](./images/brand-paremeter.png)
