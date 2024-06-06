@@ -40,7 +40,7 @@
     },
     "header": {
       "type": "Numeric",
-      "title": "Weekly Sales Card"
+      "title": "Weekly Sales Card - {{parameters.region}} {{parameters.brand}}"
     },
     "content": {
       "chartType": "Line",

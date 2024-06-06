@@ -22,11 +22,9 @@
 
 1. After executing `npm start`, access `http://localhost:8010` to view the cards locally.
 
-2. **Switching Cards:**
-   - Click on the top buttons to navigate and preview specific cards.
+2. **Update Card Context:**
+   - Select `Regions` or `Brands` from the Cards in left panel
+   - Once the Card context is updated, the `Analytical Card` in right panel is automatically refreshed
+   - Current context is shown on the top panel
 
-3. **Simulate Events:**
-   - Click the **Submit** button to simulate the submit event of the Work Zone Wizard.
-   - Click the **Clear** button to remove the Wizard Context.
-
-![Card Preview](./images/home.png)
+![Card Preview](../images/card-preview-in-local.png)
