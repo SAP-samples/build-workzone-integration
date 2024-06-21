@@ -1,0 +1,113 @@
+{
+  "sap.app": {
+    "id": "sap.it.wz.cards.stackoverflow",
+    "type": "card",
+    "title": "Stackoverflow.com (External)",
+    "subTitle": "Stackoverflow.com (External)",
+    "applicationVersion": {
+      "version": "1.2.7"
+    },
+    "shortTitle": "Stackoverflow.com (External)",
+    "info": "Stackoverflow.com (External)",
+    "description": "Shows a feed of questions from the public Stack Overflow community.",
+    "tags": {
+      "keywords": [
+        "Stackoverflow.com (External)",
+        "SAP IT"
+      ]
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://question-mark"
+    }
+  },
+  "sap.platform.mobilecards": {
+    "_version": "1.0.0",
+    "compatible": false
+  },
+  "sap.card": {
+    "type": "List",
+    "extension": "./ext/DataFormatter",
+    "designtime": "./dt/Configuration",
+    "header": {
+      "title": "Stackoverflow.com",
+      "subTitle": "Content from the public community",
+      "icon": {
+        "src": "sap-icon://question-mark"
+      },
+      "visible" : true,
+      "actions": [
+				{
+					"type": "Custom",
+					"parameters": {
+						"method": "goToFeed"
+					}
+				}
+			]
+    },
+    "configuration": {
+      "parameters": {
+        "url": {
+          "value": "https://api.stackexchange.com/2.3/search?site=stackoverflow"
+        },
+        "tagged": {
+          "value": "sap-business-technology-platform"
+        },
+        "sort": {
+          "value": "activity"
+        },
+        "order": {
+          "value": "desc"
+        },
+        "date":{
+          "value" : "creation"
+        },
+        "maxItems": {
+          "value": 5
+        }
+      }
+    },
+    "content": {
+      "data": {
+        "extension": {
+          "method": "getData"
+        }
+      },
+      "item": {
+        "title": "{title}",
+        "description": "{owner}",
+        "info": {
+          "value": "{= format.dateTime(${pubDate}, {format: 'yyyyMMMdHHmm'}) }"
+        },
+        "highlight": "{highlight}",
+        "actions": [
+          {
+            "type": "Navigation",
+            "parameters": {
+              "url": "{link}"
+            }
+          }
+        ]
+      },
+      "maxItems": "{{parameters.maxItems}}"
+    },
+    "footer": {
+      "actionsStrip": [
+        {
+          "buttonType": "Accept",
+          "text": "Ask question",
+          "actions": [
+            {
+              "type": "Custom",
+              "parameters": {
+                "method": "askQuestion"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "sap.app": {
+    "id": "sap.it.wz.cards.clock",
+    "type": "card",
+    "title": "Clock",
+    "subTitle": "Clock",
+    "applicationVersion": {
+      "version": "0.2.4"
+    },
+    "shortTitle": "Clock",
+    "info": "Clock",
+    "description": "Select time zone to display",
+    "tags": {
+      "keywords": [
+        "Clock",
+        "SAP IT"
+      ]
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://away"
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.77.2",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {}
+      }
+    },
+    "rootView": {
+      "viewName": "sap.it.wz.cards.clock.view.Card",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sap.it.wz.cards.clock.i18n.i18n"
+        }
+      }
+    }
+  },
+  "sap.platform.mobilecards": {
+    "_version": "1.0.0",
+    "compatible": false
+  },
+  "sap.card": {
+    "type": "Component",
+    "designtime": "dt/configuration",
+    "header": {
+      "title": "Clock",
+      "icon": {
+        "src": "sap-icon://away"
+      },
+      "visible" : true
+    },
+    "configuration": {
+      "parameters": {
+        "showCardHeader": {
+          "value": true
+        },
+        "offset" : {
+          "value" : "1"
+        },
+        "digitMode" : {
+          "value" : true
+        },
+        "digit24Mode" : {
+          "value" : false
+        },
+        "showSeconds" : {
+          "value" : false
+        },
+        "backgroundColor" : {
+          "value" : "#1D2D3E"
+        },
+        "clockColor" : {
+          "value" : "#FFFFFF"
+        },
+        "fontSize":{
+          "value" : 45
+        },
+        "height": {
+          "value": 100
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+	xmlns:local="sap.it.wz.cards.flip_card.control"
+  controllerName="sap.it.wz.cards.flip_card.controller.Card"
+  displayBlock="true">
+	<local:Frame id="frame"></local:Frame>
+</mvc:View>
