@@ -105,12 +105,12 @@
     // event handler
     document.addEventListener('action', (e) => {
       const type = e.detail.getParameter('type');
+      const { namespace, context, type: actionType } = e.detail.getParameter('parameters');
 
-      if (type !== 'updateContext') {
+      if (type !== 'updateContext' && !(type === 'Custom' && actionType === 'updateContext')) {
         return;
       }
 
-      const { namespace, context } = e.detail.getParameter('parameters');
 
       DynamicContext[namespace] = DynamicContext[namespace] || {};
       Object.assign(DynamicContext[namespace], context);

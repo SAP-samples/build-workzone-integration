@@ -25,7 +25,7 @@
     "configuration": {
       "parameters": {
         "brand": {
-          "value": "{context>sap.workzone.samples.context/brand}",
+          "value": "{context>sap.workzone.samples.context/brand/value}",
           "type": "string",
           "label": "brand",
           "description": "Brand"
