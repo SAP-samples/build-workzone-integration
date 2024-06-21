@@ -15,15 +15,15 @@ sap.ui.define([
       var oModel = new JSONModel({
         "brands": [
           {
-            "text": "BrandA",
+            "text": "Brand A",
             "key": "BrandA"
           },
           {
-            "text": "BrandB",
+            "text": "Brand B",
             "key": "BrandB"
           },
           {
-            "text": "BrandC",
+            "text": "Brand C",
             "key": "BrandC"
           }
         ]
@@ -31,7 +31,7 @@ sap.ui.define([
       this.getView().setModel(oModel);
       // Get Context Value from Workzone, getContextValue will return a promise.
       // https://sapui5untested.int.sap.eu2.hana.ondemand.com/#/api/sap.ui.integration.Host%23methods/getContextValue
-      oCard.getHostInstance().getContextValue("sap.workzone.samples.context/brand").then(function (value) {
+      oCard.getHostInstance().getContextValue("sap.workzone.samples.context/brand/value").then(function (value) {
         // set comboBox selected key
         // https://sapui5.hana.ondemand.com/sdk/#/api/sap.m.ComboBox/methods/setSelectedKey
         oSelect.setSelectedKey(value);
@@ -41,16 +41,23 @@ sap.ui.define([
     handleChange: function (oEvent) {
       var oComponent = this.getOwnerComponent();
       var oCard = oComponent.oCard;
-      var brand = oEvent.mParameters.value;
+      var brandValue = oEvent.getParameter("selectedItem").getKey();
+      var brandText = oEvent.getParameter("selectedItem").getText();
 
       // Update Workzone context by trigger action.
       // https://sapui5untested.int.sap.eu2.hana.ondemand.com/#/api/sap.ui.integration.widgets.Card%23methods/triggerAction
       oCard.triggerAction({
-        type: "updateContext",
+        type: "Custom",
         parameters: {
           "namespace": "sap.workzone.samples.context",
+          "type": 'updateContext',
           "context": {
-            "brand": brand
+            // this is the context key used to update corresponding cards
+            "brand": {
+              "value": brandValue,              // context value to update corresponding cards
+              "displayValue": brandText,        // display Text for this context key shown in the filter bar
+              "displayLabel": "Selected Brand"  // display label for this context key shown in the filter bar
+            }
           }
         }
       });

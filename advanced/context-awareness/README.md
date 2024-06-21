@@ -7,9 +7,11 @@ Cards on the same workpage can interact by setting and getting parameters from t
 Sample code for various cards can be found in the [sample-cards](./sample-cards/README.md) directory. Follow the README file to start the card in a local environment:
 
 - [Work Zone Brand Card](./sample-cards/brand-list-card/)
+
   - Lists all available brands in a dropdown list. Once a brand is selected, it is added to the current card context as the `brand` parameter.
 
 - [Work Zone Region Card](./sample-cards/region-list-card/)
+
   - Lists all available regions in a dropdown list. Once a region is selected, it is added to the current card context as the `region` parameter.
 
 - [Work Zone Analytical Card](./sample-cards/analytical-card/)
@@ -18,16 +20,29 @@ Sample code for various cards can be found in the [sample-cards](./sample-cards/
 
 ## How to Update Card Context
 
-A card can emit the `updateContext` event with the specified context to update the card context and refresh other cards on the workpage:
+A card can emit the `Custom` event with the specified context to update the card context and refresh other cards on the workpage:
 
 ![Update card context](./images/update-card-context.png)
 
-### Parameter Type
+#### Parameter Type
 
 ```ts
 {
-  namespace: string,                 // Namespace of this context
-  context: Record<string, any>       // Context to update; the key is the context key, and the value is the context value
+  type: 'updateContext',                          // Indicates that this event is for updating context
+  namespace: string,                              // Namespace of this context
+  context: Record<string, string | WZCardContext> // Context to update; the key is the context key, and the value is the context value
+}
+```
+
+To customize the display context in the WZ filter bar, emit the event with `WZCardContext` object. The `displayLabel` customizes the label for this context, and the `displayValue` customizes the title for the specified context.
+
+#### `WZCardContext` type
+
+```ts
+{
+  value: any,             // Context value
+  displayLabel: string,   // Label for this context to show in the WZ filter bar
+  displayValue: string,   // Text for selected context to show in the WZ filter bar
 }
 ```
 
@@ -49,6 +64,6 @@ In the `Regions card`, select "EU" as the parameter. This parameter is added as 
 
 ![Region Card](./images/region-parameter.png)
 
-Now, add another parameter to filter the graph further. In the `Brands card`, select "BrandB". The new filter appears in the bar at the top, and the Weekly Sales Card updates to reflect both filters.
+Now, add another parameter to filter the graph further. In the `Brands card`, select "Brand A". The new filter appears in the bar at the top, and the Weekly Sales Card updates to reflect both filters.
 
 ![Brand Card](./images/brand-paremeter.png)

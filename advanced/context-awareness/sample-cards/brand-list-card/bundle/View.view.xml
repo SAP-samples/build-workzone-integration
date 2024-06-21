@@ -18,7 +18,7 @@
 					sorter: { path: 'text' },
 					selectedItem: '{/selectedItem}'
 				}"
-        change="handleChange">
+        selectionChange="handleChange">
         <layoutData>
           <FlexItemData growFactor="1" shrinkFactor="1" baseSize="0" />
         </layoutData>
