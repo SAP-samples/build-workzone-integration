@@ -24,25 +24,25 @@ A card can emit the `Custom` event with the specified context to update the card
 
 ![Update card context](./images/update-card-context.png)
 
-### Parameter Type
+#### Parameter Type
 
 ```ts
 {
-  type: 'updateContext',                                // Type to indicate this event is to update context
-  namespace: string,                                    // Namespace of this context
-  context: Record<string, string | WZCardContext>       // Context to update; the key is the context key, and the value is the context value
+  type: 'updateContext',                          // Indicates that this event is for updating context
+  namespace: string,                              // Namespace of this context
+  context: Record<string, string | WZCardContext> // Context to update; the key is the context key, and the value is the context value
 }
 ```
 
-To customize the display context in the WZ filter bar, we can emit the event with `WZCardContext` context. The `displayLabel` is to customize the label for this context, and the `displayValue` is the customized title for the specified context.
+To customize the display context in the WZ filter bar, emit the event with `WZCardContext` object. The `displayLabel` customizes the label for this context, and the `displayValue` customizes the title for the specified context.
 
-#### WZCardContext type
+#### `WZCardContext` type
 
 ```ts
 {
-  value: any,                  // context value
-  displayLabel: number,        // label for this context to show in the WZ filter bar
-  displayValue: string,        // text for selected context to show in the WZ filter bar
+  value: any,             // Context value
+  displayLabel: string,   // Label for this context to show in the WZ filter bar
+  displayValue: string,   // Text for selected context to show in the WZ filter bar
 }
 ```
 
