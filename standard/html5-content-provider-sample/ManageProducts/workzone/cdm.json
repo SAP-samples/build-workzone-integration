@@ -1,0 +1,75 @@
+[
+    {
+      "_version": "3.0",
+      "identification": {
+        "id": "manageProductCatalogId",
+        "title": "{{title}}",
+        "entityType": "catalog"
+      },
+      "payload": {
+        "viz": [
+          {
+            "appId": "products",
+            "vizId": "mngprd"
+          }
+        ]
+      },
+      "texts": [
+        {
+          "locale": "",
+          "textDictionary": {
+            "title": "Manage Product Catalog"
+          }
+        }
+      ]
+    },
+    {
+      "_version": "3.0",
+      "identification": {
+        "id": "manageProductGroupId",
+        "title": "{{title}}",
+        "entityType": "group"
+      },
+      "payload": {
+        "viz": [
+          {
+            "appId": "products",
+            "vizId": "mngprd"
+          }
+        ]
+      },
+      "texts": [
+        {
+          "locale": "",
+          "textDictionary": {
+            "title": "Manage Product Group"
+          }
+        }
+      ]
+    },
+    {
+      "_version": "3.0",
+      "identification": {
+        "id": "manageProductRole",
+        "entityType": "role",
+        "title": "Manage Product Role"
+      },
+      "payload": {
+        "apps": [
+          {
+            "id": "products"
+          }
+        ],
+        "catalogs": [
+          {
+            "id": "manageProductCatalogId"
+          }
+        ],
+        "groups": [
+          {
+            "id": "manageProductGroupId"
+          }
+        ]
+      }
+    }
+  ]
