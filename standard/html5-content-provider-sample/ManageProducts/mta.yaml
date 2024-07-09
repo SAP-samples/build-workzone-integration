@@ -1,0 +1,132 @@
+_schema-version: "3.2"
+ID: manageproductscdm
+version: 1.0.0
+build-parameters:
+  before-all:
+    - builder: custom
+    # CDM copy to resources folder #################################
+      commands:
+        - mkdir -p resources
+        - cp workzone/cdm.json resources/cdm.json
+    ################################################################
+
+modules:
+# Destination deployer module - create CDM DT destination ##########
+- name: manageproductscdm-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: manageproductscdm-destination-service
+    parameters:
+      content-target: true
+  - name: manageproductscdm_html_repo_runtime
+    parameters:
+      service-key: 
+         name: manageproductscdm-html5-app-runtime-key
+  - name: uaa_manageproductscdm
+    parameters:
+      service-key:
+        name: uaa_manageproductscdm-key
+  parameters:
+    content:
+      subaccount:
+        destinations:
+        - Name: manageproducstcdm_cdm
+          ServiceInstanceName: manageproductscdm-html5-app-runtime-service
+          ServiceKeyName: manageproductscdm-html5-app-runtime-key
+          URL: https://html5-apps-repo-rt.${default-domain}/applications/cdm/manageproductscdm
+        existing_destinations_policy: update
+  build-parameters:
+    no-source: true
+#######################################################################
+
+# HTML5 app deployer module - store xsuaa, backend destinations
+- name: manageproductscdm-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: uaa_manageproductscdm
+  - name: manageproductscdm_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - products.zip
+      name: products
+      target-path: resources/
+  parameters:
+    config:
+      destinations:
+      - name: northwind
+        url: https://services.odata.org
+      - name: ui5
+        url: https://ui5.sap.com
+########################################################################
+
+# HTML5 Module #########################################################
+- name: products
+  type: html5
+  path: products
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+##########################################################################
+
+resources:
+
+# HTML5 app-runtime resource for CDM DT destination ######################
+- name: manageproductscdm_html_repo_runtime
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: manageproductscdm-html5-app-runtime-service
+    service-plan: app-runtime
+###########################################################################
+
+# HTML5 app-host resource - upload html5 apps #############################
+- name: manageproductscdm_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: manageproductscdm-html5-app-host-service
+    service-plan: app-host
+#################################################################################
+
+# Destination resource for CDM RT destination #############################
+- name: manageproductscdm-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: false
+      init_data:
+        subaccount:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: manageproductscdm-rt
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://providersa-launchpad-tenant.cfapps.region.hana.ondemand.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: manageproductscdm-destination-service
+    service-plan: lite
+################################################################################
+
+# XSUAA resource - upload html5 apps ##################################
+- name: uaa_manageproductscdm
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: manageproductscdm-xsuaa-service
+    service-plan: application
+#################################################################################
+
+parameters:
+  deploy_mode: html5-repo
