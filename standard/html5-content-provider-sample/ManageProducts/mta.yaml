@@ -110,7 +110,9 @@ resources:
             Name: manageproductscdm-rt
             ProxyType: Internet
             Type: HTTP
-            URL: https://providersa-launchpad-tenant.cfapps.region.hana.ondemand.com
+# Place holder URL. Must replace with actual provider Work Zone URL #############            
+            URL: https://<subdomain>.<type>.cfapps.<region>.hana.ondemand.com
+#################################################################################            
           existing_destinations_policy: update
       version: 1.0.0
     service: destination
