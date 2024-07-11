@@ -4,3 +4,5 @@ This repository serves as a template for SAP Work Zone Standard integration samp
 
 - **Content Package Template:**
   [Standard](./content-package-template/README.md) code samples
+- **HTML5 Content Provider:**
+  [Sample Project](./html5-content-provider-sample/README.md)  
