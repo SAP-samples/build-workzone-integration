@@ -102,7 +102,6 @@ resources:
   type: org.cloudfoundry.managed-service
   parameters:
     config:
-      HTML5Runtime_enabled: false
       init_data:
         subaccount:
           destinations:
@@ -110,6 +109,7 @@ resources:
             Name: manageproductscdm-rt
             ProxyType: Internet
             Type: HTTP
+            CEP.HTML5contentprovider: true
             URL: https://providersa-launchpad-tenant.cfapps.region.hana.ondemand.com
           existing_destinations_policy: update
       version: 1.0.0
