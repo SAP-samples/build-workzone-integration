@@ -17,6 +17,6 @@
   "author": "SAP SE",
   "license": "ISC",
   "devDependencies": {
-    "sap-workzone-cpkg-tools": "git+https://git@github.com/SAP-samples/build-workzone-integration.git"
+    "sap-workzone-cpkg-tools": "git+https://git@github.com/SAP-samples/workzone-content-package-templates.git"
   }
 }
