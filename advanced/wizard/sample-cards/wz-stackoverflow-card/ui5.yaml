@@ -1,0 +1,16 @@
+specVersion: "2.0"
+metadata:
+  name: sap-it-wz-cards-stackoverflow
+  copyright: |-
+   SAP Work Zone
+    * (c) Copyright 2009-2024 SAP SE or an SAP affiliate company.
+type: application
+resources:
+  configuration:
+    paths:
+      webapp: src
+    propertiesFileSourceEncoding: UTF-8
+builder:
+  resources:
+    excludes:
+     - "test-resources/**"
