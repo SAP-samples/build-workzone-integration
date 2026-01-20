@@ -4,7 +4,7 @@ This repository serves as a template for SAP Work Zone Standard integration samp
 
 - **Content Package Template:**
   [Standard](./content-package-template/README.md) code samples
-- **Mainifest json example with mandatory fields :**
+- **Card mainifest json example with mandatory fields :**
 ```json
 {
     "sap.app": {
