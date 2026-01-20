@@ -17,3 +17,6 @@ The repository contains samples to demonstrate and document how to integrate and
 
 - **Content Package Template:**
   [Advanced](./content-package-template/README.md) code samples
+
+- **Card Mandatory Fields:**
+- 
