@@ -18,7 +18,7 @@ The repository contains samples to demonstrate and document how to integrate and
 - **Content Package Template:**
   [Advanced](./content-package-template/README.md) code samples
 
-- **Mainifest json example with mandatory fields :**
+- **Card mainifest json example with mandatory fields :**
 ```json
 {
     "sap.app": {
