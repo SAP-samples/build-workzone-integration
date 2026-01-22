@@ -83,6 +83,20 @@ The .properties files should use suffix below and be UTF-8 encoded.
 **Example**
 ````i18n_en_US.properties````
 
+- **Card mainifest json example with mandatory fields :**
+```json
+{
+    "sap.app": {
+      "type": "card",
+      "title": "Card Title";
+      "applicationVersion": {
+        "version": "1.0.0"
+      }
+    },
+    "sap.card": {},
+    "_version": "1.0",
+  }
+```
 
 ## Updating/Versioning of a card
 The card manifest.json file contains also version information.
