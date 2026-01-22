@@ -156,6 +156,51 @@ The `content.json` links the repositories of the individual artifacts that shoul
 
 The key of each entry in the map reflects one artifact.
 
+### Mandatory fields
+
+- Package manifest (manifest.json):
+  - sap.package.id
+  - sap.package.packageVersion.version
+  - sap.package.packageVersion.upgradeNotification
+  - At least one of sap.package.contents or sap.package.cdmEntities must be present and non-empty
+
+- Each contents item:
+  - manifest.sap.artifact.id
+  - manifest.sap.artifact.type
+  - artifactVersion.version
+  - baseURL (or legacy baseUrl/baseDir)
+
+- i18n is optional; destinations are optional.
+
+- System-managed fields like origin, status, updatedOn must not be authored.
+
+- Minimal manifest.json example with mandatory fields only:
+```json
+{
+  "sap.package": {
+    "id": "company.department.packagename",
+    "packageVersion": {
+      "version": "1.0.0",
+      "upgradeNotification": "ALL"
+    },
+    "contents": [
+      {
+        "manifest": {
+          "sap.artifact": {
+            "id": "company.department.card.sample",
+            "type": "card"
+          }
+        },
+        "artifactVersion": {
+          "version": "1.0.0"
+        },
+        "baseURL": "artifacts/card-sample/"
+      }
+    ]
+  }
+}
+```
+
 ### Using git repositories for the artifacts
 
 It is recommended to use seperate git repositories to maintain the contents of a package. It will allow easier maintenance of the content for sub-sequent versions.
