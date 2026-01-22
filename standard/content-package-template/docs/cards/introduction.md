@@ -115,6 +115,21 @@ https://sapui5.hana.ondemand.com/test-resources/sap/ui/integration/demokit/cardE
   `````
 </details>
 
+**Card mainifest json example with mandatory fields :**
+```json
+{
+    "sap.app": {
+      "type": "card",
+      "title": "Card Title";
+      "applicationVersion": {
+        "version": "1.0.0"
+      }
+    },
+    "sap.card": {},
+    "_version": "1.0",
+  }
+```
+
 ## Updating/Versioning of a card
 
 The card manifest.json file contains also version information.
