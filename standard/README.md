@@ -9,7 +9,7 @@ This repository serves as a template for SAP Work Zone Standard integration samp
 {
     "sap.app": {
       "type": "card",
-      "title": "Card Title";
+      "title": "Card Title",
       "applicationVersion": {
         "version": "1.0.0"
       }
