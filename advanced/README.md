@@ -23,6 +23,7 @@ The repository contains samples to demonstrate and document how to integrate and
 {
     "sap.app": {
       "type": "card",
+      "title": "Card Title";
       "applicationVersion": {
         "version": "1.0.0"
       }
