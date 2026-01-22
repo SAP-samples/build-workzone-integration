@@ -1,6 +1,3 @@
-
-
-
 # SAP Build Work Zone Project Templates for Content Packages
 
 ## Description
@@ -24,6 +21,51 @@ Learn more about the topics:
   - [Introduction](./docs/content-package/introduction.md)
   - [Define Content](./docs/content-package/introduction.md#defining-content-contentjson)
   - [Creating a package](./docs/content-package/introduction.md#creation-of-the-content-package)
+
+### Mandatory fields
+
+- Package manifest (manifest.json):
+  - sap.package.id
+  - sap.package.packageVersion.version
+  - sap.package.packageVersion.upgradeNotification
+  - At least one of sap.package.contents or sap.package.cdmEntities must be present and non-empty
+
+- Each contents item:
+  - manifest.sap.artifact.id
+  - manifest.sap.artifact.type
+  - artifactVersion.version
+  - baseURL (or legacy baseUrl/baseDir)
+
+- i18n is optional; destinations are optional.
+
+- System-managed fields like origin, status, updatedOn must not be authored.
+
+- Minimal manifest.json example with mandatory fields only:
+```json
+{
+  "sap.package": {
+    "id": "company.department.packagename",
+    "packageVersion": {
+      "version": "1.0.0",
+      "upgradeNotification": "ALL"
+    },
+    "contents": [
+      {
+        "manifest": {
+          "sap.artifact": {
+            "id": "company.department.card.sample",
+            "type": "card"
+          }
+        },
+        "artifactVersion": {
+          "version": "1.0.0"
+        },
+        "baseURL": "artifacts/card-sample/"
+      }
+    ]
+  }
+}
+```
 
 Additionally, the a project template to configure and build the content package containing the above artifacts can be found here
 
