@@ -108,18 +108,16 @@ The .properties files should use suffix below and be UTF-8 encoded.
 - Minimal manifest.json example with mandatory fields only:
 
 ```json
-
 {
-   "sap.app": {
-     "type": "card",
-     "title": "Card Title";
-     "applicationVersion": {
-       "version": "1.0.0"
-     }
-
-   },
-   "sap.card": {},
-   "_version": "1.0",
+	"sap.app": {
+		"type": "card",
+		"title": "Card Title",
+		"applicationVersion": {
+			"version": "1.0.0"
+		}
+	},
+	"sap.card": {},
+	"_version": "1.0"
 }
 ```
 
