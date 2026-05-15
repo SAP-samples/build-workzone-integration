@@ -25,7 +25,11 @@ Learn more about the topics:
   - [Define Content](./docs/content-package/introduction.md#defining-content-contentjson)
   - [Creating a package](./docs/content-package/introduction.md#creation-of-the-content-package)
 
-Additionally, the a project template to configure and build the content package containing the above artifacts can be found here
+Additionally, the project template to configure and build the content package containing the above artifacts can be found in the [content-package](./content-package) directory.
+
+## Build Tooling
+
+Each sub-module (card-samples, content-package) depends on [`sap-workzone-cpkg-tools`](https://github.com/SAP-samples/workzone-content-package-templates) as a dev dependency for building and packaging artifacts. The tooling is maintained externally in that repository.
 
 ## Requirements
 
