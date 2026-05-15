@@ -7,7 +7,7 @@
     "build": "node scripts/build.js"
   },
   "devDependencies": {
-    "sap-workzone-cpkg-tools": "git+https://git@github.com/SAP-samples/build-workzone-integration.git",
+    "sap-workzone-cpkg-tools": "git+https://git@github.com/SAP-samples/workzone-content-package-templates.git",
     "express": "4.17.1"
   },
   "author": "SAP SE",

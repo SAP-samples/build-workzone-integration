@@ -23,10 +23,7 @@ Additionally, the a project template to configure and build the content package 
 - **content-package**  
   Create a project for a [Content Package](./content-package/README.md) that bundles the above artifacts
 
-During the build of the content package tooling is utilized
-
-- **tools**  
-  Required build tooling to create bundles for the artifacts and the package
+During the build of the content package, external tooling is utilized. Each sub-module depends on [`sap-workzone-cpkg-tools`](https://github.com/SAP-samples/workzone-content-package-templates) as a dev dependency for building and packaging artifacts.
 
 ## Requirements
 
