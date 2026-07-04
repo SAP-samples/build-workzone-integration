@@ -126,18 +126,16 @@ https://sapui5.hana.ondemand.com/test-resources/sap/ui/integration/demokit/cardE
 - Minimal manifest.json example with mandatory fields only:
 
 ```json
-
 {
-   "sap.app": {
-     "type": "card",
-     "title": "Card Title";
-     "applicationVersion": {
-       "version": "1.0.0"
-     }
-
-   },
-   "sap.card": {},
-   "_version": "1.0",
+  "sap.app": {
+    "type": "card",
+    "title": "Card Title",
+    "applicationVersion": {
+      "version": "1.0.0"
+    }
+  },
+  "sap.card": {},
+  "_version": "1.0"
 }
 ```
 
