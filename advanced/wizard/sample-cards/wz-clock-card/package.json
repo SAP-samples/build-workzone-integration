@@ -1,0 +1,18 @@
+{
+  "name": "sap-it-wz-cards-clock",
+  "version": "1.28.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "start": "ui5 serve --o /test-resources/manual/index.html",
+    "eslint": "eslint src",
+    "build": "rimraf dist && ui5 build && zip sap-it-wz-cards-clock.zip -r ./dist"
+  },
+  "devDependencies": {
+    "@openui5/sap.ui.core": "1.77.2",
+    "@openui5/sap.ui.integration": "1.77.2",
+    "@ui5/cli": "2.2.3",
+    "eslint": "5.16.0",
+    "rimraf": "2.6.2"
+  }
+}

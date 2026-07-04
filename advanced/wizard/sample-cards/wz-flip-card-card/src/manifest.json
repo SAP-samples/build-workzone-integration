@@ -1,0 +1,126 @@
+{
+  "sap.app": {
+    "id": "sap.it.wz.cards.flip_card",
+    "type": "card",
+    "title": "Flip Card",
+    "subTitle": "Flip Card",
+    "applicationVersion": {
+      "version": "1.2.4"
+    },
+    "shortTitle": "Flip Card",
+    "info": "Flip Card",
+    "description": "Enrich your workspace look and feel with flip card animations.",
+    "tags": {
+      "keywords": [
+        "Flip Card",
+        "SAP IT"
+      ]
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://duplicate"
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.77.2",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {}
+      }
+    },
+    "rootView": {
+      "viewName": "sap.it.wz.cards.flip_card.view.Card",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sap.it.wz.cards.flip_card.i18n.i18n"
+        }
+      }
+    }
+  },
+  "sap.platform.mobilecards": {
+    "_version": "1.0.0",
+    "compatible": false
+  },
+  "sap.card": {
+    "type": "Component",
+    "designtime": "dt/configuration",
+    "header": {
+      "title": "Flip Card",
+      "subTitle": "by @SAP",
+      "icon": {
+        "src": "sap-icon://share"
+      },
+      "visible": true
+    },
+    "configuration": {
+      "parameters": {
+        "showCardHeader": {
+          "value": true
+        },
+        "url": {
+          "value": ""
+        },
+        "height": {
+          "value": 200
+        },
+        "frontHeader": {
+          "value": ""
+        },
+        "frontDescription": {
+          "value": ""
+        },
+        "frontCaption": {
+          "value": ""
+        },
+        "frontImage": {
+          "value": ""
+        },
+        "frontColor": {
+          "value": "#EEEEEE"
+        },
+        "frontFontSize": {
+          "value": 16
+        },
+        "frontFontColor": {
+          "value": "#000000"
+        },
+        "frontTextShadow": {
+          "value": ""
+        },
+        "backHeader": {
+          "value": ""
+        },
+        "backDescription": {
+          "value": ""
+        },
+        "backCaption": {
+          "value": ""
+        },
+        "backImage": {
+          "value": ""
+        },
+        "backColor": {
+          "value": "#EEEEEE"
+        },
+        "backFontSize": {
+          "value": 16
+        },
+        "backFontColor": {
+          "value": "#000000"
+        },
+        "backTextShadow": {
+          "value": ""
+        }
+      }
+    }
+  }
+}

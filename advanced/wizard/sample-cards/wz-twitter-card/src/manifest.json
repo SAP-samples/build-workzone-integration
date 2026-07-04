@@ -1,0 +1,108 @@
+{
+  "sap.app": {
+    "id": "sap.it.wz.cards.twitter",
+    "type": "card",
+    "title": "Twitter Feed",
+    "subTitle": "Twitter Feed",
+    "applicationVersion": {
+      "version": "1.1.10"
+    },
+    "shortTitle": "Twitter Feed",
+    "info": "Twitter Feed",
+    "description": "Select different types of Twitter timelines to be shown.",
+    "tags": {
+      "keywords": [
+        "Twitter",
+        "SAP IT"
+      ]
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://feed"
+    }
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.77.2",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {}
+      }
+    },
+    "rootView": {
+      "viewName": "sap.it.wz.cards.twitter.view.Card",
+      "type": "XML",
+      "async": true,
+      "id": "app"
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sap.it.wz.cards.twitter.i18n.i18n"
+        }
+      }
+    }
+  },
+  "sap.platform.mobilecards": {
+    "_version": "1.0.0",
+    "compatible": false
+  },
+  "sap.card": {
+    "type": "Component",
+    "designtime": "dt/configuration",
+    "header": {
+      "title": "Twitter",
+      "subTitle": "by @SAP",
+      "icon": {
+        "src": "sap-icon://newspaper"
+      },
+      "visible": true
+    },
+    "configuration": {
+      "parameters": {
+        "widgetType": {
+          "value": "profile"
+        },
+        "showCardHeader": {
+          "value": true
+        },
+        "userName": {
+          "value": "@sap"
+        },
+        "listName": {
+          "value": "sap-on-twitter"
+        },
+        "collectionId": {
+          "value": "576828964162965504"
+        },
+        "momentId": {
+          "value": "788796479838138369"
+        },
+        "tweetId": {
+          "value": "1328041466707456001"
+        },
+        "theme": {
+          "value": "auto"
+        },
+        "header": {
+          "value": false
+        },
+        "footer": {
+          "value": false
+        },
+        "setTweetsLimit": {
+          "value": false
+        },
+        "numberOfTweets": {
+          "value": 20
+        },
+        "height": {
+          "value": 500
+        }
+      }
+    }
+  }
+}
